@@ -1,7 +1,11 @@
 public class serieChronologique implements Serie
 {
-	private int [][] tableauDeDonnees;
+	private double [][] tableauDeDonnees;
 	private Transformations;
+	//A CLAQUER
+	
+	//serie descendence 
+	//serie provenance
 	
 	
 }
