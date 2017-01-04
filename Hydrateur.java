@@ -8,7 +8,7 @@ public class Hydrateur
    public Hydrateur()
    {
 	  visuel= new Visuel();
-	  // reader= new Reader();
+	  reader= new Reader();
    }	
 	
 }
