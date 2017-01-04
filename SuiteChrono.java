@@ -8,13 +8,10 @@ public class SuiteChrono {
 	public SuiteChrono() {
 		
 	}
-		public SuiteChrono(String date, double open, double high, double low, double close) {
-		super();
+		public SuiteChrono(String date, double open) {
 		this.date = date;
 		this.open = open;
-		this.high = high;
-		this.low = low;
-		this.close = close;
+		
 	}
 
 	public String getDate() {
@@ -65,7 +62,7 @@ public class SuiteChrono {
 
 	public String toString()
     {
-        return getDate() +" | " + getOpen()+" | " + getHigh()+" | " + getLow()+" | " + getClose() ;
+        return getDate() +" | " + getOpen() ;
     }
 
 	
