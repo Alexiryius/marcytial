@@ -1,82 +1,98 @@
 package marcytial;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Scanner;
 
-public class Reader {
-private String chemin;
-	
-	public Reader(String filePath) {
-		super();
-		this.chemin = filePath;
-	}
-		
-	public String [] OuvrirFichier() throws IOException 
-	{
-		FileReader fr = new FileReader(chemin);
-		BufferedReader buffer= new BufferedReader (fr);
-		int nblignes = compterLignes(); 
-		String [] donne = new String [nblignes];
-		for (int i=0; i<nblignes;i++)
-		{
-			donne [i]= buffer.readLine();
-		}
-		buffer.close();
-		return donne;
-		
-	}
+	import java.io.*;
+	import java.util.*;
 
-	public String[] OuvrirFile() throws IOException
-	{
-		 File file = new File(chemin);
-		 Scanner imputstream = new Scanner(file);
-		 imputstream.next();
-		 String [] values = null;
-		 while(imputstream.hasNext())
-		 {
-			 String data = imputstream.next();
-			 values = data.split(";");
-		 }
-		 imputstream.close();
-		 return values;
-	}
+	public class Reader {
 		
-	public int compterLignes() throws IOException
-	{
-		FileReader fr = new FileReader(chemin);
-		BufferedReader bf= new BufferedReader (fr);
-		String lignes = null ;
-		int nblignes = 0; 
-		while ((lignes = bf.readLine())!= null)
-		{
-			nblignes++;
+		private List < SuiteChrono > liste;
+		
+		public Reader() {
+			liste = new ArrayList < SuiteChrono > ();
+			}
+		
+		public SuiteChrono nbrelignes(int i){
+			return liste.get(i);
 		}
 		
-		bf.close();
-		return nblignes;
+		public int nbreLignes() {
+			return liste.size();
+			}	
 		
+		public void lireCSV(String nomFichier) throws FileNotFoundException, IOException 
+		{ 
+			Scanner sc = new Scanner(new FileReader(nomFichier)); 
+			String ligne ;
+			SuiteChrono suite;
+			while (sc.hasNextLine())
+			{
+				ligne = sc.nextLine();
+				String[] lignes = ligne.split("[;]"); 
+				String date = lignes[0];
+				double open = Double.parseDouble(lignes[1]);
+				double high = Double.parseDouble(lignes[2]);
+				double low = Double.parseDouble(lignes[3]);
+				double close = Double.parseDouble(lignes[4]);
+				suite = new SuiteChrono(date, open, high, low, close); 
+				liste.add(suite); 
+			}
+			sc.close(); 
+		}
+		
+		public SuiteChrono estPlusBas(){
+			SuiteChrono plusBas = liste.get(0);
+			for (SuiteChrono suite: liste) {
+				if(plusBas.getLow()> suite.getLow()){
+					plusBas = suite;
+				}
+			}
+			return plusBas;
+		}
+		
+		public SuiteChrono estPlusHaut(){
+			SuiteChrono plusEleve = liste.get(0);
+			for (SuiteChrono suite: liste) {
+				if(suite.getHigh()> plusEleve.getHigh()){
+					plusEleve = suite;
+				}
+			}
+			return plusEleve;
+		}
+		
+		public SuiteChrono plusGrandDiffOpenClose(){
+			SuiteChrono elever = liste.get(0);
+			for (SuiteChrono suite: liste) {
+				if(Math.abs(elever.getOpen()-elever.getClose())< Math.abs(suite.getOpen()- suite.getClose())){
+					elever = suite;
+				}
+			}
+			return elever;
+		}
+		
+		public SuiteChrono plusGrandDiffHighLow(){
+			SuiteChrono elever = liste.get(0);
+			for (SuiteChrono suite: liste) {
+				if(Math.abs(elever.getHigh()-elever.getLow())< Math.abs(suite.getHigh()- suite.getLow())){
+					elever = suite;
+				}
+			}
+			return elever;
+		}
 	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	
-	public SuiteChrono creationSuite(String[] timesSeries) throws ParseException 
-	{ 
-		String dt = timesSeries[0];
-		DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
-		Date date = format.parse(dt);
-		Double valeur = Double.parseDouble(timesSeries[1]);
-	 
-		return new SuiteChrono(date, valeur);
-	} 
-
-
-
 	
-}
-
+	
+	
+	
+	
+	
