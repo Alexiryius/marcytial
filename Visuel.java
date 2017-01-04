@@ -1,13 +1,9 @@
 package marcytial;
 import javax.swing.JFrame;
 import java.awt.Dimension;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.jfree.chart.*; 
-import org.jfree.chart.plot.*; 
-import org.jfree.data.*;
+
 import org.jfree.data.general.DefaultPieDataset; 
 /**
  *
@@ -28,7 +24,7 @@ public class Visuel extends JFrame{
     	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     	
     	this.setContentPane(new Graphique());
-    	System.out.println("le constructeur est executé");
+    	System.out.println("le constructeur est executï¿½");
     } 
     
     
