@@ -38,11 +38,11 @@ public abstract class Serie
 	
 	public setOrigine(Serie serie)
 	{
-		if(aUneFille)
-		{
+		//if(aUneFille)
+		//{
 			origine = serie;
 			aUneOrigine = true;
-		}
+		//}
 	}
 	
 	

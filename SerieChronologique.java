@@ -1,10 +1,10 @@
 package marcytial;
 
-public class SerieChronologique implements Serie
+public class SerieChronologique extends Serie
 {
-	private int ID;
+	/*private int ID;
 	private String nom;
-	private Serie enfant;
+	private Serie enfant;*/
 	
 	
 	private double [][] tableauDeDonnees;
