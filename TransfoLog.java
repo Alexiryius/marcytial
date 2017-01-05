@@ -1,13 +1,18 @@
 package marcytial;
 
-public class TransfoLog
+import java.util.ArrayList;
+
+public class TransfoLog implements Transformations
 {
 	//private Serie serieTransfoLog;
 	ArrayList<Double> valeurLog = new ArrayList<Double>();
 	
-	public double transfoLog(Serie serie)
+	public ArrayList<Double> transfoLog(Serie serie)
 	{
 		
+		
+		
+		return transfoLog(serie);
 	}
 	
 }
