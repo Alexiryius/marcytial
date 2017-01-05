@@ -1,14 +1,23 @@
 package marcytial;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
 import org.jfree.chart.*; 
 import java.util.Random;
 import org.jfree.chart.plot.*; 
@@ -23,14 +32,6 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 public class Visuel extends JFrame{
 	
-	
-	
-	public JComboBox combo(){
-	String[] transfoTitles = new String[] {"transformation 1", "transformation 2", "transformation 3", "transformation 4"};	
-	//fenetre combobox choix des transformations
-	JComboBox<String> transfoList = new JComboBox<>(transfoTitles);
-	return transfoList;
-	}
 	
 	
 	
@@ -70,6 +71,31 @@ public class Visuel extends JFrame{
 	
 	}
 	
+	public JPanel graphPan(){
+		JPanel graphPan = new JPanel();
+		JPanel panel = new JPanel();
+        for (int i = 0; i < 50; i++) {
+            panel.add(new JButton("Hello-" + i));
+        }
+		JScrollPane scrollPane=new JScrollPane(panel);
+		graphPan.setSize(new Dimension(500, 500));
+		graphPan.add(scrollPane);
+		return graphPan;
+		
+		}
+	
+	String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
+	public JComboBox transfoList = new JComboBox(petStrings);
+		
+	public JButton undoB = new JButton("undo");
+	public JButton redoB = new JButton("redo");
+	public JButton bouton = new JButton("...");
+	public JButton tab = new JButton("tableau");
+	JLabel label = new JLabel("Outil Marcytial");
+	public JButton validBouton = new JButton("ok");
+	public JPanel GraphPan = new JPanel();
+	
+	
 		
 	public Visuel(){
     
@@ -83,60 +109,59 @@ public class Visuel extends JFrame{
     	this.setLocationRelativeTo(null);
     	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     	
+    	//deux petits bouton
+    	JPanel peterPan = new JPanel();
+    	peterPan.setLayout(new BoxLayout(peterPan, BoxLayout.LINE_AXIS));
+    	peterPan.add(validBouton);
+    	peterPan.add(tab);
     	
-    	 JPanel content = new JPanel();
-    	    content.setPreferredSize(new Dimension(300, 120));
-    	    //On définit le layout manager
-    	    content.setLayout(new GridBagLayout());
-    	    //L'objet servant à positionner les composants
-    	    GridBagConstraints gbc = new GridBagConstraints();
- 
-    	//https://openclassrooms.com/courses/apprenez-a-programmer-en-java/positionner-des-boutons
-        //---------------------------------------------
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        gbc.gridwidth = 1;
-        gbc.gridheight = 2;
-        //Celle-ci indique que la cellule se réplique de façon verticale
-        gbc.fill = GridBagConstraints.VERTICAL;
-        content.add(cell5, gbc);
-        //---------------------------------------------
-        gbc.gridx = 1;
-        gbc.gridheight = 1;
-        //Celle-ci indique que la cellule se réplique de façon horizontale
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridwidth = GridBagConstraints.REMAINDER;
-        content.add(cell6, gbc);
-        //---------------------------------------------
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        gbc.gridwidth = 2;
-        content.add(cell7, gbc);
-        //---------------------------------------------
-        gbc.gridx = 3;
-        gbc.gridwidth = GridBagConstraints.REMAINDER;
-        content.add(cell8, gbc);
-        //---------------------------------------------
-        this.setContentPane(content);
-        this.setVisible(true);      
-
-            
+    	// peterpanel et combobox
+    	JPanel choixPan = new JPanel();
+    	choixPan.setLayout(new BoxLayout(choixPan, BoxLayout.PAGE_AXIS));
+    	choixPan.add(Box.createRigidArea(new Dimension(0,200)));
+    	choixPan.add(transfoList);
+    	choixPan.add(Box.createRigidArea(new Dimension(0,100)));
+    	choixPan.add(peterPan);
+    	choixPan.add(Box.createRigidArea(new Dimension(0,600)));
     	
+    	// choixpan et graphique
+    	JPanel tablPan = new JPanel();
+    	tablPan.setLayout(new BoxLayout(tablPan, BoxLayout.LINE_AXIS));
+    	tablPan.add(choixPan,BorderLayout.WEST);
+    	tablPan.add(sPlotPan(),BorderLayout.CENTER);
+    	
+    	
+    	JPanel entetPan = new JPanel();
+    	entetPan.setLayout(new BoxLayout(entetPan, BoxLayout.LINE_AXIS));
+    	entetPan.add(label);
+    	choixPan.add(Box.createRigidArea(new Dimension(200,10)));
+    	entetPan.add(undoB);
+    	choixPan.add(Box.createRigidArea(new Dimension(10,10)));
+    	entetPan.add(redoB);
+    	choixPan.add(Box.createRigidArea(new Dimension(200,10)));
+    	entetPan.add(bouton);
+    	
+    	
+    	
+    	JPanel remplPan = new JPanel();
+    	remplPan.setSize(500, 500);
+    	
+    	JPanel panneauPrinc = new JPanel();
+    	panneauPrinc.setLayout(new BoxLayout(panneauPrinc, BoxLayout.PAGE_AXIS));
+    	panneauPrinc.add(entetPan,BorderLayout.CENTER);
+    	choixPan.add(Box.createRigidArea(new Dimension(0,20)));
+    	panneauPrinc.add(tablPan,BorderLayout.CENTER);
+    	choixPan.add(Box.createRigidArea(new Dimension(500,0)));
+    	this.setContentPane(panneauPrinc);
+    	this.setVisible(true);
     	System.out.println("le constructeur est executé");
-    } 
-
-
-
-    
-    
-    
-    
- 
-    public static void main(String[] args) {
-    	Visuel visuel = new Visuel(); 
-        visuel.setVisible(true); 
+    	}
+	public static void main(String[] args) {
+		Visuel visuel = new Visuel(); 
+        visuel.setVisible(true);
     }
 }
+
 
 
 
