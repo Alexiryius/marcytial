@@ -10,7 +10,7 @@ public abstract class Serie
 	
 	//Constructeur
 	
-	Donnees(int ID, String nom, ArrayList<Date> date, ArrayList<Double> valeur, Transformations transformation)
+	Donnees(String nom, ArrayList<Date> date, ArrayList<Double> valeur, Transformations transformation)
 	{
 		ID++;
 		this.nom = nom;
