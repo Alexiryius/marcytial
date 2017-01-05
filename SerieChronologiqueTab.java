@@ -3,6 +3,7 @@ package marcytial;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Vector;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -21,7 +22,7 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 	@Override
 	public JPanel returnPanel() {
 		
-		JTable tableau = new JTable(this.getValeur(),this.getDate());
+		JTable tableau = new JTable(new Vector<Double>(this.getValeur()),new Vector<Date>(this.getDate()));
 		JScrollPane scrollPane = new JScrollPane(tableau);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
