@@ -1,9 +1,11 @@
 package marcytial;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class SerieChronologiqueTab extends Serie implements AffTab  {
 
@@ -17,7 +19,15 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 
 	@Override
 	public JPanel retournPanel() {
-		// TODO Auto-generated method stub
-		return null;
+		JPanel panel = new JPanel();
+		JScrollPane scrollPane = new JScrollPane(panel);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+        scrollPane.setBounds(50, 30, 300, 50);
+        JPanel contentPane = new JPanel(null);
+        contentPane.setPreferredSize(new Dimension(500, 400));
+        contentPane.add(scrollPane);
+        
+        return contentPane;
 	}
 }
