@@ -39,6 +39,15 @@ public  class Tools {
 	 undo.push(serieActurelle);	
 	}
    
+	public static SerieChronologiqueGraphe grapheToTab(SerieChronologiqueGraphe laSerie)
+	{
 	
+		 return SerieChronologiqueTab nouvelleSerie = new SerieChronologiqueTab(laserie.getX,laserie.getY,laSerie.getnom);
+	}
 	
+	public static SerieChronologiqueGraphe tabToGraphe(SerieChronologiqueTab laSerie)
+	{
+		return SerieChronologiqueGraphe nouvelleSerie = new SerieChonologiqueGraphe(laserie.getX,laserie.getY,laSerie.getnom);
+		
+	}
 }
