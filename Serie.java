@@ -2,12 +2,22 @@ package marcytial;
 
 public abstract class Serie
 {
-	private int ID = 0;
+	private static int ID = 0;
 	private String nom = "";
-	private boolean aUneOrigine = false;
-	private Serie origine = null;
-	private boolean aUneFille = false;
-	private Serie fille = null;	
+	private ArrayList<Date> date = new ArrayList<Date>();
+	private ArrayList<Double>valeur = new ArrayList<Double>();
+	private Transformations transformation;	
+	
+	//Constructeur
+	
+	Donnees(int ID, String nom, ArrayList<Date> date, ArrayList<Double> valeur, Transformations transformation)
+	{
+		ID++;
+		this.nom = nom;
+		this.date = date;
+		this.valeur = valeur;
+		this.transformation = transformation;
+	}
 	
 	//private boolean tableau;
 	//private boolean grahique;
@@ -29,21 +39,21 @@ public abstract class Serie
 		nom = n;
 	}
 	
-	public Serie getOrigine()
+	public ArrayList<Date> getDate()
 	{
-		if(aUneOrigine)
-			return this.origine;
-		return null;
+		return date;
 	}
 	
-	public setOrigine(Serie serie)
+	public ArrayList<Double> getValeur()
 	{
-		//if(aUneFille)
-		//{
-			origine = serie;
-			aUneOrigine = true;
-		//}
+		return valeur;
 	}
+	
+	public Transformation getTransformation()
+	{
+		return transformation;
+	}
+	
 	
 	
 	
