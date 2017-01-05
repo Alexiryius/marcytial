@@ -1,18 +1,29 @@
 package marcytial;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public abstract class Serie
 {
-	private static int ID = 0;
+	private static int id = 0;
 	private String nom = "";
 	private ArrayList<Date> date = new ArrayList<Date>();
 	private ArrayList<Double>valeur = new ArrayList<Double>();
 	private Transformations transformation;	
 	
 	//Constructeur
-	
-	Donnees(String nom, ArrayList<Date> date, ArrayList<Double> valeur, Transformations transformation)
+	Serie()
 	{
-		ID++;
+		id ++;
+		nom ="no_name";
+		date=null;
+		valeur=null;
+		transformation=null;
+		
+	}
+	Serie(String nom, ArrayList<Date> date, ArrayList<Double> valeur, Transformations transformation)
+	{
+		id++;
 		this.nom = nom;
 		this.date = date;
 		this.valeur = valeur;
@@ -24,9 +35,9 @@ public abstract class Serie
 	
 	
 	
-	public int getID()
+	public int getId()
 	{
-		return ID;
+		return id;
 	}
 	
 	public String getNom()
@@ -49,7 +60,7 @@ public abstract class Serie
 		return valeur;
 	}
 	
-	public Transformation getTransformation()
+	public Transformations getTransformation()
 	{
 		return transformation;
 	}
