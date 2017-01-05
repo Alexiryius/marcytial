@@ -1,3 +1,5 @@
+package marcytial;
+
 public class SerieChronologique implements Serie
 {
 	private int ID;

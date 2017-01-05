@@ -1,3 +1,5 @@
+package marcytial;
+
 public interface Transformations
 {
 	public double transfoLog();
