@@ -1,3 +1,5 @@
+package marcytial;
+
 public class TransfoLog
 {
 	//private Serie serieTransfoLog;
