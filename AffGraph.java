@@ -1,5 +1,7 @@
 package marcytial;
 
-public interface AffGraph {
+import javax.swing.JPanel;
 
+public interface AffGraph {
+    JPanel  returnPanel();
 }

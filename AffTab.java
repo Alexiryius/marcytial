@@ -1,5 +1,8 @@
 package marcytial;
 
-public interface AffTab {
+import javax.swing.JPanel;
 
+public interface AffTab {
+	
+	JPanel  returnPanel();
 }

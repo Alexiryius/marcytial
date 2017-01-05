@@ -20,7 +20,7 @@ public class SerieChronologiqueGraphe extends Serie implements AffTab {
 	}
 
 	
-	public JPanel retournPanel() {
+	public JPanel returnPanel() {
 		
 		JPanel panel = new JPanel();
 		JScrollPane scrollPane = new JScrollPane(panel);

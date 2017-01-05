@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 public class SerieChronologiqueTab extends Serie implements AffTab  {
 
@@ -18,9 +19,10 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 	}
 
 	@Override
-	public JPanel retournPanel() {
-		JPanel panel = new JPanel();
-		JScrollPane scrollPane = new JScrollPane(panel);
+	public JPanel returnPanel() {
+		
+		JTable tableau = new JTable(this.getValeur(),this.getDate());
+		JScrollPane scrollPane = new JScrollPane(tableau);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
         scrollPane.setBounds(50, 30, 300, 50);
