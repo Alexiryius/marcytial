@@ -11,9 +11,9 @@ public class SerieChronologiqueGraphe extends Serie implements AffTab {
 		super();
 	}
 	
-	public SerieChronologiqueGraphe(ArrayList<Date> tabX,ArrayList<Double> tabY,String name)
+	public SerieChronologiqueGraphe(String nom, ArrayList<Date> date, ArrayList<Double> valeur)
 	{
-		super(name,tabX,tabY);
+		super(nom,date,valeur);
 		
 	}
 

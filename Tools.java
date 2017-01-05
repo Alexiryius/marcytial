@@ -39,15 +39,16 @@ public  class Tools {
 	 undo.push(serieActurelle);	
 	}
    
-	public static SerieChronologiqueGraphe grapheToTab(SerieChronologiqueGraphe laSerie)
+	public static SerieChronologiqueTab grapheToTab(SerieChronologiqueGraphe laSerie)
 	{
-	
-		 return SerieChronologiqueTab nouvelleSerie = new SerieChronologiqueTab(laserie.getX,laserie.getY,laSerie.getnom);
+		SerieChronologiqueTab nouvelleSerie = new SerieChronologiqueTab(laSerie.getNom(),laSerie.getDate(),laSerie.getValeur());
+		
+		return nouvelleSerie;
 	}
 	
 	public static SerieChronologiqueGraphe tabToGraphe(SerieChronologiqueTab laSerie)
 	{
-		return SerieChronologiqueGraphe nouvelleSerie = new SerieChonologiqueGraphe(laserie.getX,laserie.getY,laSerie.getnom);
-		
+		SerieChronologiqueGraphe nouvelleSerie = new SerieChronologiqueGraphe(laSerie.getNom(),laSerie.getDate(),laSerie.getValeur());
+		return nouvelleSerie;
 	}
 }

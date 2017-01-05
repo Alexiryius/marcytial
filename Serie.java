@@ -45,32 +45,32 @@ public abstract class Serie
 	
 	public int getId()
 	{
-		return id;
+		return this.id;
 	}
 	
 	public String getNom()
 	{
-		return nom;
+		return this.nom;
 	}
 	
 	public void setNom(String n)
 	{
-		nom = n;
+		this.nom = n;
 	}
 	
 	public ArrayList<Date> getDate()
 	{
-		return date;
+		return this.date;
 	}
 	
 	public ArrayList<Double> getValeur()
 	{
-		return valeur;
+		return this.valeur;
 	}
 	
 	public Transformations getTransformation()
 	{
-		return transformation;
+		return this.transformation;
 	}
 	
 	
