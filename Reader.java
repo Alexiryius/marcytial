@@ -6,11 +6,13 @@ package marcytial;
 
 
 	public class Reader {
+		
 		private List < SuiteChrono > liste;
 		
 		public Reader() {
 			liste = new ArrayList < SuiteChrono > ();
 			}
+		
 		public SuiteChrono nbrelignes(int i){
 			return liste.get(i);
 		}
@@ -53,6 +55,23 @@ package marcytial;
 			    }
 			    sc.close();
 			    return result;
+		}
+		
+		public void writeCSV(String nomfichier , List<SuiteChrono> suite)throws IOException
+		{
+			
+			FileWriter fw = new FileWriter (nomfichier,true);
+			BufferedWriter bw = new BufferedWriter(fw); 
+			  
+			for (int i = 0 ; i< suite.size(); i++)
+			{
+				fw.write (suite.get(i).getDate()+";");
+				fw.write (Double.toString(suite.get(i).getOpen()));
+				fw.write ("\r\n");
+			}
+			bw.flush(); 
+			bw.close(); 
+			fw.close();
 		}
 		
 		public void print(List < SuiteChrono > liste) { 
