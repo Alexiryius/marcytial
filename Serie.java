@@ -21,6 +21,14 @@ public abstract class Serie
 		transformation=null;
 		
 	}
+	Serie(String nom, ArrayList<Date> date, ArrayList<Double> valeur)
+	{
+		id++;
+		this.nom = nom;
+		this.date = date;
+		this.valeur = valeur;
+		this.transformation = null;
+	}
 	Serie(String nom, ArrayList<Date> date, ArrayList<Double> valeur, Transformations transformation)
 	{
 		id++;
