@@ -9,8 +9,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.time.RegularTimePeriod;
+import org.jfree.data.time.Second;
+import org.jfree.data.time.TimeSeries;
+import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -37,20 +42,21 @@ public class SerieChronologiqueGraphe extends Serie implements AffTab {
 		{
 			
 			int taille = this.getDate().size();
-					
-			XYSeries courbe = new XYSeries(this.getNom()); 
+			
+			TimeSeries series = new TimeSeries( this.getNom() );
+			
 			for(int i=0;i<taille;i++)
 			{
-				courbe.add(this.getValeur().get(i),this.getDate().get(i));
+				series.add(new Second (this.getDate().get(i)), this.getValeur().get(i));
 			}
 			
-			XYSeriesCollection xyDataset = new XYSeriesCollection(courbe);
+		
 			
-			JFreeChart Graph = ChartFactory.createXYLineChart (this.getNom(),"date","valeur",xyDataset,
-																PlotOrientation.VERTICAL,true,true,false ) ; 
+			JFreeChart graph = ChartFactory.createTimeSeriesChart (this.getNom(),"date","valeur",(XYDataset) series,
+																true,true,false ) ; 
 
-			JPanel panel = new JPanel();
-			JScrollPane scrollPane = new JScrollPane(panel);
+			ChartPanel chartPanel = new ChartPanel(graph); 
+			JScrollPane scrollPane = new JScrollPane(chartPanel);
 	        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 	        scrollPane.setBounds(50, 30, 300, 50);
