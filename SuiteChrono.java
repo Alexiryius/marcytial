@@ -2,7 +2,7 @@ package marcytial;
 
 public class SuiteChrono {
 	private String date;
-	private double open, high;
+	private double open;
 
 	public SuiteChrono(String date, double open) {
 		this.date = date;
@@ -25,9 +25,6 @@ public class SuiteChrono {
 		this.open = open;
 	}
 
-	public double getHigh() {
-		return high;
-	}
 
 	public String toString()
     {
