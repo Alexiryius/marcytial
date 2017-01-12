@@ -98,6 +98,11 @@ public class Visuel extends JFrame{
 	
 		
 	public Visuel(){
+		
+		//tableau a tibo
+		SerieChronologiqueTab sCT = new SerieChronologiqueTab();
+		JPanel pSCT = new JPanel();
+		pSCT = sCT.returnPanel();
     
     	
     	Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
@@ -128,7 +133,7 @@ public class Visuel extends JFrame{
     	JPanel tablPan = new JPanel();
     	tablPan.setLayout(new BoxLayout(tablPan, BoxLayout.LINE_AXIS));
     	tablPan.add(choixPan,BorderLayout.WEST);
-    	tablPan.add(sPlotPan(),BorderLayout.CENTER);
+    	tablPan.add(pSCT,BorderLayout.CENTER);
     	
     	
     	JPanel entetPan = new JPanel();
