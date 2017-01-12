@@ -3,6 +3,7 @@ package marcytial;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -31,6 +32,21 @@ public class SerieChronologiqueGraphe extends Serie implements AffTab {
 	private boolean isInitialized() {
 		return (this.getDate() != null) ;
 	}
+	
+
+	XYDataset createDataset() {
+		Random r = new Random();
+	    XYSeriesCollection result = new XYSeriesCollection();
+	    XYSeries series = new XYSeries("Random");
+	    for (int i = 0; i <= 100; i++) {
+	        double x = r.nextDouble();
+	        double y = r.nextDouble();
+	        series.add(x, y);
+	    }
+	    result.addSeries(series);
+	    return result;
+	}
+	
 	
 	public JPanel returnPanel() {
 		

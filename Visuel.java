@@ -81,8 +81,8 @@ public class Visuel extends JFrame{
 		
 		}
 	
-	String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
-	public JComboBox transfoList = new JComboBox(petStrings);
+	static String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
+	public static JComboBox transfoList = new JComboBox(petStrings);
 		
 	public JButton undoB = new JButton("undo");
 	public JButton redoB = new JButton("redo");
