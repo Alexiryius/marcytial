@@ -7,10 +7,10 @@ public class ActionEcoute{
 
 static ActionListener monActionEcouteur = new ActionListener() {
 	boolean clic = false;	
-	
+	Visuel monVisu = new Visuel();
 	public void actionPerformed(ActionEvent e){
 		Object source=e.getSource();    
-	    if (source==Visuel.tab){
+	    if (source==monVisu.tab){
 	    	if(clic == false){
 	    		Visuel.tab.setText("graphique");
 	    		clic = true;
@@ -22,7 +22,11 @@ static ActionListener monActionEcouteur = new ActionListener() {
 	    }
 		if (source==Visuel.validBouton){
 			Visuel.validBouton.setText("OK");
+			 String petName = (String)Visuel.transfoList.getSelectedItem();
+			 System.out.println(petName + " choisi");
 		}
+		
+		
 	}
 }
 	;

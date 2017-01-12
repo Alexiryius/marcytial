@@ -78,8 +78,13 @@ public abstract class Serie
 		return this.transformation;
 	}
 	
-	
-	
-	
+	public void setValeur(ArrayList<Double> bim)
+	{
+		this.valeur=bim ;
+	}
+	public void setDate(ArrayList<Date> bim)
+	{
+		this.date=bim ;
+	}
 	
 }

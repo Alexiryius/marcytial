@@ -3,6 +3,7 @@ package marcytial;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,13 +12,10 @@ import javax.swing.JScrollPane;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.time.RegularTimePeriod;
 import org.jfree.data.time.Second;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+
 
 public class SerieChronologiqueGraphe extends Serie implements AffTab {
 
@@ -34,6 +32,21 @@ public class SerieChronologiqueGraphe extends Serie implements AffTab {
 	private boolean isInitialized() {
 		return (this.getDate() != null) ;
 	}
+	
+
+	XYDataset createDataset() {
+		Random r = new Random();
+	    XYSeriesCollection result = new XYSeriesCollection();
+	    XYSeries series = new XYSeries("Random");
+	    for (int i = 0; i <= 100; i++) {
+	        double x = r.nextDouble();
+	        double y = r.nextDouble();
+	        series.add(x, y);
+	    }
+	    result.addSeries(series);
+	    return result;
+	}
+	
 	
 	public JPanel returnPanel() {
 		
@@ -52,7 +65,7 @@ public class SerieChronologiqueGraphe extends Serie implements AffTab {
 			
 		
 			
-			JFreeChart graph = ChartFactory.createTimeSeriesChart (this.getNom(),"date","valeur",(XYDataset) series,
+			JFreeChart graph = ChartFactory.createTimeSeriesChart (this.getNom(),"date","valeur", createDataset(),
 																true,true,false ) ; 
 
 			ChartPanel chartPanel = new ChartPanel(graph); 

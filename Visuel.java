@@ -81,8 +81,8 @@ public class Visuel extends JFrame{
 		
 		}
 	
-	String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
-	public JComboBox transfoList = new JComboBox(petStrings);
+	static String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
+	public static JComboBox transfoList = new JComboBox(petStrings);
 		
 	public JButton undoB = new JButton("undo");
 	public JButton redoB = new JButton("redo");
@@ -132,7 +132,8 @@ public class Visuel extends JFrame{
     	JPanel tablPan = new JPanel();
     	tablPan.setLayout(new BoxLayout(tablPan, BoxLayout.LINE_AXIS));
     	tablPan.add(choixPan,BorderLayout.WEST);
-    	tablPan.add(pSCT,BorderLayout.CENTER);
+    	SerieChronologiqueGraphe scg = new SerieChronologiqueGraphe() ;
+    	tablPan.add(scg.returnPanel(),BorderLayout.CENTER);
     	
     	
     	JPanel entetPan = new JPanel();
