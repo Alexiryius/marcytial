@@ -22,7 +22,11 @@ static ActionListener monActionEcouteur = new ActionListener() {
 	    }
 		if (source==Visuel.validBouton){
 			Visuel.validBouton.setText("OK");
+			 String petName = (String)Visuel.transfoList.getSelectedItem();
+			 System.out.println(petName + " choisi");
 		}
+		
+		
 	}
 }
 	;
