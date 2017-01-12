@@ -1,28 +1,22 @@
 package marcytial;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import java.util.Random;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
 
-import org.jfree.chart.*; 
-import java.util.Random;
-import org.jfree.chart.plot.*; 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection; 
@@ -93,16 +87,13 @@ public class Visuel extends JFrame{
 	public JButton undoB = new JButton("undo");
 	public JButton redoB = new JButton("redo");
 	public JButton bouton = new JButton("...");
-	public JButton tab = new JButton("tableau");
+	public static JButton tab = new JButton("tableau");
 	JLabel label = new JLabel("Outil Marcytial");
-	public JButton validBouton = new JButton("ok");
+	public static JButton validBouton = new JButton("ok");
 	public JPanel GraphPan = new JPanel();
 	
-	
 
-	
-	
-		
+
 	public Visuel(){
 		
 		//tableau a tibo
@@ -111,24 +102,6 @@ public class Visuel extends JFrame{
 		pSCT = sCT.returnPanel();
 		
 		
-		tab.addActionListener(new ActionListener()
-		{
-		boolean clic = false;	
-		  public void actionPerformed(ActionEvent e)
-		  {
-		    if(clic == false){
-		    	tab.setText("graphique");
-		    	clic = true;
-		    	
-		    }
-		    else{
-		    	tab.setText("tableau");
-		    	clic = false;
-		    }
-		  }
-		});
-		
-    
     	Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
     	int hauteur = (int)dimension.getHeight();
     	int largeur  = (int)dimension.getWidth();
@@ -141,7 +114,9 @@ public class Visuel extends JFrame{
     	//deux petits bouton
     	JPanel peterPan = new JPanel();
     	peterPan.setLayout(new BoxLayout(peterPan, BoxLayout.LINE_AXIS));
+    	validBouton.addActionListener(ActionEcoute.monActionEcouteur);
     	peterPan.add(validBouton);
+    	tab.addActionListener(ActionEcoute.monActionEcouteur);
     	peterPan.add(tab);
     	
     	// peterpanel et combobox
