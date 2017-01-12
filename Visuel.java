@@ -1,5 +1,6 @@
 package marcytial;
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -123,8 +124,10 @@ public class Visuel extends JFrame{
     	JPanel choixPan = new JPanel();
     	choixPan.setLayout(new BoxLayout(choixPan, BoxLayout.PAGE_AXIS));
     	choixPan.add(Box.createRigidArea(new Dimension(0,200)));
+    	transfoList.setAlignmentX(Component.LEFT_ALIGNMENT);
     	choixPan.add(transfoList);
     	choixPan.add(Box.createRigidArea(new Dimension(0,100)));
+    	peterPan.setAlignmentX(Component.LEFT_ALIGNMENT);
     	choixPan.add(peterPan);
     	choixPan.add(Box.createRigidArea(new Dimension(0,600)));
     	
@@ -138,12 +141,14 @@ public class Visuel extends JFrame{
     	
     	JPanel entetPan = new JPanel();
     	entetPan.setLayout(new BoxLayout(entetPan, BoxLayout.LINE_AXIS));
+    	label.setAlignmentX(Component.RIGHT_ALIGNMENT);
     	entetPan.add(label);
     	choixPan.add(Box.createRigidArea(new Dimension(200,10)));
     	entetPan.add(undoB);
     	choixPan.add(Box.createRigidArea(new Dimension(10,10)));
     	entetPan.add(redoB);
     	choixPan.add(Box.createRigidArea(new Dimension(200,10)));
+    	bouton.setAlignmentX(Component.LEFT_ALIGNMENT);
     	entetPan.add(bouton);
     	
     	
