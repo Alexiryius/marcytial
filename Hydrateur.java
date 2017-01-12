@@ -1,5 +1,8 @@
 package marcytial;
 
+import java.io.IOException;
+import java.text.ParseException;
+
 public class Hydrateur
 {
 	private Visuel visuel;
@@ -7,18 +10,18 @@ public class Hydrateur
 	private Serie laSerie;
 	
 	
-   public Hydrateur()
+   public Hydrateur() throws IOException, ParseException
    {
 	  visuel= new Visuel();
-	  reader= new Reader();
+	  reader= new Reader("suiteChrono.csv",true);
 	  laSerie=null;
 	  
    }	
   
-   public Hydrateur(Serie nouvelleSerie)
+   public Hydrateur(Serie nouvelleSerie) throws IOException, ParseException
    {
 	visuel =new Visuel();
-	reader= new Reader();
+	reader= new Reader("suiteChrono.csv",true);
 	laSerie= nouvelleSerie;
 	
    }

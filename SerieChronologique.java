@@ -1,4 +1,4 @@
-package marcytial;
+package marcytial;// A SUUPRIMER
 
 public class SerieChronologique extends Serie
 {
@@ -7,8 +7,8 @@ public class SerieChronologique extends Serie
 	private Serie enfant;*/
 	
 	
-	private double [][] tableauDeDonnees;
-	private Transformations;
+	//private double [][] tableauDeDonnees;
+	//private Transformations;
 	//A CLAQUER
 	
 	//serie descendence 

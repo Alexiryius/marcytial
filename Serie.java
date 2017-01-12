@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public abstract class Serie
-{
+{   
+	
+	private static Serie current = null ;
 	private static int id = 0;
 	private String nom = "";
 	private ArrayList<Date> date ;
@@ -19,6 +21,7 @@ public abstract class Serie
 		date=null;
 		valeur=null;
 		transformation=null;
+		current=this;
 		
 	}
 	Serie(String nom, ArrayList<Date> date, ArrayList<Double> valeur)
@@ -28,6 +31,7 @@ public abstract class Serie
 		this.date = date;
 		this.valeur = valeur;
 		this.transformation = null;
+		current=this;
 	}
 	Serie(String nom, ArrayList<Date> date, ArrayList<Double> valeur, Transformations transformation)
 	{
@@ -36,6 +40,7 @@ public abstract class Serie
 		this.date = date;
 		this.valeur = valeur;
 		this.transformation = transformation;
+		current=this;
 	}
 	
 	//private boolean tableau;
@@ -68,13 +73,25 @@ public abstract class Serie
 		return this.valeur;
 	}
 	
+	public void setValeur(ArrayList<Double> n)
+	{
+		this.valeur = n;
+	}
+	
 	public Transformations getTransformation()
 	{
 		return this.transformation;
 	}
 	
-	
-	
-	
-	
+	public void setDate(ArrayList<Date> bim)
+	{
+		this.date=bim ;
+	}
+	public static Serie getCurrent(){
+		return current;
+	}
+	public static void setCurrent(Serie laserie)
+	{
+		current=laserie;
+	}
 }

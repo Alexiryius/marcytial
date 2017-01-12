@@ -27,6 +27,7 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 	
 	@Override
 	public JPanel returnPanel() {
+		
         JPanel contentPane = new JPanel(null);	
 		if (isInitialized()) {
 			Vector<Date> listDate = new Vector<>(this.getDate());
