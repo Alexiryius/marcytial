@@ -1,4 +1,4 @@
-package marcytial;
+package marcytial;//A SUPPRIMER
 
 public class SuiteChrono {
 	private String date;

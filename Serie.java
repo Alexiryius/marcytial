@@ -68,6 +68,11 @@ public abstract class Serie
 		return this.valeur;
 	}
 	
+	public void setValeur(ArrayList<Double> n)
+	{
+		this.valeur = n;
+	}
+	
 	public Transformations getTransformation()
 	{
 		return this.transformation;
