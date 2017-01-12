@@ -132,8 +132,8 @@ public class Visuel extends JFrame{
     	JPanel tablPan = new JPanel();
     	tablPan.setLayout(new BoxLayout(tablPan, BoxLayout.LINE_AXIS));
     	tablPan.add(choixPan,BorderLayout.WEST);
-    	SerieChronologiqueGraphe scg = new SerieChronologiqueGraphe() ;
-    	tablPan.add(scg.returnPanel(),BorderLayout.CENTER);
+    	//SerieChronologiqueGraphe scg = new SerieChronologiqueGraphe() ;
+    	tablPan.add(sPlotPan(),BorderLayout.CENTER);
     	
     	
     	JPanel entetPan = new JPanel();
@@ -161,10 +161,7 @@ public class Visuel extends JFrame{
     	this.setVisible(true);
     	System.out.println("le constructeur est executé");
     	}
-	public static void main(String[] args) {
-		Visuel visuel = new Visuel(); 
-        visuel.setVisible(true);
-    }
+	
 }
 
 
