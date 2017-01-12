@@ -2,88 +2,134 @@ package marcytial;
 
 
 	import java.io.*;
-	import java.util.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
-	public class Reader {
+	public class Reader extends Serie{
 		
-		private List < SuiteChrono > liste;
+		private List <Serie> liste;
 		
 		public Reader() {
-			liste = new ArrayList < SuiteChrono > ();
-			}
-		
-		public SuiteChrono nbrelignes(int i){
+			liste = new ArrayList < Serie >();
+		}
+
+		public Serie nbrelignes(int i){
 			return liste.get(i);
 		}
-		
-		public int nbreLignes() {
+		public int nbrelignes(){
 			return liste.size();
-			}	
+		}
 		
-		public void lireCSV(String nomFichier) throws FileNotFoundException, IOException 
+		public Reader(String nom, ArrayList<Date> date, ArrayList<Double> valeur) {
+			super(nom, date, valeur);
+			
+		}
+		
+		
+		
+		public List <Serie> readerCSV(String nomFichier) throws IOException, ParseException
+		{ 
+			List <Serie> result = new ArrayList <Serie> ();
+			Scanner sc = new Scanner(new FileReader(nomFichier));
+			String ligne;
+			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+			Serie suite = null;
+			while (sc.hasNextLine()) {
+				ligne = sc.nextLine();
+				String[] lignes = ligne.split(";"); 
+				String nom = lignes[0];
+				ArrayList <Date> date = new ArrayList<Date>();
+				String dateInString = lignes[1];
+				Date dat = formatter.parse(dateInString);
+				date.add(dat);
+				ArrayList <Double> valeur = new ArrayList <Double>();
+				valeur.add(Double.parseDouble(lignes[2]));
+				suite = new Reader(nom,date, valeur); 
+				result.add(suite);
+			}
+			sc.close();
+			return result; 
+		}
+		
+		public void printSuiteLis(List<Serie> suite) {
+			for (int i = 0; i < suite.size(); i++) {
+				System.out.println(suite.get(i).getNom() + " | " + suite.get(i).getDate()
+				     + " | " + suite.get(i).getValeur()  );
+			}
+			
+		}
+		
+		
+		public void lireCSV(String nomFichier) throws FileNotFoundException, IOException, ParseException 
 		{ 
 			Scanner sc = new Scanner(new FileReader(nomFichier)); 
 			String ligne ;
-			SuiteChrono suite;
+			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+			Serie suite;
 			while (sc.hasNextLine())
 			{
 				ligne = sc.nextLine();
-				String[] lignes = ligne.split("[;]"); 
-				String date = lignes[0];
-				double open = Double.parseDouble(lignes[1]);
-				suite = new SuiteChrono(date, open); 
+				String[] lignes = ligne.split(";"); 
+				String nom = lignes[0];
+				ArrayList <Date> date = new ArrayList<Date>();
+				String dateInString = lignes[1];
+				Date dat = formatter.parse(dateInString);
+				date.add(dat);
+				ArrayList <Double> valeur = new ArrayList <Double>();
+				valeur.add(Double.parseDouble(lignes[2]));
+				suite = new Reader(nom,date, valeur); 
 				liste.add(suite); 
 			}
 			sc.close(); 
 		}
-		public List < SuiteChrono > readCSV(String nomFichier) throws IOException
-		{ 
-			List < SuiteChrono > result = new ArrayList  < SuiteChrono > ();
-			 Scanner sc = new Scanner(new FileReader(nomFichier));
-			 String line = null;
-			 SuiteChrono suite;
-			 sc.nextLine();
-			 while (sc.hasNextLine()) {
-				 line = sc.nextLine();
-			      String[] values = line.split(";");
-			      String date = values[0];
-			      double open = Double.parseDouble(values[1]);
-			      suite = new SuiteChrono(date, open);
-			      result.add(suite);
-			     
-			    }
-			    sc.close();
-			    return result;
-		}
 		
-		public void writeCSV(String nomfichier , List<SuiteChrono> suite)throws IOException
+		public void printSuiteList(List< Serie> suite) {
+			  for (int i = 0; i < suite.size(); i++) {
+				  System.out.println(suite.get(i).getNom() + " | " + suite.get(i).getDate()
+			     + " | " + suite.get(i).getValeur()  );
+			  }
+			 }
+		
+		public Serie readCSV(String nomFichier) throws IOException, ParseException
+		{ 
+			Scanner sc = new Scanner(new FileReader(nomFichier)); 
+			String ligne ;
+			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+			Serie suite = null;
+			while (sc.hasNextLine())
+			{
+				ligne = sc.nextLine();
+				String[] lignes = ligne.split("[;]"); 
+				String nom = lignes[0];
+				ArrayList <Date> date = new ArrayList<Date>();
+				String dateInString = lignes[1];
+				Date dat = formatter.parse(dateInString);
+				date.add(dat);
+				ArrayList <Double> valeur = new ArrayList <Double>();
+				valeur.add(Double.parseDouble(lignes[2]));
+				suite = new Reader(nom,date, valeur); 
+				System.out.println(suite);
+			}
+			sc.close(); 
+			return suite;
+		}
+		public void writeCSV(String nomfichier , List<Serie> suite)throws IOException
 		{
 			
 			FileWriter fw = new FileWriter (nomfichier,true);
 			BufferedWriter bw = new BufferedWriter(fw); 
-			  
+			
 			for (int i = 0 ; i< suite.size(); i++)
 			{
+				fw.write (suite.get(i).getNom()+";");
 				fw.write (suite.get(i).getDate()+";");
-				fw.write (Double.toString(suite.get(i).getOpen()));
+				fw.write (suite.get(i).getValeur().toString());
 				fw.write ("\r\n");
 			}
 			bw.flush(); 
 			bw.close(); 
 			fw.close();
 		}
-		
-		public void print(List < SuiteChrono > liste) { 
-			for (SuiteChrono sc : liste) { 
-				System.out.println(sc);
-			} 
-			
-		} 
-	}
-
-	
-	
-	
-	
-	
+}
