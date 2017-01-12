@@ -3,7 +3,9 @@ package marcytial;
 import java.util.Stack;
 
 public  class Tools {
-
+		
+	private static Stack<Serie> undo = new Stack<Serie>();
+	private static Stack<Serie> redo = new Stack<Serie>();
 	
 // fonction qui est utiliser lors de la selection du fichier
 // ou lors de la selection d'une courbe
@@ -12,14 +14,15 @@ public  class Tools {
 		
 	}
 
+	public static  boolean mayIUndo(){
+		return undo.isEmpty();
+	}
 // fonction qui vide la pile undo et remplie la pile redo 
 //renvoie null si la pile est vide 	
-	public static void  unDo(Stack<Serie> undo, Stack<Serie> redo )
+	public static void  unDo()
 	{
 		if(undo.empty())return;
-		
 		 redo.push(Serie.getCurrent());
-		 
 		 Serie.setCurrent((Serie)undo.peek());	
 		
 	}
@@ -27,7 +30,7 @@ public  class Tools {
 // fonction qui vide la file redo et remplie la file undo 
 // renvoi null si la pile est vide
 	
-	public static void reDo(Stack<Serie> undo, Stack<Serie> redo)
+	public static void reDo()
 	{
 		if(redo.empty())return;
 		undo.push(Serie.getCurrent());
@@ -36,9 +39,10 @@ public  class Tools {
 	}
 	
 // fonction qui empile su la pile undo a chaque action	
-	public static void toDo(Stack<Serie> undo)
+	public static void toDo()
 	{
 	 undo.push(Serie.getCurrent());	
+	 redo.clear();
 	}
    
 	public static SerieChronologiqueTab grapheToTab(SerieChronologiqueGraphe laSerie)

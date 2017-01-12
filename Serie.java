@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public abstract class Serie
-{
+{   
+	
 	private static Serie current = null ;
 	private static int id = 0;
 	private String nom = "";
@@ -82,10 +83,6 @@ public abstract class Serie
 		return this.transformation;
 	}
 	
-	public void setValeur(ArrayList<Double> bim)
-	{
-		this.valeur=bim ;
-	}
 	public void setDate(ArrayList<Date> bim)
 	{
 		this.date=bim ;
