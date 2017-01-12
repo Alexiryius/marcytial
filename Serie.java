@@ -7,8 +7,8 @@ public abstract class Serie
 {
 	private static int id = 0;
 	private String nom = "";
-	private ArrayList<Date> date = new ArrayList<Date>();
-	private ArrayList<Double>valeur = new ArrayList<Double>();
+	private ArrayList<Date> date ;
+	private ArrayList<Double>valeur ;
 	private Transformations transformation;	
 	
 	//Constructeur
