@@ -34,7 +34,7 @@ import java.util.*;
 			List <Serie> result = new ArrayList <Serie> ();
 			Scanner sc = new Scanner(new FileReader(nomFichier));
 			String ligne;
-			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+			SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
 			Serie suite = null;
 			while (sc.hasNextLine()) {
 				ligne = sc.nextLine();
@@ -66,7 +66,7 @@ import java.util.*;
 		{ 
 			Scanner sc = new Scanner(new FileReader(nomFichier)); 
 			String ligne ;
-			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+			SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
 			Serie suite;
 			while (sc.hasNextLine())
 			{
@@ -96,7 +96,7 @@ import java.util.*;
 		{ 
 			Scanner sc = new Scanner(new FileReader(nomFichier)); 
 			String ligne ;
-			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+			SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
 			Serie suite = null;
 			while (sc.hasNextLine())
 			{
