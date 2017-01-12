@@ -68,7 +68,7 @@ public class SerieChronologiqueGraphe extends Serie implements AffTab {
 			
 		
 			
-			JFreeChart graph = ChartFactory.createTimeSeriesChart (this.getNom(),"date","valeur",(XYDataset) series,
+			JFreeChart graph = ChartFactory.createTimeSeriesChart (this.getNom(),"date","valeur", createDataset(),
 																true,true,false ) ; 
 
 			ChartPanel chartPanel = new ChartPanel(graph); 
