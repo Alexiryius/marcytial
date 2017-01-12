@@ -6,9 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import csv.Serie;
-import csv.SerieChronologiqueGraphe;
-import csv.SerieChronologiqueTab;
+
 
 public class Reader {
 	

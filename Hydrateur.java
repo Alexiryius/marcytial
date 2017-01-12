@@ -13,7 +13,7 @@ public class Hydrateur
    public Hydrateur() throws IOException, ParseException
    {
 	  visuel= new Visuel();
-	  reader= new Reader("suiteChrono.csv",true);
+	  reader= new Reader("src/marcytial/suiteChrono.csv",true);
 	  laSerie=null;
 	  
    }	
@@ -21,7 +21,7 @@ public class Hydrateur
    public Hydrateur(Serie nouvelleSerie) throws IOException, ParseException
    {
 	visuel =new Visuel();
-	reader= new Reader("suiteChrono.csv",true);
+	reader= new Reader("src/marcytial/suiteChrono.csv",true);
 	laSerie= nouvelleSerie;
 	
    }
