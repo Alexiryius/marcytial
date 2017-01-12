@@ -133,7 +133,7 @@ public class Visuel extends JFrame{
     	tablPan.setLayout(new BoxLayout(tablPan, BoxLayout.LINE_AXIS));
     	tablPan.add(choixPan,BorderLayout.WEST);
     	//SerieChronologiqueGraphe scg = new SerieChronologiqueGraphe() ;
-    	tablPan.add(sPlotPan(),BorderLayout.CENTER);
+    	tablPan.add(Serie.getCurrent().returnPanel(),BorderLayout.CENTER);
     	
     	
     	JPanel entetPan = new JPanel();
