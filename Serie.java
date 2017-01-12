@@ -3,6 +3,8 @@ package marcytial;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.swing.JPanel;
+
 public abstract class Serie
 {   
 	
@@ -46,7 +48,7 @@ public abstract class Serie
 	//private boolean tableau;
 	//private boolean grahique;
 	
-	
+	abstract public JPanel returnPanel();
 	
 	public int getId()
 	{

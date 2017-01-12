@@ -36,18 +36,7 @@ public class SerieChronologiqueGraphe extends Serie implements AffTab {
 	}
 	
 
-	XYDataset createDataset() {
-		Random r = new Random();
-	    XYSeriesCollection result = new XYSeriesCollection();
-	    XYSeries series = new XYSeries("Random");
-	    for (int i = 0; i <= 100; i++) {
-	        double x = r.nextDouble();
-	        double y = r.nextDouble();
-	        series.add(x, y);
-	    }
-	    result.addSeries(series);
-	    return result;
-	}
+	
 	
 	
 	public JPanel returnPanel() {
@@ -67,7 +56,7 @@ public class SerieChronologiqueGraphe extends Serie implements AffTab {
 			
 		
 			
-			JFreeChart graph = ChartFactory.createTimeSeriesChart (this.getNom(),"date","valeur", createDataset(),
+			JFreeChart graph = ChartFactory.createTimeSeriesChart (this.getNom(),"date","valeur", (XYDataset) series,
 																true,true,false ) ; 
 
 			ChartPanel chartPanel = new ChartPanel(graph); 
