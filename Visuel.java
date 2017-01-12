@@ -12,6 +12,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -27,9 +29,10 @@ import org.jfree.data.xy.XYSeriesCollection;
 /**
  *
  * @author rogeza
+ * 
  */
 
-
+//http://stackoverflow.com/questions/11129608/using-repaint-method-with-actionperformed/11131267
 public class Visuel extends JFrame{
 	
 	
@@ -96,6 +99,9 @@ public class Visuel extends JFrame{
 	public JPanel GraphPan = new JPanel();
 	
 	
+
+	
+	
 		
 	public Visuel(){
 		
@@ -103,8 +109,26 @@ public class Visuel extends JFrame{
 		SerieChronologiqueTab sCT = new SerieChronologiqueTab();
 		JPanel pSCT = new JPanel();
 		pSCT = sCT.returnPanel();
+		
+		
+		tab.addActionListener(new ActionListener()
+		{
+		boolean clic = false;	
+		  public void actionPerformed(ActionEvent e)
+		  {
+		    if(clic == false){
+		    	tab.setText("graphique");
+		    	clic = true;
+		    	
+		    }
+		    else{
+		    	tab.setText("tableau");
+		    	clic = false;
+		    }
+		  }
+		});
+		
     
-    	
     	Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
     	int hauteur = (int)dimension.getHeight();
     	int largeur  = (int)dimension.getWidth();
