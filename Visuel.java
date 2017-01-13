@@ -134,8 +134,6 @@ public class Visuel extends JFrame{
     	//Serie.getCurrent().returnPanel().setAlignmentX(Component.CENTER_ALIGNMENT);
     	milieuDroite.add(Serie.getCurrent().returnPanel());
     	//tab.setAlignmentX(Component.CENTER_ALIGNMENT);
-    	tab.addActionListener(ActionEcoute.monActionEcouteur);
-    	milieuDroite.add(tab);
 
     	JPanel milieu = new JPanel();
     	milieu.setLayout(new BoxLayout(milieu, BoxLayout.LINE_AXIS));
@@ -187,9 +185,10 @@ public class Visuel extends JFrame{
     	panneauPrinc2.add(transfoList);
     	validBouton.setBounds(170,150,80,20);
     	panneauPrinc2.add(validBouton);
-    	Serie.getCurrent().returnPanel().setBounds(700,120,500,500);
-    	Serie.getCurrent().returnPanel().setBorder(BorderFactory.createLineBorder(Color.black)); 
-    	panneauPrinc2.add(Serie.getCurrent().returnPanel());
+    	milieuDroite.setBounds(700,120,500,500);
+    	//Serie.getCurrent().returnPanel().setBorder(BorderFactory.createLineBorder(Color.black)); 
+    	panneauPrinc2.add(milieuDroite);
+    	tab.setBounds(1130,650,120,25);
     	panneauPrinc2.add(tab);
     	this.setTitle("Projet Marcytial");
     	this.setLocationRelativeTo(null);
