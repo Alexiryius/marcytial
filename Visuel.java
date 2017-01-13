@@ -130,6 +130,7 @@ public class Visuel extends JFrame{
     	//redoB.setAlignmentX(Component.LEFT_ALIGNMENT);
     	hautMilieuDroite.add(redoB);
     	
+    	
     	JPanel milieuDroite = new JPanel();
     	milieuDroite.setBorder(BorderFactory.createLineBorder(Color.black)); 
     	milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
