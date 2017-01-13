@@ -44,7 +44,7 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 		}
 		contentPane.setSize(new Dimension(50, 50));
         contentPane.setPreferredSize(new Dimension(50, 50));
-        contentPane.setBackground(Color.BLUE);
+        contentPane.setBackground(Color.red);
         
         return contentPane;
 	}
