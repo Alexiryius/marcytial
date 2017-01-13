@@ -3,7 +3,7 @@ package marcytial;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Random;
+
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,8 +15,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.time.Second;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+
 
 
 public class SerieChronologiqueGraphe extends Serie implements AffTab {
