@@ -9,6 +9,9 @@ public class Programme{
 	public static void main(String[] args) throws IOException, ParseException {
 		
 		Hydrateur hydra  = new Hydrateur();
+		System.out.println(hydra.getLaSerie());
+		System.out.println(hydra.getLaSerie().getNom());
+		System.out.println(hydra.getLaSerie().getDate());
  	 
 	}
 } 
