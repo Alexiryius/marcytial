@@ -9,11 +9,7 @@ import java.util.*;
 
 
 public class Reader {
-	
-<<<<<<< HEAD
-=======
-	
->>>>>>> e297ea5fac3172b000006a7c69f99ae014c4c40f
+
 	private Serie laserie;
 	
 	public Reader(String nomfichier,Boolean graphe) throws IOException, ParseException 
@@ -34,11 +30,6 @@ public class Reader {
 		Serie suite= new SerieChronologiqueGraphe();
 		Scanner sc = new Scanner(new FileReader(nomFichier));
 		String[] lignes;
-<<<<<<< HEAD
-=======
-		
-		
->>>>>>> e297ea5fac3172b000006a7c69f99ae014c4c40f
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
 		String nom = nomFichier;
 		ArrayList <Date> date = new ArrayList<Date>();
@@ -47,14 +38,10 @@ public class Reader {
 		while (sc.hasNextLine()) 
 		{
 			lignes = sc.nextLine().split(";"); 
-<<<<<<< HEAD
+
 			date.add(formatter.parse(lignes[0]));
 			valeur.add(Double.parseDouble(lignes[1]));
-=======
-			date.add(formatter.parse(lignes[1]));
-			valeur.add(Double.parseDouble(lignes[2]));
-			
->>>>>>> e297ea5fac3172b000006a7c69f99ae014c4c40f
+
 		}
 		
 		suite.setDate(date);
@@ -65,18 +52,6 @@ public class Reader {
 		return (SerieChronologiqueGraphe) suite; 
 	}
 	
-	public Serie getLaserie() {
-		return laserie;
-	}
-
-
-
-	public void setLaserie(Serie laserie) {
-		this.laserie = laserie;
-	}
-
-
-
 	private SerieChronologiqueTab readerCSVTab(String nomFichier) throws IOException, ParseException
 	{ 
 		Serie suite= new SerieChronologiqueTab();
