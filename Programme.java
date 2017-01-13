@@ -15,6 +15,5 @@ Hydrateur hydra  = new Hydrateur();
 		System.out.println(hydra.getLaSerie().getDate());
  	 
 
->>>>>>> 20d8cade78c603fb3f8a3268574aa108578093d4
 	}
 } 
