@@ -2,7 +2,7 @@ package marcytial;
 
 public abstract class Transformation {
 	
-	private Serie laserieSortie;
+	
 	private String nom;
 	
 	public Transformation(String nom)
