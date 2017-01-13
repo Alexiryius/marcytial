@@ -2,9 +2,11 @@ package marcytial;
 
 import java.util.ArrayList;
 
-public class MoyenneMobile implements Transformations
+public class MoyenneMobile extends Transformation
 {
-	public ArrayList<Double> moyenneMobile = new ArrayList<Double>();
+	public MoyenneMobile(){
+		super("qui a subit une moyenne mobile");
+	}
 	SerieChronologiqueTab moyMobile = new SerieChronologiqueTab();
 	int saisonnalite = XX//a definir par l'user
 	
