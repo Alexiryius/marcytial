@@ -13,7 +13,7 @@ public class Reader {
 	private List <Serie> liste;
 	private Serie laserie;
 	
-	public Reader(String nomfichier,Boolean graphe) throws IOException, ParseException 
+	public Reader(String nomfichier,boolean graphe) throws IOException, ParseException 
 	{
 		if(graphe)
 			{
