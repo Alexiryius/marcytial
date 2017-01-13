@@ -1,10 +1,12 @@
 package marcytial;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -114,6 +116,7 @@ public class Visuel extends JFrame{
     	
     	
     	JPanel milieuGauche = new JPanel();
+    	milieuGauche.setBorder(BorderFactory.createLineBorder(Color.black)); 
     	milieuGauche.setLayout(new BoxLayout(milieuGauche, BoxLayout.PAGE_AXIS));
     	milieuGauche.add(Box.createRigidArea(new Dimension(0,200)));
     	transfoList.setAlignmentX(Component.RIGHT_ALIGNMENT);
@@ -124,12 +127,24 @@ public class Visuel extends JFrame{
     	milieuGauche.add(validBouton);
     	milieuGauche.add(Box.createRigidArea(new Dimension(0,800)));
     	
+    	JPanel hautmilieuGauche= new JPanel();
+    	hautmilieuGauche.setLayout(new BoxLayout(hautmilieuGauche, BoxLayout.LINE_AXIS));
+    	undoB.setAlignmentX(Component.RIGHT_ALIGNMENT);
+    	hautmilieuGauche.add(undoB);
+    	hautmilieuGauche.add(Box.createRigidArea(new Dimension(10,10)));
+    	redoB.setAlignmentX(Component.RIGHT_ALIGNMENT);
+    	hautmilieuGauche.add(redoB);
+    	hautmilieuGauche.add(Box.createRigidArea(new Dimension(200,10)));
+    	
     	JPanel milieuDroite = new JPanel();
-    	milieuDroite.add(Box.createRigidArea(new Dimension(0,800)));
+    	milieuDroite.setBorder(BorderFactory.createLineBorder(Color.black)); 
     	milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
-    	Serie.getCurrent().returnPanel().setAlignmentX(Component.CENTER_ALIGNMENT);
+    	hautmilieuGauche.setAlignmentX(Component.RIGHT_ALIGNMENT);
+    	milieuDroite.add(hautmilieuGauche);
+    	milieuDroite.add(Box.createRigidArea(new Dimension(0,1000)));
+    	Serie.getCurrent().returnPanel().setAlignmentX(Component.RIGHT_ALIGNMENT);
     	milieuDroite.add(Serie.getCurrent().returnPanel());
-    	tab.setAlignmentX(Component.LEFT_ALIGNMENT);
+    	tab.setAlignmentX(Component.RIGHT_ALIGNMENT);
     	tab.addActionListener(ActionEcoute.monActionEcouteur);
     	milieuDroite.add(tab);
     	
@@ -142,17 +157,16 @@ public class Visuel extends JFrame{
     	
     	//SerieChronologiqueGraphe scg = new SerieChronologiqueGraphe() ;
     	
-    	JPanel entetPan = new JPanel();
-    	entetPan.setLayout(new BoxLayout(entetPan, BoxLayout.LINE_AXIS));
-    	label.setAlignmentX(Component.RIGHT_ALIGNMENT);
-    	entetPan.add(label);
-    	milieuGauche.add(Box.createRigidArea(new Dimension(200,10)));
-    	entetPan.add(undoB);
-    	milieuGauche.add(Box.createRigidArea(new Dimension(10,10)));
-    	entetPan.add(redoB);
-    	milieuGauche.add(Box.createRigidArea(new Dimension(200,10)));
-    	bouton.setAlignmentX(Component.LEFT_ALIGNMENT);
-    	entetPan.add(bouton);
+    	JPanel haut = new JPanel();
+    	haut.setBorder(BorderFactory.createLineBorder(Color.black)); 
+    	haut.setLayout(new BoxLayout(haut, BoxLayout.LINE_AXIS));
+    	haut.add(Box.createRigidArea(new Dimension(60,10)));
+    	label.setAlignmentX(Component.LEFT_ALIGNMENT);
+    	haut.add(label);
+    	haut.add(Box.createRigidArea(new Dimension(1330,10)));
+    	bouton.setAlignmentX(Component.RIGHT_ALIGNMENT);
+    	haut.add(bouton);
+    	haut.add(Box.createRigidArea(new Dimension(60,10)));
     	
     	
     	
@@ -161,7 +175,7 @@ public class Visuel extends JFrame{
     	
     	JPanel panneauPrinc = new JPanel();
     	panneauPrinc.setLayout(new BoxLayout(panneauPrinc, BoxLayout.PAGE_AXIS));
-    	panneauPrinc.add(entetPan,BorderLayout.CENTER);
+    	panneauPrinc.add(haut,BorderLayout.CENTER);
     	milieuGauche.add(Box.createRigidArea(new Dimension(0,20)));
     	panneauPrinc.add(milieu,BorderLayout.CENTER);
     	milieuGauche.add(Box.createRigidArea(new Dimension(500,0)));
