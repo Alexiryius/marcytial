@@ -89,26 +89,21 @@ public class Visuel extends JFrame{
 		
 	public JButton undoB = new JButton("undo");
 	public JButton redoB = new JButton("redo");
+	
 	public JButton bouton = new JButton("...");
 	public static JButton tab = new JButton("tableau");
 	JLabel label = new JLabel("Outil Marcytial");
 	public static JButton validBouton = new JButton("ok");
 	public JPanel GraphPan = new JPanel();
-	
 
 
 	public Visuel(){
 		
-		//tableau a tibo
 		
     	Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
     	int hauteur = (int)dimension.getHeight();
     	int largeur  = (int)dimension.getWidth();
-    	this.setSize(largeur,hauteur);
     	
-    	this.setTitle("Projet Marcytial");
-    	this.setLocationRelativeTo(null);
-    	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     	
     	
     	JPanel milieuGauche = new JPanel();
@@ -161,17 +156,48 @@ public class Visuel extends JFrame{
     	haut.add(Box.createRigidArea(new Dimension(60,30)));
     	
     	
-    	JPanel panneauPrinc = new JPanel();
-    	panneauPrinc.setLayout(new BoxLayout(panneauPrinc, BoxLayout.PAGE_AXIS));
-    	//haut.setAlignmentX(Component.TOP_ALIGNMENT);
-    	panneauPrinc.add(haut);
-    	milieuGauche.add(Box.createRigidArea(new Dimension(0,20)));
-    	//haut.setAlignmentX(Component.CENTER_ALIGNMENT);
-    	panneauPrinc.add(milieu);
-    	milieuGauche.add(Box.createRigidArea(new Dimension(500,0)));
-    	this.setContentPane(panneauPrinc);
+//    	JPanel panneauPrinc = new JPanel();
+//    	panneauPrinc.setLayout(new BoxLayout(panneauPrinc, BoxLayout.PAGE_AXIS));
+//    	//haut.setAlignmentX(Component.TOP_ALIGNMENT);
+//    	panneauPrinc.add(haut);
+//    	milieuGauche.add(Box.createRigidArea(new Dimension(0,20)));
+//    	//haut.setAlignmentX(Component.CENTER_ALIGNMENT);
+//    	panneauPrinc.add(milieu);
+//    	milieuGauche.add(Box.createRigidArea(new Dimension(500,0)));
+//    
+//    	this.setContentPane(panneauPrinc);
+//    	this.setVisible(true);
+    	
+    	JPanel graphTab = new JPanel();
+    	graphTab.setBorder(BorderFactory.createLineBorder(Color.black)); 
+    	graphTab.add(Serie.getCurrent().returnPanel());
+    	
+    	JPanel panneauPrinc2 = new JPanel();
+    	panneauPrinc2.setLayout(null);
+    	this.setSize(largeur,hauteur);
+    	label.setBounds(20,10,160,30);
+    	panneauPrinc2.add(label);
+      	bouton.setBounds(largeur-120,10,60,30);
+    	panneauPrinc2.add(bouton);
+      	undoB.setBounds(1100,70,80,20);
+    	panneauPrinc2.add(undoB);
+      	redoB.setBounds(1190,70,80,20);
+    	panneauPrinc2.add(redoB);
+    	transfoList.setBounds(100,120,150,22);
+    	panneauPrinc2.add(transfoList);
+    	validBouton.setBounds(170,150,80,20);
+    	panneauPrinc2.add(validBouton);
+    	Serie.getCurrent().returnPanel().setBounds(700,120,500,500);
+    	Serie.getCurrent().returnPanel().setBorder(BorderFactory.createLineBorder(Color.black)); 
+    	panneauPrinc2.add(Serie.getCurrent().returnPanel());
+    	panneauPrinc2.add(tab);
+    	this.setTitle("Projet Marcytial");
+    	this.setLocationRelativeTo(null);
+    	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    	this.setContentPane(panneauPrinc2);
+    	this.revalidate();
     	this.setVisible(true);
-    	System.out.println("le constructeur est executé");
+    	
     	}
 	
 }

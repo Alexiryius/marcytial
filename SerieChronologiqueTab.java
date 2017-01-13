@@ -10,8 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 public class SerieChronologiqueTab extends Serie implements AffTab  {
 
@@ -34,30 +32,31 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 		if (isInitialized()) {
 			int taille =this.getDate().size();
 			
-		    Object [][] listData= new Object[taille][2]  ;
-			
+			Vector<Object> listDate = new Vector<>(taille);
+			Vector<Object> listValeur = new Vector<>(taille);
 			
 			for(int i =0; i<taille;i++)
 			{
-				listData[i][0]=this.getDate().get(i);
-				listData[i][1]=this.getValeur().get(i);
+				listDate.add(this.getDate().get(i));
+				listValeur.add(this.getValeur().get(i));
 			
 			}
 			
+			Vector<Vector<Object>> dataVector= new Vector<Vector<Object>>();
+				
+			dataVector.add(listDate);
+			dataVector.add(listValeur);
+			
+			Vector<String> nameVector= new Vector<String>();
+			
+			nameVector.addElement("date");
+			nameVector.addElement("Valeur");
 			
 			
-			String[] nameVector= {"date","Valeur"};
-			
-			
-			
-			System.out.println(nameVector);
-			
-			TableModel model = new DefaultTableModel(listData,nameVector);
-			JTable tableau = new JTable( model );
-			
+			JTable tableau = new JTable(dataVector, nameVector);
 			JScrollPane scrollPane = new JScrollPane(tableau);
-	        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-	        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+	        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+	        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 	    	scrollPane.setBounds(30, 30, 500, 500);
 	        contentPane.add(scrollPane);
 		} else {
