@@ -1,10 +1,12 @@
 package marcytial;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -87,84 +89,114 @@ public class Visuel extends JFrame{
 		
 	public JButton undoB = new JButton("undo");
 	public JButton redoB = new JButton("redo");
+	
 	public JButton bouton = new JButton("...");
 	public static JButton tab = new JButton("tableau");
 	JLabel label = new JLabel("Outil Marcytial");
 	public static JButton validBouton = new JButton("ok");
 	public JPanel GraphPan = new JPanel();
-	
 
 
 	public Visuel(){
-		
-		//tableau a tibo
-		SerieChronologiqueTab sCT = new SerieChronologiqueTab();
-		JPanel pSCT = new JPanel();
-		pSCT = sCT.returnPanel();
 		
 		
     	Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
     	int hauteur = (int)dimension.getHeight();
     	int largeur  = (int)dimension.getWidth();
-    	this.setSize(largeur,hauteur);
     	
+    	
+    	
+    	JPanel milieuGauche = new JPanel();
+    	milieuGauche.setBorder(BorderFactory.createLineBorder(Color.black)); 
+    	milieuGauche.setLayout(new BoxLayout(milieuGauche, BoxLayout.PAGE_AXIS));
+    	milieuGauche.add(Box.createRigidArea(new Dimension(0,200)));
+    	//transfoList.setAlignmentX(Component.CENTER_ALIGNMENT);
+    	milieuGauche.add(transfoList);
+    	milieuGauche.add(Box.createRigidArea(new Dimension(0,100)));
+    	//validBouton.setAlignmentX(Component.CENTER_ALIGNMENT);
+    	validBouton.addActionListener(ActionEcoute.monActionEcouteur);
+    	milieuGauche.add(validBouton);
+    	milieuGauche.add(Box.createRigidArea(new Dimension(0,800)));
+    	
+    	JPanel hautMilieuDroite= new JPanel();
+    	hautMilieuDroite.setLayout(new BoxLayout(hautMilieuDroite, BoxLayout.LINE_AXIS));
+    	//undoB.setAlignmentX(Component.LEFT_ALIGNMENT);
+    	hautMilieuDroite.add(undoB);
+    	//redoB.setAlignmentX(Component.LEFT_ALIGNMENT);
+    	hautMilieuDroite.add(redoB);
+    	
+    	
+    	JPanel milieuDroite = new JPanel();
+    	milieuDroite.setBorder(BorderFactory.createLineBorder(Color.black)); 
+    	milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
+    	//hautMilieuDroite.setAlignmentX(Component.CENTER_ALIGNMENT);
+    	milieuDroite.add(hautMilieuDroite);
+    	//Serie.getCurrent().returnPanel().setAlignmentX(Component.CENTER_ALIGNMENT);
+    	milieuDroite.add(Serie.getCurrent().returnPanel());
+    	//tab.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+    	JPanel milieu = new JPanel();
+    	milieu.setLayout(new BoxLayout(milieu, BoxLayout.LINE_AXIS));
+    	//milieuGauche.setAlignmentX(Component.RIGHT_ALIGNMENT);
+    	milieu.add(milieuGauche);
+    	//milieu.setAlignmentX(Component.RIGHT_ALIGNMENT);
+    	milieu.add(milieuDroite);
+    	
+    	JPanel haut = new JPanel();
+    	haut.setBorder(BorderFactory.createLineBorder(Color.black)); 
+    	haut.setLayout(new BoxLayout(haut, BoxLayout.LINE_AXIS));
+    	haut.add(Box.createRigidArea(new Dimension(60,30)));
+    	//label.setAlignmentX(Component.LEFT_ALIGNMENT);
+    	haut.add(label);
+    	haut.add(Box.createRigidArea(new Dimension(largeur-245,30)));
+    	//bouton.setAlignmentX(Component.RIGHT_ALIGNMENT);
+    	haut.add(bouton);
+    	haut.add(Box.createRigidArea(new Dimension(60,30)));
+    	
+    	
+//    	JPanel panneauPrinc = new JPanel();
+//    	panneauPrinc.setLayout(new BoxLayout(panneauPrinc, BoxLayout.PAGE_AXIS));
+//    	//haut.setAlignmentX(Component.TOP_ALIGNMENT);
+//    	panneauPrinc.add(haut);
+//    	milieuGauche.add(Box.createRigidArea(new Dimension(0,20)));
+//    	//haut.setAlignmentX(Component.CENTER_ALIGNMENT);
+//    	panneauPrinc.add(milieu);
+//    	milieuGauche.add(Box.createRigidArea(new Dimension(500,0)));
+//    
+//    	this.setContentPane(panneauPrinc);
+//    	this.setVisible(true);
+    	
+    	JPanel graphTab = new JPanel();
+    	graphTab.setBorder(BorderFactory.createLineBorder(Color.black)); 
+    	graphTab.add(Serie.getCurrent().returnPanel());
+    	
+    	JPanel panneauPrinc2 = new JPanel();
+    	panneauPrinc2.setLayout(null);
+    	this.setSize(largeur,hauteur);
+    	label.setBounds(20,10,160,30);
+    	panneauPrinc2.add(label);
+      	bouton.setBounds(largeur-120,10,60,30);
+    	panneauPrinc2.add(bouton);
+      	undoB.setBounds(1100,70,80,20);
+    	panneauPrinc2.add(undoB);
+      	redoB.setBounds(1190,70,80,20);
+    	panneauPrinc2.add(redoB);
+    	transfoList.setBounds(100,120,150,22);
+    	panneauPrinc2.add(transfoList);
+    	validBouton.setBounds(170,150,80,20);
+    	panneauPrinc2.add(validBouton);
+    	milieuDroite.setBounds(700,120,500,500);
+    	//Serie.getCurrent().returnPanel().setBorder(BorderFactory.createLineBorder(Color.black)); 
+    	panneauPrinc2.add(milieuDroite);
+    	tab.setBounds(1130,650,120,25);
+    	panneauPrinc2.add(tab);
     	this.setTitle("Projet Marcytial");
     	this.setLocationRelativeTo(null);
     	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    	
-    	//deux petits bouton
-    	JPanel peterPan = new JPanel();
-    	peterPan.setLayout(new BoxLayout(peterPan, BoxLayout.LINE_AXIS));
-    	validBouton.addActionListener(ActionEcoute.monActionEcouteur);
-    	peterPan.add(validBouton);
-    	tab.addActionListener(ActionEcoute.monActionEcouteur);
-    	peterPan.add(tab);
-    	
-    	// peterpanel et combobox
-    	JPanel choixPan = new JPanel();
-    	choixPan.setLayout(new BoxLayout(choixPan, BoxLayout.PAGE_AXIS));
-    	choixPan.add(Box.createRigidArea(new Dimension(0,200)));
-    	transfoList.setAlignmentX(Component.LEFT_ALIGNMENT);
-    	choixPan.add(transfoList);
-    	choixPan.add(Box.createRigidArea(new Dimension(0,100)));
-    	peterPan.setAlignmentX(Component.LEFT_ALIGNMENT);
-    	choixPan.add(peterPan);
-    	choixPan.add(Box.createRigidArea(new Dimension(0,600)));
-    	
-    	// choixpan et graphique
-    	JPanel tablPan = new JPanel();
-    	tablPan.setLayout(new BoxLayout(tablPan, BoxLayout.LINE_AXIS));
-    	tablPan.add(choixPan,BorderLayout.WEST);
-    	//SerieChronologiqueGraphe scg = new SerieChronologiqueGraphe() ;
-    	tablPan.add(Serie.getCurrent().returnPanel(),BorderLayout.CENTER);
-    	
-    	
-    	JPanel entetPan = new JPanel();
-    	entetPan.setLayout(new BoxLayout(entetPan, BoxLayout.LINE_AXIS));
-    	label.setAlignmentX(Component.RIGHT_ALIGNMENT);
-    	entetPan.add(label);
-    	choixPan.add(Box.createRigidArea(new Dimension(200,10)));
-    	entetPan.add(undoB);
-    	choixPan.add(Box.createRigidArea(new Dimension(10,10)));
-    	entetPan.add(redoB);
-    	choixPan.add(Box.createRigidArea(new Dimension(200,10)));
-    	bouton.setAlignmentX(Component.LEFT_ALIGNMENT);
-    	entetPan.add(bouton);
-    	
-    	
-    	
-    	JPanel remplPan = new JPanel();
-    	remplPan.setSize(500, 500);
-    	
-    	JPanel panneauPrinc = new JPanel();
-    	panneauPrinc.setLayout(new BoxLayout(panneauPrinc, BoxLayout.PAGE_AXIS));
-    	panneauPrinc.add(entetPan,BorderLayout.CENTER);
-    	choixPan.add(Box.createRigidArea(new Dimension(0,20)));
-    	panneauPrinc.add(tablPan,BorderLayout.CENTER);
-    	choixPan.add(Box.createRigidArea(new Dimension(500,0)));
-    	this.setContentPane(panneauPrinc);
+    	this.setContentPane(panneauPrinc2);
+    	this.revalidate();
     	this.setVisible(true);
-    	System.out.println("le constructeur est executé");
+    	
     	}
 	
 }

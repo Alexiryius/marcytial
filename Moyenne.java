@@ -2,31 +2,46 @@ package marcytial;
 
 import java.util.ArrayList;
 
-public class Moyenne implements Transformations
+public class Moyenne extends Transformation
 {
-	public ArrayList<Double> valeurMoyenne = new ArrayList<Double>();
+	
+	
+	public Moyenne()
+	{
+		super(" en moyenne");
+	}
 	SerieChronologiqueGraphe scg = new SerieChronologiqueGraphe();
 	
-	public ArrayList<Double> moyenne()	
-	{
-		double moy = 0;	
+
+	public void calcul() {
 		
-		for(int i = 0;i < scg.getValeur().size();i++)
-			{
-				moy += scg.getValeur().get(i);
-			}
-		
-		moy /= scg.getValeur().size();
-		
-		for(int i = 0;i < scg.getValeur().size();i++)
+		ArrayList<Double> result = new ArrayList<>();
+		double moy=0 ;
+		int taille = Serie.getCurrent().getValeur().size();
+
+		for(int i = 0;i < taille ;i++)
 		{
-			valeurMoyenne.add(moy);
-		}		
+			moy += Serie.getCurrent().getValeur().get(i);
+		}
+		moy /= taille;
 		
-		return valeurMoyenne;
+		for(int i = 0;i < taille;i++)
+		{
+			result.add(moy);
+		}	
+		if( Serie.getCurrent() instanceof SerieChronologiqueGraphe){
+			
+			Tools.toDo();
+			new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+			 			Serie.getCurrent().getDate(),result);	
+	
+		}
+		else
+		{
+			Tools.toDo();
+		    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+				 			Serie.getCurrent().getDate(),result);	
+		}
 	}
-	
-	
-	public SerieChronologiqueGraphe moyenneGraphe = new SerieChronologiqueGraphe("Valeur moyene",scg.getDate(),moyenne());
 	
 }

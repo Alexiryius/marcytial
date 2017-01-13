@@ -2,21 +2,22 @@ package marcytial;
 
 import java.util.ArrayList;
 
-public class MoyenneMobile extends Transformation
+public class MoyenneMobilePonderee extends Transformation
 {
-	private int saisonnalite ;
-			
-	public MoyenneMobile(int saison)
+	private int saisonnalite;
+	private double[] ponderations = new double[saisonnalite];
+	
+	public MoyenneMobilePonderee(int saison, double[] pond)
 	{
-		super("qui a subit une moyenne mobile");
+		super("qui a subit une moyenne mobile ponderee");
 		this.saisonnalite=saison;
+		this.ponderations = pond;
 	}
 	
-
-	@Override
+	
+	
+	
 	public void calcul()
-
-
 	{
 		int taille = Serie.getCurrent().getValeur().size();
 		double somme = 0;
@@ -69,7 +70,7 @@ public class MoyenneMobile extends Transformation
 					 			Serie.getCurrent().getDate(),resultat);	
 			}
 		}
-	
+		// TODO Auto-generated method stub
 		
 	}
 }

@@ -45,16 +45,26 @@ public  class Tools {
 	 redo.clear();
 	}
    
-	public static SerieChronologiqueTab grapheToTab(SerieChronologiqueGraphe laSerie)
+	public static  void grapheToTab()
 	{
-		SerieChronologiqueTab nouvelleSerie = new SerieChronologiqueTab(laSerie.getNom(),laSerie.getDate(),laSerie.getValeur());
+		toDo();
+		SerieChronologiqueTab nouvelleSerie = new SerieChronologiqueTab(Serie.getCurrent().getNom(),
+											Serie.getCurrent().getDate(),Serie.getCurrent().getValeur());
 		
-		return nouvelleSerie;
+		
 	}
 	
-	public static SerieChronologiqueGraphe tabToGraphe(SerieChronologiqueTab laSerie)
+	public static void tabToGraphe()
 	{
-		SerieChronologiqueGraphe nouvelleSerie = new SerieChronologiqueGraphe(laSerie.getNom(),laSerie.getDate(),laSerie.getValeur());
-		return nouvelleSerie;
+		toDo();
+		SerieChronologiqueGraphe nouvelleSerie = new SerieChronologiqueGraphe(Serie.getCurrent().getNom(),
+												Serie.getCurrent().getDate(),Serie.getCurrent().getValeur());
+		
+	}
+	
+	public static void toTransfoLog()
+	{
+		toDo();
+		
 	}
 }

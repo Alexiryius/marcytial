@@ -7,10 +7,9 @@ public class ActionEcoute{
 
 static ActionListener monActionEcouteur = new ActionListener() {
 	boolean clic = false;	
-	Visuel monVisu = new Visuel();
 	public void actionPerformed(ActionEvent e){
 		Object source=e.getSource();    
-	    if (source==monVisu.tab){
+	    if (source==Visuel.tab){
 	    	if(clic == false){
 	    		Visuel.tab.setText("graphique");
 	    		clic = true;

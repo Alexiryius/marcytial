@@ -25,26 +25,46 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 		return (this.getDate() != null) ;
 	}
 	
-	@Override
+
 	public JPanel returnPanel() {
 		
         JPanel contentPane = new JPanel(null);	
 		if (isInitialized()) {
-			Vector<Date> listDate = new Vector<>(this.getDate());
-			Vector<Double> listValeur = new Vector<>(this.getValeur());
-			JTable tableau = new JTable(listDate, listValeur);
+			int taille =this.getDate().size();
+			
+			Vector<Object> listDate = new Vector<>(taille);
+			Vector<Object> listValeur = new Vector<>(taille);
+			
+			for(int i =0; i<taille;i++)
+			{
+				listDate.add(this.getDate().get(i));
+				listValeur.add(this.getValeur().get(i));
+			
+			}
+			
+			Vector<Vector<Object>> dataVector= new Vector<Vector<Object>>();
+				
+			dataVector.add(listDate);
+			dataVector.add(listValeur);
+			
+			Vector<String> nameVector= new Vector<String>();
+			
+			nameVector.addElement("date");
+			nameVector.addElement("Valeur");
+			
+			
+			JTable tableau = new JTable(dataVector, nameVector);
 			JScrollPane scrollPane = new JScrollPane(tableau);
-	        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 	        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-	        scrollPane.setBounds(50, 30, 300, 50);
+	    	scrollPane.setBounds(30, 30, 500, 500);
 	        contentPane.add(scrollPane);
 		} else {
 			JLabel text = new JLabel("Y a rien") ;
 			contentPane.add(text) ;
 		}
-		contentPane.setSize(new Dimension(50, 50));
-        contentPane.setPreferredSize(new Dimension(50, 50));
-        contentPane.setBackground(Color.BLUE);
+	
+        contentPane.setBackground(Color.red);
         
         return contentPane;
 	}

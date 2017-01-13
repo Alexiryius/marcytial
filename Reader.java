@@ -1,7 +1,7 @@
 package marcytial;
 
 
-	import java.io.*;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -9,31 +9,27 @@ import java.util.*;
 
 
 public class Reader {
-	
-	private List <Serie> liste;
+
 	private Serie laserie;
 	
 	public Reader(String nomfichier,boolean graphe) throws IOException, ParseException 
 	{
 		if(graphe)
 			{
-			laserie= readerCSVGraphe(nomfichier);
+			setLaserie(readerCSVGraphe(nomfichier));
 			
 			}
 		else{
-			laserie= readerCSVTab(nomfichier);
+			setLaserie(readerCSVTab(nomfichier));
 		}
 	}
 	
-	
-					
+			
 	public SerieChronologiqueGraphe readerCSVGraphe(String nomFichier) throws IOException, ParseException
 	{  
 		Serie suite= new SerieChronologiqueGraphe();
 		Scanner sc = new Scanner(new FileReader(nomFichier));
-		String ligne;
 		String[] lignes;
-		Date dat;
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
 		String nom = nomFichier;
 		ArrayList <Date> date = new ArrayList<Date>();
@@ -41,15 +37,15 @@ public class Reader {
 		
 		while (sc.hasNextLine()) 
 		{
-			ligne = sc.nextLine();
-			lignes = ligne.split(";"); 
-			String dateInString = lignes[1];
-			dat = formatter.parse(dateInString);
-			date.add(dat);
-			valeur.add(Double.parseDouble(lignes[2]));
+			lignes = sc.nextLine().split(";"); 
+
+			date.add(formatter.parse(lignes[0]));
+			valeur.add(Double.parseDouble(lignes[1]));
+
 		}
 		
 		suite.setDate(date);
+		System.out.println(suite.getDate());
 		suite.setNom(nom);
 		suite.setValeur(valeur);
 		sc.close();
@@ -60,9 +56,7 @@ public class Reader {
 	{ 
 		Serie suite= new SerieChronologiqueTab();
 		Scanner sc = new Scanner(new FileReader(nomFichier));
-		String ligne;
 		String[] lignes;
-		Date dat;
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
 		String nom = nomFichier;
 		ArrayList <Date> date = new ArrayList<Date>();
@@ -70,28 +64,22 @@ public class Reader {
 		
 		while (sc.hasNextLine()) 
 		{
-			ligne = sc.nextLine();
-			lignes = ligne.split(";"); 
-			String dateInString = lignes[1];
-			dat = formatter.parse(dateInString);
-			date.add(dat);
-			valeur.add(Double.parseDouble(lignes[2]));
+			lignes = sc.nextLine().split(";"); 
+			date.add(formatter.parse(lignes[0]));
+			valeur.add(Double.parseDouble(lignes[1]));
 		}
 		
 		suite.setDate(date);
 		suite.setNom(nom);
 		suite.setValeur(valeur);
 		sc.close();
-		return  (SerieChronologiqueTab) suite; 
+		return (SerieChronologiqueTab) suite; 
 	}
 	
 	public void printSuiteLis(Serie suite) {
-		for (Serie sc : liste) { 
-			System.out.println(sc.getNom() + " | " + sc.getDate()
-				     + " | " + sc.getValeur()  );
-			}
-	
-		
+		System.out.println(suite.getNom() + " | " + suite.getDate()
+				     + " | " + suite.getValeur() );
+					
 	}
 	
 	public void writeCSV(String nomfichier , Serie suite)throws IOException
@@ -99,17 +87,26 @@ public class Reader {
 		
 		FileWriter fw = new FileWriter (nomfichier,true);
 		BufferedWriter bw = new BufferedWriter(fw); 
-		for (Serie sc : liste)
-		{
-			fw.write (sc.getNom()+";");
-			fw.write (sc.getDate()+";");
-			fw.write (sc.getValeur().toString());
+		
+			fw.write (suite.getNom()+";");
+			fw.write (suite.getDate()+";");
+			fw.write (suite.getValeur().toString());
 			fw.write ("\r\n");
-		}
+	
 		bw.flush(); 
 		bw.close(); 
 		fw.close();
 	}
 	
-		
+	public Serie getLaserie() {
+		return laserie;
+	}
+
+
+
+	public void setLaserie(Serie laserie) {
+		this.laserie = laserie;
+	}
+
+	
 }
