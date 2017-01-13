@@ -6,9 +6,7 @@ import java.lang.Math;
 public class TransfoLog extends Transformation
 {
 	
-	
 
-	
 	public TransfoLog()
 	{
 		super("a l'échelle logarithmique");
