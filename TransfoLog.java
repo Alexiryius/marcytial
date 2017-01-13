@@ -1,37 +1,44 @@
 package marcytial;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Date;
 import java.lang.Math;
 
-public class TransfoLog implements Transformations
+public class TransfoLog extends Transformation
 {
-	//private Serie serieTransfoLog;
-	public ArrayList<Double> valeurLog = new ArrayList<Double>();
-	SerieChronologiqueTab sct = new SerieChronologiqueTab();
-	//SerieChronologiqueGraphe scg = new SerieChronologiqueGraphe();
 	
-	public ArrayList<Double> transfoLog()	
+	
+
+	
+	public TransfoLog()
 	{
-			
-		
-		for(int i = 0;i < sct.getValeur().size();i++)
-			{
-				valeurLog.add(Math.log(sct.getValeur().get(i)));
-			}
-		return valeurLog;
+		super("a l'échelle logarithmique");
 	}
 	
-	/*public ArrayList<Double> transfoLog(Serie serie)
+	
+	
+	public void calcul()	
 	{
+		int taille =Serie.getCurrent().getValeur().size();
+		ArrayList<Double> result= new ArrayList<>();
 		
-		
-		
-		return transfoLog(serie);
-	}*/
+		for(int i = 0;i < taille ;i++)
+			{
+			result.add(Math.log(Serie.getCurrent().getValeur().get(i)));
+			}
+		if( Serie.getCurrent() instanceof SerieChronologiqueGraphe){
+			
+			Tools.toDo();
+			new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+			 			Serie.getCurrent().getDate(),result);	
 	
-	public SerieChronologiqueTab transfoLogTab = new SerieChronologiqueTab("Série transformée Log",sct.getDate(),transfoLog());
-	public SerieChronologiqueGraphe transfoLogGraphe = new SerieChronologiqueGraphe("Série transformée Log",sct.getDate(),transfoLog());
+		}
+		else
+		{
+			Tools.toDo();
+		    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+				 			Serie.getCurrent().getDate(),result);	
+		}
+	}
 	
+		
 }
