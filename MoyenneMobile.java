@@ -4,17 +4,20 @@ import java.util.ArrayList;
 
 public class MoyenneMobile extends Transformation
 {
-	public MoyenneMobile(){
+	private int saisonnalite ;
+			
+	public MoyenneMobile(int saison){
 		super("qui a subit une moyenne mobile");
+		this.saisonnalite=saison;
 	}
 	SerieChronologiqueTab moyMobile = new SerieChronologiqueTab();
-	int saisonnalite = XX//a definir par l'user
+	
 	
 	public ArrayList<Double> mmobile()
 	{
-		if(saisonnalite%2 == 0)
+		if(this.saisonnalite%2 == 0)
 		{		
-			for(int i = saisonnalite / 2;i < moyMobile.getValeur().size() - saisonnalite / 2;i++)
+			for(int i = this.saisonnalite / 2;i < moyMobile.getValeur().size() - this.saisonnalite / 2;i++)
 			{
 				
 			}
@@ -25,5 +28,11 @@ public class MoyenneMobile extends Transformation
 		}
 		
 		return moyenneMobile;
+	}
+
+	@Override
+	void calcul() {
+		// TODO Auto-generated method stub
+		
 	}
 }
