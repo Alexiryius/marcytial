@@ -8,11 +8,13 @@ import java.lang.Math;
 public class TransfoLog implements Transformations
 {
 	//private Serie serieTransfoLog;
-	public ArrayList<Double> valeurLog = new ArrayList<Double>();
+	
+	
+	private ArrayList<Double> valeurLog = new ArrayList<Double>();
 	SerieChronologiqueTab sct = new SerieChronologiqueTab();
 	//SerieChronologiqueGraphe scg = new SerieChronologiqueGraphe();
 	
-	public ArrayList<Double> transfoLog()	
+	private ArrayList<Double> transfoLog()	
 	{
 			
 		
