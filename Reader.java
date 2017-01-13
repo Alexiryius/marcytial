@@ -10,7 +10,7 @@ import java.util.*;
 
 public class Reader {
 	
-	private List <Serie> liste;
+	
 	private Serie laserie;
 	
 	public Reader(String nomfichier,Boolean graphe) throws IOException, ParseException 
@@ -31,9 +31,9 @@ public class Reader {
 	{  
 		Serie suite= new SerieChronologiqueGraphe();
 		Scanner sc = new Scanner(new FileReader(nomFichier));
-		String ligne;
 		String[] lignes;
-		Date dat;
+		
+		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
 		String nom = nomFichier;
 		ArrayList <Date> date = new ArrayList<Date>();
@@ -41,21 +41,32 @@ public class Reader {
 		
 		while (sc.hasNextLine()) 
 		{
-			ligne = sc.nextLine();
-			lignes = ligne.split(";"); 
-			String dateInString = lignes[1];
-			dat = formatter.parse(dateInString);
-			date.add(dat);
+			lignes = sc.nextLine().split(";"); 
+			date.add(formatter.parse(lignes[1]));
 			valeur.add(Double.parseDouble(lignes[2]));
+			
 		}
 		
 		suite.setDate(date);
+		System.out.println(suite.getDate());
 		suite.setNom(nom);
 		suite.setValeur(valeur);
 		sc.close();
 		return (SerieChronologiqueGraphe) suite; 
 	}
 	
+	public Serie getLaserie() {
+		return laserie;
+	}
+
+
+
+	public void setLaserie(Serie laserie) {
+		this.laserie = laserie;
+	}
+
+
+
 	private SerieChronologiqueTab readerCSVTab(String nomFichier) throws IOException, ParseException
 	{ 
 		Serie suite= new SerieChronologiqueTab();
