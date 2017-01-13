@@ -95,6 +95,7 @@ public class Visuel extends JFrame{
 	JLabel label = new JLabel("Outil Marcytial");
 	public static JButton validBouton = new JButton("ok");
 	public JPanel GraphPan = new JPanel();
+	
 
 
 	public Visuel(){
@@ -104,55 +105,45 @@ public class Visuel extends JFrame{
     	int hauteur = (int)dimension.getHeight();
     	int largeur  = (int)dimension.getWidth();
     	
+//    	
+//    	
+//    	JPanel milieuGauche = new JPanel();
+//    	milieuGauche.setBorder(BorderFactory.createLineBorder(Color.black)); 
+//    	milieuGauche.setLayout(new BoxLayout(milieuGauche, BoxLayout.PAGE_AXIS));
+//    	milieuGauche.add(Box.createRigidArea(new Dimension(0,200)));
+//    	//transfoList.setAlignmentX(Component.CENTER_ALIGNMENT);
+//    	milieuGauche.add(transfoList);
+//    	milieuGauche.add(Box.createRigidArea(new Dimension(0,100)));
+//    	//validBouton.setAlignmentX(Component.CENTER_ALIGNMENT);
+//    	validBouton.addActionListener(ActionEcoute.monActionEcouteur);
+//    	milieuGauche.add(validBouton);
+//    	milieuGauche.add(Box.createRigidArea(new Dimension(0,800)));
+//    	
+//    	JPanel hautMilieuDroite= new JPanel();
+//    	hautMilieuDroite.setLayout(new BoxLayout(hautMilieuDroite, BoxLayout.LINE_AXIS));
+//    	//undoB.setAlignmentX(Component.LEFT_ALIGNMENT);
+//    	hautMilieuDroite.add(undoB);
+//    	//redoB.setAlignmentX(Component.LEFT_ALIGNMENT);
+//    	hautMilieuDroite.add(redoB);
     	
-    	
-    	JPanel milieuGauche = new JPanel();
-    	milieuGauche.setBorder(BorderFactory.createLineBorder(Color.black)); 
-    	milieuGauche.setLayout(new BoxLayout(milieuGauche, BoxLayout.PAGE_AXIS));
-    	milieuGauche.add(Box.createRigidArea(new Dimension(0,200)));
-    	//transfoList.setAlignmentX(Component.CENTER_ALIGNMENT);
-    	milieuGauche.add(transfoList);
-    	milieuGauche.add(Box.createRigidArea(new Dimension(0,100)));
-    	//validBouton.setAlignmentX(Component.CENTER_ALIGNMENT);
-    	validBouton.addActionListener(ActionEcoute.monActionEcouteur);
-    	milieuGauche.add(validBouton);
-    	milieuGauche.add(Box.createRigidArea(new Dimension(0,800)));
-    	
-    	JPanel hautMilieuDroite= new JPanel();
-    	hautMilieuDroite.setLayout(new BoxLayout(hautMilieuDroite, BoxLayout.LINE_AXIS));
-    	//undoB.setAlignmentX(Component.LEFT_ALIGNMENT);
-    	hautMilieuDroite.add(undoB);
-    	//redoB.setAlignmentX(Component.LEFT_ALIGNMENT);
-    	hautMilieuDroite.add(redoB);
-    	
-    	
-    	JPanel milieuDroite = new JPanel();
-    	milieuDroite.setBorder(BorderFactory.createLineBorder(Color.black)); 
-    	milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
-    	//hautMilieuDroite.setAlignmentX(Component.CENTER_ALIGNMENT);
-    	milieuDroite.add(hautMilieuDroite);
-    	//Serie.getCurrent().returnPanel().setAlignmentX(Component.CENTER_ALIGNMENT);
-    	milieuDroite.add(Serie.getCurrent().returnPanel());
-    	//tab.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-    	JPanel milieu = new JPanel();
-    	milieu.setLayout(new BoxLayout(milieu, BoxLayout.LINE_AXIS));
-    	//milieuGauche.setAlignmentX(Component.RIGHT_ALIGNMENT);
-    	milieu.add(milieuGauche);
-    	//milieu.setAlignmentX(Component.RIGHT_ALIGNMENT);
-    	milieu.add(milieuDroite);
-    	
-    	JPanel haut = new JPanel();
-    	haut.setBorder(BorderFactory.createLineBorder(Color.black)); 
-    	haut.setLayout(new BoxLayout(haut, BoxLayout.LINE_AXIS));
-    	haut.add(Box.createRigidArea(new Dimension(60,30)));
-    	//label.setAlignmentX(Component.LEFT_ALIGNMENT);
-    	haut.add(label);
-    	haut.add(Box.createRigidArea(new Dimension(largeur-245,30)));
-    	//bouton.setAlignmentX(Component.RIGHT_ALIGNMENT);
-    	haut.add(bouton);
-    	haut.add(Box.createRigidArea(new Dimension(60,30)));
-    	
+//    	JPanel milieu = new JPanel();
+//    	milieu.setLayout(new BoxLayout(milieu, BoxLayout.LINE_AXIS));
+//    	//milieuGauche.setAlignmentX(Component.RIGHT_ALIGNMENT);
+//    	milieu.add(milieuGauche);
+//    	//milieu.setAlignmentX(Component.RIGHT_ALIGNMENT);
+//    	milieu.add(milieuDroite);
+//    	
+//    	JPanel haut = new JPanel();
+//    	haut.setBorder(BorderFactory.createLineBorder(Color.black)); 
+//    	haut.setLayout(new BoxLayout(haut, BoxLayout.LINE_AXIS));
+//    	haut.add(Box.createRigidArea(new Dimension(60,30)));
+//    	//label.setAlignmentX(Component.LEFT_ALIGNMENT);
+//    	haut.add(label);
+//    	haut.add(Box.createRigidArea(new Dimension(largeur-245,30)));
+//    	//bouton.setAlignmentX(Component.RIGHT_ALIGNMENT);
+//    	haut.add(bouton);
+//    	haut.add(Box.createRigidArea(new Dimension(60,30)));
+//    	
     	
 //    	JPanel panneauPrinc = new JPanel();
 //    	panneauPrinc.setLayout(new BoxLayout(panneauPrinc, BoxLayout.PAGE_AXIS));
@@ -166,8 +157,15 @@ public class Visuel extends JFrame{
 //    	this.setContentPane(panneauPrinc);
 //    	this.setVisible(true);
     	
+    	
+    	JPanel milieuDroite = new JPanel();
+    	milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
+    	milieuDroite.add(Serie.getCurrent().returnPanel());
+    	
+    	
+    	
     	JPanel graphTab = new JPanel();
-    	graphTab.setBorder(BorderFactory.createLineBorder(Color.black)); 
+    
     	graphTab.add(Serie.getCurrent().returnPanel());
     	
     	JPanel panneauPrinc2 = new JPanel();
@@ -175,20 +173,20 @@ public class Visuel extends JFrame{
     	this.setSize(largeur,hauteur);
     	label.setBounds(20,10,160,30);
     	panneauPrinc2.add(label);
-      	bouton.setBounds(largeur-120,10,60,30);
+      	bouton.setBounds(largeur-120,20,60,30);
     	panneauPrinc2.add(bouton);
       	undoB.setBounds(1100,70,80,20);
     	panneauPrinc2.add(undoB);
       	redoB.setBounds(1190,70,80,20);
     	panneauPrinc2.add(redoB);
-    	transfoList.setBounds(100,120,150,22);
+    	transfoList.setBounds(400,120,150,22);
     	panneauPrinc2.add(transfoList);
-    	validBouton.setBounds(170,150,80,20);
+    	validBouton.setBounds(470,157,80,22);
     	panneauPrinc2.add(validBouton);
-    	milieuDroite.setBounds(700,120,500,500);
-    	//Serie.getCurrent().returnPanel().setBorder(BorderFactory.createLineBorder(Color.black)); 
+    	milieuDroite.setBounds(576,120,728,500);
     	panneauPrinc2.add(milieuDroite);
     	tab.setBounds(1130,650,120,25);
+    	tab.addActionListener(ActionEcoute.monActionEcouteur);
     	panneauPrinc2.add(tab);
     	this.setTitle("Projet Marcytial");
     	this.setLocationRelativeTo(null);
