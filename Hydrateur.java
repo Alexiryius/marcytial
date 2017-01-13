@@ -35,7 +35,7 @@ public Hydrateur() throws IOException, ParseException
 
 	 
 
-	  reader= new Reader("src/marcytial/suiteChrono.csv",false);
+	  reader= new Reader("src/marcytial/suiteChrono.csv",true);
 
 	  laSerie=reader.getLaserie();
 	  visuel= new Visuel();
@@ -47,7 +47,7 @@ public Hydrateur() throws IOException, ParseException
 
 	
 
-	reader= new Reader("src/marcytial/suiteChrono.csv",false);
+	reader= new Reader("src/marcytial/suiteChrono.csv",true);
 
 	laSerie= nouvelleSerie;
 	visuel =new Visuel();
