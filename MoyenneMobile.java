@@ -13,12 +13,10 @@ public class MoyenneMobile extends Transformation
 	}
 	
 
-<<<<<<< HEAD
 	@Override
 	public void calcul()
-=======
-	void calcul()
->>>>>>> 17d9653f39d214dc70c79dcfce040b5596ab73f6
+
+
 	{
 		int taille = Serie.getCurrent().getValeur().size();
 		double somme = 0;
