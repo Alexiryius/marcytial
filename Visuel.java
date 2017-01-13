@@ -115,30 +115,30 @@ public class Visuel extends JFrame{
     	milieuGauche.setBorder(BorderFactory.createLineBorder(Color.black)); 
     	milieuGauche.setLayout(new BoxLayout(milieuGauche, BoxLayout.PAGE_AXIS));
     	milieuGauche.add(Box.createRigidArea(new Dimension(0,200)));
-    	transfoList.setAlignmentX(Component.CENTER_ALIGNMENT);
+    	//transfoList.setAlignmentX(Component.CENTER_ALIGNMENT);
     	milieuGauche.add(transfoList);
     	milieuGauche.add(Box.createRigidArea(new Dimension(0,100)));
-    	validBouton.setAlignmentX(Component.CENTER_ALIGNMENT);
+    	//validBouton.setAlignmentX(Component.CENTER_ALIGNMENT);
     	validBouton.addActionListener(ActionEcoute.monActionEcouteur);
     	milieuGauche.add(validBouton);
     	milieuGauche.add(Box.createRigidArea(new Dimension(0,800)));
     	
     	JPanel hautMilieuDroite= new JPanel();
     	hautMilieuDroite.setLayout(new BoxLayout(hautMilieuDroite, BoxLayout.LINE_AXIS));
-    	undoB.setAlignmentX(Component.LEFT_ALIGNMENT);
+    	//undoB.setAlignmentX(Component.LEFT_ALIGNMENT);
     	hautMilieuDroite.add(undoB);
-    	redoB.setAlignmentX(Component.LEFT_ALIGNMENT);
+    	//redoB.setAlignmentX(Component.LEFT_ALIGNMENT);
     	hautMilieuDroite.add(redoB);
-    	hautMilieuDroite.add(Box.createRigidArea(new Dimension(200,10)));
+    	
     	
     	JPanel milieuDroite = new JPanel();
     	milieuDroite.setBorder(BorderFactory.createLineBorder(Color.black)); 
     	milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
-    	hautMilieuDroite.setAlignmentX(Component.CENTER_ALIGNMENT);
+    	//hautMilieuDroite.setAlignmentX(Component.CENTER_ALIGNMENT);
     	milieuDroite.add(hautMilieuDroite);
     	//Serie.getCurrent().returnPanel().setAlignmentX(Component.CENTER_ALIGNMENT);
-    	//milieuDroite.add(Serie.getCurrent().returnPanel());
-    	tab.setAlignmentX(Component.CENTER_ALIGNMENT);
+    	milieuDroite.add(Serie.getCurrent().returnPanel());
+    	//tab.setAlignmentX(Component.CENTER_ALIGNMENT);
     	tab.addActionListener(ActionEcoute.monActionEcouteur);
     	milieuDroite.add(tab);
 
@@ -146,28 +146,28 @@ public class Visuel extends JFrame{
     	milieu.setLayout(new BoxLayout(milieu, BoxLayout.LINE_AXIS));
     	//milieuGauche.setAlignmentX(Component.RIGHT_ALIGNMENT);
     	milieu.add(milieuGauche);
-    	milieu.setAlignmentX(Component.RIGHT_ALIGNMENT);
+    	//milieu.setAlignmentX(Component.RIGHT_ALIGNMENT);
     	milieu.add(milieuDroite);
     	
     	JPanel haut = new JPanel();
     	haut.setBorder(BorderFactory.createLineBorder(Color.black)); 
     	haut.setLayout(new BoxLayout(haut, BoxLayout.LINE_AXIS));
     	haut.add(Box.createRigidArea(new Dimension(60,30)));
-    	label.setAlignmentX(Component.LEFT_ALIGNMENT);
+    	//label.setAlignmentX(Component.LEFT_ALIGNMENT);
     	haut.add(label);
     	haut.add(Box.createRigidArea(new Dimension(largeur-245,30)));
-    	bouton.setAlignmentX(Component.RIGHT_ALIGNMENT);
+    	//bouton.setAlignmentX(Component.RIGHT_ALIGNMENT);
     	haut.add(bouton);
     	haut.add(Box.createRigidArea(new Dimension(60,30)));
     	
     	
     	JPanel panneauPrinc = new JPanel();
     	panneauPrinc.setLayout(new BoxLayout(panneauPrinc, BoxLayout.PAGE_AXIS));
-    	haut.setAlignmentX(Component.TOP_ALIGNMENT);
-    	panneauPrinc.add(haut,BorderLayout.CENTER);
+    	//haut.setAlignmentX(Component.TOP_ALIGNMENT);
+    	panneauPrinc.add(haut);
     	milieuGauche.add(Box.createRigidArea(new Dimension(0,20)));
-    	haut.setAlignmentX(Component.CENTER_ALIGNMENT);
-    	panneauPrinc.add(milieu,BorderLayout.CENTER);
+    	//haut.setAlignmentX(Component.CENTER_ALIGNMENT);
+    	panneauPrinc.add(milieu);
     	milieuGauche.add(Box.createRigidArea(new Dimension(500,0)));
     	this.setContentPane(panneauPrinc);
     	this.setVisible(true);

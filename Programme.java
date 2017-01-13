@@ -10,8 +10,6 @@ public class Programme{
 		
 Hydrateur hydra  = new Hydrateur();
 
-		System.out.println(hydra.getLaSerie());
-		System.out.println(hydra.getLaSerie().getNom());
-		System.out.println(hydra.getLaSerie().getDate());
+	
 	}
 } 

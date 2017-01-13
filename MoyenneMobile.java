@@ -11,28 +11,14 @@ public class MoyenneMobile extends Transformation
 		super("qui a subit une moyenne mobile");
 		this.saisonnalite=saison;
 	}
-	//SerieChronologiqueTab moyMobile = new SerieChronologiqueTab();
 	
-	
-	/*public ArrayList<Double> mmobile()
-	{
-		if(this.saisonnalite%2 == 0)
-		{		
-			for(int i = this.saisonnalite / 2;i < moyMobile.getValeur().size() - this.saisonnalite / 2;i++)
-			{
-				
-			}
-		}
-		else
-		{
-			
-		}
-		
-		return moyenneMobile;
-	}*/
 
+<<<<<<< HEAD
 	@Override
 	public void calcul()
+=======
+	void calcul()
+>>>>>>> 17d9653f39d214dc70c79dcfce040b5596ab73f6
 	{
 		int taille = Serie.getCurrent().getValeur().size();
 		double somme = 0;
@@ -85,7 +71,7 @@ public class MoyenneMobile extends Transformation
 					 			Serie.getCurrent().getDate(),resultat);	
 			}
 		}
-		// TODO Auto-generated method stub
+	
 		
 	}
 }

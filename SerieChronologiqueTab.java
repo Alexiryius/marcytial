@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class SerieChronologiqueTab extends Serie implements AffTab  {
 
@@ -25,38 +27,44 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 		return (this.getDate() != null) ;
 	}
 	
-	@Override
+
 	public JPanel returnPanel() {
 		
         JPanel contentPane = new JPanel(null);	
 		if (isInitialized()) {
 			int taille =this.getDate().size();
-			Vector<Date> listDate = new Vector<>(taille);
-			Vector<Double> listValeur = new Vector<>(taille);
+			
+		    Object [][] listData= new Object[taille][2]  ;
+			
 			
 			for(int i =0; i<taille;i++)
 			{
-				listDate.addElement(this.getDate().get(i));
-				listValeur.addElement(this.getValeur().get(i));
+				listData[i][0]=this.getDate().get(i);
+				listData[i][1]=this.getValeur().get(i);
 			
 			}
-			Vector<Vector> rowData = new Vector<Vector>();
-			rowData.addElement(listDate);
-			Vector<Vector> columnNames = new Vector<Vector>();
-			rowData.addElement(listValeur);
 			
-			JTable tableau = new JTable(rowData, columnNames);
+			
+			
+			String[] nameVector= {"date","Valeur"};
+			
+			
+			
+			System.out.println(nameVector);
+			
+			TableModel model = new DefaultTableModel(listData,nameVector);
+			JTable tableau = new JTable( model );
+			
 			JScrollPane scrollPane = new JScrollPane(tableau);
-	        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-	        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-	        scrollPane.setBounds(50, 30, 300, 50);
+	        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+	        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+	    	scrollPane.setBounds(30, 30, 500, 500);
 	        contentPane.add(scrollPane);
 		} else {
 			JLabel text = new JLabel("Y a rien") ;
 			contentPane.add(text) ;
 		}
-		contentPane.setSize(new Dimension(50, 50));
-        contentPane.setPreferredSize(new Dimension(50, 50));
+	
         contentPane.setBackground(Color.red);
         
         return contentPane;
