@@ -13,7 +13,7 @@ public abstract class Serie
 	private String nom = "";
 	private ArrayList<Date> date ;
 	private ArrayList<Double>valeur ;
-	private Transformations transformation;	
+	private Transformation transformation;	
 	
 	//Constructeur
 	Serie()
@@ -35,7 +35,7 @@ public abstract class Serie
 		this.transformation = null;
 		current=this;
 	}
-	Serie(String nom, ArrayList<Date> date, ArrayList<Double> valeur, Transformations transformation)
+	Serie(String nom, ArrayList<Date> date, ArrayList<Double> valeur, Transformation transformation)
 	{
 		id++;
 		this.nom = nom;
@@ -80,7 +80,7 @@ public abstract class Serie
 		this.valeur = n;
 	}
 	
-	public Transformations getTransformation()
+	public Transformation getTransformation()
 	{
 		return this.transformation;
 	}
