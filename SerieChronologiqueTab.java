@@ -40,8 +40,12 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 				listValeur.addElement(this.getValeur().get(i));
 			
 			}
+			Vector<Vector> rowData = new Vector<Vector>();
+			rowData.addElement(listDate);
+			Vector<Vector> columnNames = new Vector<Vector>();
+			rowData.addElement(listValeur);
 			
-			JTable tableau = new JTable(listDate, listValeur);
+			JTable tableau = new JTable(rowData, columnNames);
 			JScrollPane scrollPane = new JScrollPane(tableau);
 	        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
