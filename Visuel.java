@@ -112,42 +112,45 @@ public class Visuel extends JFrame{
     	this.setLocationRelativeTo(null);
     	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     	
-    	//deux petits bouton
-    	JPanel peterPan = new JPanel();
-    	peterPan.setLayout(new BoxLayout(peterPan, BoxLayout.LINE_AXIS));
+    	
+    	JPanel milieuGauche = new JPanel();
+    	milieuGauche.setLayout(new BoxLayout(milieuGauche, BoxLayout.PAGE_AXIS));
+    	milieuGauche.add(Box.createRigidArea(new Dimension(0,200)));
+    	transfoList.setAlignmentX(Component.RIGHT_ALIGNMENT);
+    	milieuGauche.add(transfoList);
+    	milieuGauche.add(Box.createRigidArea(new Dimension(0,100)));
+    	validBouton.setAlignmentX(Component.RIGHT_ALIGNMENT);
     	validBouton.addActionListener(ActionEcoute.monActionEcouteur);
-    	peterPan.add(validBouton);
+    	milieuGauche.add(validBouton);
+    	milieuGauche.add(Box.createRigidArea(new Dimension(0,800)));
+    	
+    	JPanel milieuDroite = new JPanel();
+    	milieuDroite.add(Box.createRigidArea(new Dimension(0,800)));
+    	milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
+    	Serie.getCurrent().returnPanel().setAlignmentX(Component.CENTER_ALIGNMENT);
+    	milieuDroite.add(Serie.getCurrent().returnPanel());
+    	tab.setAlignmentX(Component.LEFT_ALIGNMENT);
     	tab.addActionListener(ActionEcoute.monActionEcouteur);
-    	peterPan.add(tab);
+    	milieuDroite.add(tab);
     	
-    	// peterpanel et combobox
-    	JPanel choixPan = new JPanel();
-    	choixPan.setLayout(new BoxLayout(choixPan, BoxLayout.PAGE_AXIS));
-    	choixPan.add(Box.createRigidArea(new Dimension(0,200)));
-    	transfoList.setAlignmentX(Component.LEFT_ALIGNMENT);
-    	choixPan.add(transfoList);
-    	choixPan.add(Box.createRigidArea(new Dimension(0,100)));
-    	peterPan.setAlignmentX(Component.LEFT_ALIGNMENT);
-    	choixPan.add(peterPan);
-    	choixPan.add(Box.createRigidArea(new Dimension(0,600)));
+    	JPanel milieu = new JPanel();
+    	milieu.setLayout(new BoxLayout(milieu, BoxLayout.LINE_AXIS));
+    	milieuGauche.setAlignmentY(Component.CENTER_ALIGNMENT);
+    	milieu.add(milieuGauche);
+    	milieu.setAlignmentY(Component.CENTER_ALIGNMENT);
+    	milieu.add(milieuDroite);
     	
-    	// choixpan et graphique
-    	JPanel tablPan = new JPanel();
-    	tablPan.setLayout(new BoxLayout(tablPan, BoxLayout.LINE_AXIS));
-    	tablPan.add(choixPan,BorderLayout.WEST);
     	//SerieChronologiqueGraphe scg = new SerieChronologiqueGraphe() ;
-    	tablPan.add(Serie.getCurrent().returnPanel(),BorderLayout.CENTER);
-    	
     	
     	JPanel entetPan = new JPanel();
     	entetPan.setLayout(new BoxLayout(entetPan, BoxLayout.LINE_AXIS));
     	label.setAlignmentX(Component.RIGHT_ALIGNMENT);
     	entetPan.add(label);
-    	choixPan.add(Box.createRigidArea(new Dimension(200,10)));
+    	milieuGauche.add(Box.createRigidArea(new Dimension(200,10)));
     	entetPan.add(undoB);
-    	choixPan.add(Box.createRigidArea(new Dimension(10,10)));
+    	milieuGauche.add(Box.createRigidArea(new Dimension(10,10)));
     	entetPan.add(redoB);
-    	choixPan.add(Box.createRigidArea(new Dimension(200,10)));
+    	milieuGauche.add(Box.createRigidArea(new Dimension(200,10)));
     	bouton.setAlignmentX(Component.LEFT_ALIGNMENT);
     	entetPan.add(bouton);
     	
@@ -159,9 +162,9 @@ public class Visuel extends JFrame{
     	JPanel panneauPrinc = new JPanel();
     	panneauPrinc.setLayout(new BoxLayout(panneauPrinc, BoxLayout.PAGE_AXIS));
     	panneauPrinc.add(entetPan,BorderLayout.CENTER);
-    	choixPan.add(Box.createRigidArea(new Dimension(0,20)));
-    	panneauPrinc.add(tablPan,BorderLayout.CENTER);
-    	choixPan.add(Box.createRigidArea(new Dimension(500,0)));
+    	milieuGauche.add(Box.createRigidArea(new Dimension(0,20)));
+    	panneauPrinc.add(milieu,BorderLayout.CENTER);
+    	milieuGauche.add(Box.createRigidArea(new Dimension(500,0)));
     	this.setContentPane(panneauPrinc);
     	this.setVisible(true);
     	System.out.println("le constructeur est executé");
