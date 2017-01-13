@@ -10,19 +10,47 @@ public class Hydrateur
 	private Serie laSerie;
 	
 	
-   public Hydrateur() throws IOException, ParseException
+   public Visuel getVisuel() {
+		return visuel;
+	}
+
+	public void setVisuel(Visuel visuel) {
+		this.visuel = visuel;
+	}
+
+	public Reader getReader() {
+		return reader;
+	}
+
+	public void setReader(Reader reader) {
+		this.reader = reader;
+	}
+
+	public Serie getLaSerie() {
+		return laSerie;
+	}
+
+public Hydrateur() throws IOException, ParseException
    {
+
+	 
+
+	  reader= new Reader("src/marcytial/suiteChrono.csv",true);
+
+	  laSerie=reader.getLaserie();
 	  visuel= new Visuel();
-	  reader= new Reader("suiteChrono.csv",true);
-	  laSerie=null;
-	  
+	 
    }	
   
    public Hydrateur(Serie nouvelleSerie) throws IOException, ParseException
    {
-	visuel =new Visuel();
-	reader= new Reader("suiteChrono.csv",true);
+
+	
+
+	reader= new Reader("src/marcytial/suiteChrono.csv",true);
+
 	laSerie= nouvelleSerie;
+	visuel =new Visuel();
 	
    }
   
@@ -31,4 +59,5 @@ public class Hydrateur
 	   this.laSerie=nouvelleSerie;
    }
  
+   
 }
