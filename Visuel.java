@@ -95,7 +95,7 @@ public class Visuel extends JFrame{
 	JLabel label = new JLabel("Outil Marcytial");
 	public static JButton validBouton = new JButton("ok");
 	public JPanel GraphPan = new JPanel();
-	
+	static JPanel milieuDroite = new JPanel();
 
 
 	public Visuel(){
@@ -157,8 +157,8 @@ public class Visuel extends JFrame{
 //    	this.setContentPane(panneauPrinc);
 //    	this.setVisible(true);
     	
+    	ActionEcoute listn = new ActionEcoute();
     	
-    	JPanel milieuDroite = new JPanel();
     	milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
     	milieuDroite.add(Serie.getCurrent().returnPanel());
     	
@@ -186,7 +186,7 @@ public class Visuel extends JFrame{
     	milieuDroite.setBounds(576,120,728,500);
     	panneauPrinc2.add(milieuDroite);
     	tab.setBounds(1130,650,120,25);
-    	tab.addActionListener(ActionEcoute.monActionEcouteur);
+    	tab.addActionListener(listn.monActionEcouteur);
     	panneauPrinc2.add(tab);
     	this.setTitle("Projet Marcytial");
     	this.setLocationRelativeTo(null);

@@ -5,17 +5,19 @@ import java.awt.event.ActionListener;
 
 public class ActionEcoute{
 
-static ActionListener monActionEcouteur = new ActionListener() {
+public ActionListener monActionEcouteur = new ActionListener() {
 	boolean clic = false;	
 	public void actionPerformed(ActionEvent e){
 		Object source=e.getSource();    
 	    if (source==Visuel.tab){
 	    	if(clic == false){
 	    		Visuel.tab.setText("graphique");
+	    		Hydrateur.changBool();
 	    		clic = true;
 	    	}
 	    	else{
 	    		Visuel.tab.setText("tableau");
+	    		Hydrateur.changBool();
 	    		clic = false;
 	    	}
 	    }
@@ -24,9 +26,11 @@ static ActionListener monActionEcouteur = new ActionListener() {
 			 String petName = (String)Visuel.transfoList.getSelectedItem();
 			 System.out.println(petName + " choisi");
 		}
-		
+		Serie.getCurrent().returnPanel().revalidate();
+		Serie.getCurrent().returnPanel().repaint();
 		
 	}
+	
 }
 	;
 }
