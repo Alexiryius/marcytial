@@ -2,6 +2,9 @@ package marcytial;
 
 import java.util.Stack;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public  class Tools {
 		
 	private static Stack<Serie> undo = new Stack<Serie>();
@@ -48,8 +51,8 @@ public  class Tools {
 	public static  void grapheToTab()
 	{
 		toDo();
-		SerieChronologiqueTab nouvelleSerie = new SerieChronologiqueTab(Serie.getCurrent().getNom(),
-											Serie.getCurrent().getDate(),Serie.getCurrent().getValeur());
+		new SerieChronologiqueTab(Serie.getCurrent().getNom(),
+		Serie.getCurrent().getDate(),Serie.getCurrent().getValeur());
 		
 		
 	}
@@ -57,14 +60,32 @@ public  class Tools {
 	public static void tabToGraphe()
 	{
 		toDo();
-		SerieChronologiqueGraphe nouvelleSerie = new SerieChronologiqueGraphe(Serie.getCurrent().getNom(),
-												Serie.getCurrent().getDate(),Serie.getCurrent().getValeur());
+		new SerieChronologiqueGraphe(Serie.getCurrent().getNom(),
+		Serie.getCurrent().getDate(),Serie.getCurrent().getValeur());
 		
 	}
 	
 	public static void toTransfoLog()
 	{
-		toDo();
+		TransfoLog tr = new TransfoLog();
+		tr.calcul();
+	}
+	
+	public static void toMoyenne()
+	{
+		Moyenne tr = new Moyenne();
+		tr.calcul();
+	}
+	
+	public static void toMoyenneMobile()
+	{
+		 String value1 = JOptionPane.showInputDialog("Avec quel saisonalité ? (entier attendu)");
+		 Integer value2 = Integer.parseInt(value1);
+
+              
 		
+	}
+
+	
 	}
 }
