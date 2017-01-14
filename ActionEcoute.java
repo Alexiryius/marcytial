@@ -26,8 +26,8 @@ public ActionListener monActionEcouteur = new ActionListener() {
 			 String petName = (String)Visuel.transfoList.getSelectedItem();
 			 System.out.println(petName + " choisi");
 		}
-		Serie.getCurrent().returnPanel().revalidate();
-		Serie.getCurrent().returnPanel().repaint();
+		//Serie.getCurrent().returnPanel().revalidate();
+		//Serie.getCurrent().returnPanel().repaint();
 		
 	}
 	

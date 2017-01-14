@@ -80,8 +80,7 @@ public class SerieChronologiqueGraphe extends Serie implements AffTab {
 			JScrollPane scrollPane = new JScrollPane(chartPanel);
 	        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-	        scrollPane.setBounds(50, 30, 300, 50);
-	       
+	        scrollPane.setBounds(0, 0, 728, 500);
 	        contentPane.add(scrollPane);
         }else {
 			JLabel text = new JLabel("Y a rien") ;
