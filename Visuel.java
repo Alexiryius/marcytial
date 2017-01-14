@@ -86,7 +86,6 @@ public class Visuel extends JFrame{
 
 	public Visuel(){
 		
-		
     	Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
     	int hauteur = (int)dimension.getHeight();
     	int largeur  = (int)dimension.getWidth();	
@@ -110,6 +109,7 @@ public class Visuel extends JFrame{
     	panneauPrinc2.add(labelChoix);
     	transfoList.setBounds(400,157,150,22);
     	panneauPrinc2.add(transfoList);
+    	validBouton.addActionListener(listn.monActionEcouteur);
     	validBouton.setBounds(470,194,80,22);
     	panneauPrinc2.add(validBouton);
     	milieuDroite.setBounds(576,120,728,500);
@@ -120,6 +120,7 @@ public class Visuel extends JFrame{
     	this.setTitle("Projet Marcytial");
     	this.setLocationRelativeTo(null);
     	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    	panneauPrinc2.setBackground(Color.LIGHT_GRAY);
     	this.setContentPane(panneauPrinc2);
     	this.revalidate();
     	this.setVisible(true);

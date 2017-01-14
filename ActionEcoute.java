@@ -1,7 +1,11 @@
 package marcytial;
 import marcytial.Visuel;
+
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.text.ParseException;
 
 public class ActionEcoute{
 
@@ -26,8 +30,9 @@ public ActionListener monActionEcouteur = new ActionListener() {
 			 String petName = (String)Visuel.transfoList.getSelectedItem();
 			 System.out.println(petName + " choisi");
 		}
-		//Serie.getCurrent().returnPanel().revalidate();
-		//Serie.getCurrent().returnPanel().repaint();
+	
+		Serie.getCurrent().returnPanel().revalidate();
+		Serie.getCurrent().returnPanel().repaint();
 		
 	}
 	
