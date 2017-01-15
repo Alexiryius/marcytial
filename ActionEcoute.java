@@ -19,7 +19,6 @@ public ActionListener monActionEcouteur = new ActionListener() {
 	    		Tools.tabToGraphe();
 	    		Visuel.ajouteVis();
 	    		clic = true;
-	    		System.out.println(Tools.unDo());
 	    	}
 	    	else{
 	    		Visuel.tab.setText("tableau");
