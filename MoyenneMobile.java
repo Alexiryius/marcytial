@@ -31,41 +31,54 @@ public class MoyenneMobile extends Transformation
 		
 		if(this.saisonnalite%2 == 0)
 		{		
+			saison= this.saisonnalite/2;
 			
-			for(int i =saisonnalite-1 ;i < taille ;i++)
+			for(int i =saison ;i < taille-saison ;i++)
 			{
-				for(int j = i - saisonnalite-1 ; j < i ;j++)
-				{
-					somme += Serie.getCurrent().getValeur().get(j)/saisonnalite;
-				}
-				resultat.add(somme);
-			}
-		
-		}
-		else
-		{
-			for(int i = saisonnalite-1 ;i < taille;i++)
-			{
-				for(int j = i - saisonnalite-1 ; j < i ;j++)
+				for(int j = i - saison ;j < i +saison;j++)
 				{
 					somme += Serie.getCurrent().getValeur().get(j)/saisonnalite;
 				}
 				resultat.add(somme);
 			}
 			
-		}
-		if( Serie.getCurrent() instanceof SerieChronologiqueGraphe)
-		{				
-			Tools.toDo();
-			new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
-			 			Serie.getCurrent().getDate(),resultat);		
+			if( Serie.getCurrent() instanceof SerieChronologiqueGraphe)
+			{				
+				Tools.toDo();
+				new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+				 			Serie.getCurrent().getDate(),resultat);		
+			}
+			else
+			{
+				Tools.toDo();
+			    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+					 			Serie.getCurrent().getDate(),resultat);	
+			}
 		}
 		else
 		{
-			Tools.toDo();
-		    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
-				 			Serie.getCurrent().getDate(),resultat);	
+			for(int i = 0;i < taille;i++)
+			{
+				for(int j = i - (this.saisonnalite - 1) / 2; i < i + (this.saisonnalite - 1) / 2;j++)
+				{
+					somme += Serie.getCurrent().getValeur().get(j)/saisonnalite;
+				}
+				resultat.add(somme);
+			}
+			if( Serie.getCurrent() instanceof SerieChronologiqueGraphe)
+			{				
+				Tools.toDo();
+				new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+				 			Serie.getCurrent().getDate(),resultat);		
+			}
+			else
+			{
+				Tools.toDo();
+			    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+					 			Serie.getCurrent().getDate(),resultat);	
+			}
 		}
+	
 		
 	}
 }

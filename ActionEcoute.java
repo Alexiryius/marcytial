@@ -38,15 +38,10 @@ public ActionListener monActionEcouteur = new ActionListener() {
 		if (source==Visuel.undoB){
 			
 			Tools.unDo();
-<<<<<<< HEAD
 			System.out.println(Serie.getCurrent());
 			Visuel.ajouteVis();
 			System.out.println("je suis la");
-=======
-		    Visuel.ajouteVis();
-		
-			
->>>>>>> b7c81ec49d1b4188668e03f88ff6100ddd82e1d8
+
 		  
 		}
 		
@@ -61,7 +56,6 @@ public ActionListener monActionEcouteur = new ActionListener() {
 		//Serie.getCurrent().returnPanel().revalidate();
 		//Serie.getCurrent().returnPanel().repaint();
 		if (Tools.mayIUndo()){
-<<<<<<< HEAD
 			Visuel.undoB.setEnabled(false);}
 		else{
 			Visuel.undoB.setEnabled(true);}
@@ -69,20 +63,7 @@ public ActionListener monActionEcouteur = new ActionListener() {
 			Visuel.redoB.setEnabled(false);}
 		else{
 			Visuel.redoB.setEnabled(true);}
-=======
-			Visuel.undoB.setEnabled(false);
-			
-			}
-		else{
-			Visuel.undoB.setEnabled(true);
-			}
-		if (Tools.mayIRedo()){
-			Visuel.redoB.setEnabled(false);
-			}
-		else{
-			Visuel.redoB.setEnabled(true);
-			}
->>>>>>> b7c81ec49d1b4188668e03f88ff6100ddd82e1d8
+
 	}
 	
 }
