@@ -82,13 +82,18 @@ public class Visuel extends JFrame{
 	public static JButton validBouton = new JButton("ok");
 	public  JPanel GraphPan ;
 	public static JPanel milieuDroite =new JPanel();
-    static	JPanel panneauPrinc2 ;
+    static	JPanel panneauPrinc2  = new JPanel();
 
 	
 	public static void ajouteVis(){
 		milieuDroite.removeAll();
 		milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
     	milieuDroite.add(Serie.getCurrent().returnPanel());
+    	Visuel.redoB.repaint();
+    	Visuel.undoB.repaint();
+    	
+    	
+    	
 	}
 	
 
@@ -104,7 +109,7 @@ public class Visuel extends JFrame{
     	this.ajouteVis();
 
     	
-    	panneauPrinc2 = new JPanel();
+    	
     	panneauPrinc2.setLayout(null);
     	this.setSize(largeur,hauteur);
     	label.setBounds(20,10,160,30);
