@@ -1,5 +1,6 @@
 package marcytial;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Date;
@@ -59,36 +60,20 @@ public class SerieChronologiqueGraphe extends Serie implements AffTab {
 	public JPanel returnPanel() {
 		
 		JPanel contentPane = new JPanel(null);	
-		if (isInitialized()) 
-		{
-			
-			int taille = this.getDate().size();
-			
-			TimeSeries series = new TimeSeries( this.getNom() );
-			
-			for(int i=0;i<taille;i++)
-			{
-				series.add(new Second (this.getDate().get(i)), this.getValeur().get(i));
-			}
-			
-		
-			
-			JFreeChart graph = ChartFactory.createTimeSeriesChart (this.getNom(),"date","valeur", this.dataset,
+		contentPane.setBackground(Color.red);
+		JFreeChart graph = ChartFactory.createTimeSeriesChart (this.getNom(),"date","valeur", this.dataset,
 																true,true,false ) ; 
+		ChartPanel chartPanel = new ChartPanel(graph); 
+		JScrollPane scrollPane = new JScrollPane(chartPanel);
+	      
+	     scrollPane.setBounds(0, 0, 728, 500);
+	     contentPane.add(scrollPane);
 
-			ChartPanel chartPanel = new ChartPanel(graph); 
-			JScrollPane scrollPane = new JScrollPane(chartPanel);
-	        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-	        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-	        scrollPane.setBounds(0, 0, 728, 500);
-	        contentPane.add(scrollPane);
-        }else {
-			JLabel text = new JLabel("Y a rien") ;
-			contentPane.add(text) ;
-		}
         contentPane.setPreferredSize(new Dimension(500, 400));
-        
-        System.out.println("je te retiurn un panel graphe");
+        if(contentPane.equals(null)){
+        	 System.out.println("NULL");
+        }
+       
         return contentPane;
 	}
 }

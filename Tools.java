@@ -29,9 +29,9 @@ public  class Tools {
 	public static void  unDo()
 	{
 		
-		if(undo.empty())return;
+		
 		 redo.push(Serie.getCurrent());
-		 Serie.setCurrent((Serie)undo.pop());	
+		 Serie.setCurrent(undo.pop());	
 		
 	
 		
@@ -45,7 +45,7 @@ public  class Tools {
 		
 		if(redo.empty())return;
 		undo.push(Serie.getCurrent());
-		Serie.setCurrent( (Serie)redo.pop());
+		Serie.setCurrent( redo.pop());
 	
 		
 		

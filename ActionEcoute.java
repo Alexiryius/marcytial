@@ -11,6 +11,7 @@ public class ActionEcoute{
 
 public ActionListener monActionEcouteur = new ActionListener() {
 	boolean clic = false;	
+	
 	public void actionPerformed(ActionEvent e){
 		Object source=e.getSource();    
 	    if (source==Visuel.tab){
@@ -36,12 +37,8 @@ public ActionListener monActionEcouteur = new ActionListener() {
 		}
 		
 		if (source==Visuel.undoB){
-			
 			Tools.unDo();
-		    Visuel.ajouteVis();
-		
-			
-		  
+		    Visuel.ajouteVis(); 
 		}
 		
 		if (source==Visuel.redoB){

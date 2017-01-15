@@ -76,22 +76,21 @@ public class Visuel extends JFrame{
 	public static JButton redoB = new JButton("redo");
 	
 	public JButton bouton = new JButton("...");
-	public static JButton tab = new JButton("tableau");
+	public static JButton tab = new JButton("graphique");
 	JLabel label = new JLabel("Outil Marcytial");
 	JLabel labelChoix = new JLabel("Choisissez la transformation");
 	public static JButton validBouton = new JButton("ok");
-	public  JPanel GraphPan ;
 	public static JPanel milieuDroite =new JPanel();
     static	JPanel panneauPrinc2  = new JPanel();
 
 	
 	public static void ajouteVis(){
 		milieuDroite.removeAll();
+		milieuDroite.updateUI();
 		milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
-		System.out.println("je change de panel");
+		System.out.println((Serie.getCurrent().getNom()));
     	milieuDroite.add(Serie.getCurrent().returnPanel());
-    	Visuel.redoB.repaint();
-    	Visuel.undoB.repaint();
+       	milieuDroite.repaint();
     	
     	
     	
@@ -108,11 +107,9 @@ public class Visuel extends JFrame{
     	
     	undoB.setEnabled(false);
     	redoB.setEnabled(false);
-    	this.ajouteVis();
-
-    	
-    	
-    	panneauPrinc2.setLayout(null);
+    	milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
+	   	milieuDroite.add(Serie.getCurrent().returnPanel());
+	   	panneauPrinc2.setLayout(null);
     	this.setSize(largeur,hauteur);
     	label.setBounds(20,10,160,30);
     	panneauPrinc2.add(label);
