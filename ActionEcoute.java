@@ -19,6 +19,7 @@ public ActionListener monActionEcouteur = new ActionListener() {
 	    		Tools.tabToGraphe();
 	    		Visuel.ajouteVis();
 	    		clic = true;
+	    		
 	    	}
 	    	else{
 	    		Visuel.tab.setText("tableau");
@@ -34,11 +35,13 @@ public ActionListener monActionEcouteur = new ActionListener() {
 		}
 		
 		if (source==Visuel.undoB){
+			Tools.unDo();
 			Visuel.ajouteVis();
-			
+		
 		}
 		
 		if (source==Visuel.redoB){
+			Tools.reDo();
 			Visuel.ajouteVis();
 			
 		}
