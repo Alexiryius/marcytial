@@ -38,16 +38,32 @@ public ActionListener monActionEcouteur = new ActionListener() {
 		
 		if (source==Visuel.undoB){
 			Tools.unDo();
+			if(Visuel.tab.getText().equals("tableau")){
+				Visuel.tab.setText("graphique");
+			}
+			else{
+				Visuel.tab.setText("tableau");
+			}
+			
 		    Visuel.ajouteVis(); 
 		}
 		
 		if (source==Visuel.redoB){
 		
 			Tools.reDo();
+			if(Visuel.tab.getText().equals("tableau")){
+				Visuel.tab.setText("graphique");
+			}
+			else{
+				Visuel.tab.setText("tableau");
+			}
 			Visuel.ajouteVis();
 			
 			
 		}
+		  if (source==Visuel.bouton){
+			  Tools.toChoose();
+		  }
 	
 		//Serie.getCurrent().returnPanel().revalidate();
 		//Serie.getCurrent().returnPanel().repaint();

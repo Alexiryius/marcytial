@@ -75,7 +75,7 @@ public class Visuel extends JFrame{
 	public static JButton undoB = new JButton("undo");
 	public static JButton redoB = new JButton("redo");
 	
-	public JButton bouton = new JButton("...");
+	public static JButton bouton = new JButton("...");
 	public static JButton tab = new JButton("graphique");
 	JLabel label = new JLabel("Outil Marcytial");
 	JLabel labelChoix = new JLabel("Choisissez la transformation");

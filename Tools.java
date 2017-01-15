@@ -1,8 +1,9 @@
 package marcytial;
 
+import java.io.File;
 import java.util.Stack;
 
-
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 public  class Tools {
@@ -94,7 +95,17 @@ public  class Tools {
 		 Integer value2 = Integer.parseInt(value1);
  		 new MoyenneMobile(value2);	
 	}
-	
+  
+	public static void toChoose()
+	{
+		JFileChooser fileChooser = new JFileChooser();
+		int returnValue = fileChooser.showOpenDialog(null);
+		 if (returnValue == JFileChooser.APPROVE_OPTION) {
+	          File selectedFile = fileChooser.getSelectedFile();
+	          System.out.println(selectedFile.getName());
+	        }
+		
+	}
 
 	
 	}
