@@ -16,15 +16,16 @@ public ActionListener monActionEcouteur = new ActionListener() {
 	    if (source==Visuel.tab){
 	    	if(clic == false){
 	    		Visuel.tab.setText("graphique");
-	    		Hydrateur.changBool();
+	    		Tools.tabToGraphe();
 	    		clic = true;
-	    		Visuel.GraphPan.repaint();
+	    		Visuel.panneauPrinc2.repaint();
 	    	}
 	    	else{
 	    		Visuel.tab.setText("tableau");
-	    		Hydrateur.changBool();
+	    		Tools.grapheToTab();
 	    		clic = false;
-	    		Visuel.GraphPan.repaint();
+	    		
+	    		Visuel.panneauPrinc2.repaint();
 	    	}
 	    }
 		if (source==Visuel.validBouton){
