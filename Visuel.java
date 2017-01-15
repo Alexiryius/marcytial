@@ -83,6 +83,12 @@ public class Visuel extends JFrame{
 	public static JPanel GraphPan = new JPanel();
 	static JPanel milieuDroite = new JPanel();
 
+	
+	public void ajouteVis(){
+		milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
+    	milieuDroite.add(Serie.getCurrent().returnPanel());
+	}
+	
 
 	public Visuel(){
 		
@@ -91,8 +97,8 @@ public class Visuel extends JFrame{
     	int largeur  = (int)dimension.getWidth();	
     	ActionEcoute listn = new ActionEcoute();
     	
-    	milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
-    	milieuDroite.add(Serie.getCurrent().returnPanel());
+    	
+    	this.ajouteVis();
     	
     	JPanel panneauPrinc2 = new JPanel();
     	panneauPrinc2.setLayout(null);
