@@ -88,9 +88,11 @@ public class Visuel extends JFrame{
 	public static void ajouteVis(){
 		milieuDroite.removeAll();
 		milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
+		System.out.println("je change de panel");
     	milieuDroite.add(Serie.getCurrent().returnPanel());
     	
 	}
+	
 	
 
 	public Visuel(){
