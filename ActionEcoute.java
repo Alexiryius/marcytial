@@ -18,11 +18,13 @@ public ActionListener monActionEcouteur = new ActionListener() {
 	    		Visuel.tab.setText("graphique");
 	    		Hydrateur.changBool();
 	    		clic = true;
+	    		Visuel.GraphPan.repaint();
 	    	}
 	    	else{
 	    		Visuel.tab.setText("tableau");
 	    		Hydrateur.changBool();
 	    		clic = false;
+	    		Visuel.GraphPan.repaint();
 	    	}
 	    }
 		if (source==Visuel.validBouton){

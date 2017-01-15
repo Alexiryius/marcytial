@@ -8,7 +8,7 @@ public class Hydrateur
 	private Visuel visuel;
 	private Reader reader;
 	private Serie laSerie;
-	//public static boolean graphe = true;
+	public static boolean graphe = true;
 	
 	
 public Hydrateur() throws IOException, ParseException
@@ -16,7 +16,7 @@ public Hydrateur() throws IOException, ParseException
 
 	 
 
-	  reader= new Reader("src/marcytial/suiteChrono.csv",false);
+	  reader= new Reader("src/marcytial/suiteChrono.csv",graphe);
 
 	  laSerie=reader.getLaserie();
 	  visuel= new Visuel();
@@ -28,7 +28,7 @@ public Hydrateur() throws IOException, ParseException
 
 	
 
-	reader= new Reader("src/marcytial/suiteChrono.csv",false);
+	reader= new Reader("src/marcytial/suiteChrono.csv",graphe);
 
 	laSerie= nouvelleSerie;
 	visuel =new Visuel();
@@ -59,8 +59,8 @@ public Hydrateur() throws IOException, ParseException
 		return laSerie;
 	}
 	
-	/*public static void changBool(){
+	public static void changBool(){
 		graphe =!graphe;
-	}*/
+	}
    
 }

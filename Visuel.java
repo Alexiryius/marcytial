@@ -80,7 +80,7 @@ public class Visuel extends JFrame{
 	JLabel label = new JLabel("Outil Marcytial");
 	JLabel labelChoix = new JLabel("Choisissez la transformation");
 	public static JButton validBouton = new JButton("ok");
-	public JPanel GraphPan = new JPanel();
+	public static JPanel GraphPan = new JPanel();
 	static JPanel milieuDroite = new JPanel();
 
 
