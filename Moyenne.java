@@ -10,7 +10,7 @@ public class Moyenne extends Transformation
 	{
 		super(" en moyenne");
 	}
-	SerieChronologiqueGraphe scg = new SerieChronologiqueGraphe();
+	
 	
 
 	public void calcul() {

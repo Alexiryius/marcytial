@@ -1,7 +1,6 @@
 package marcytial;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Vector;
@@ -32,31 +31,22 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 		if (isInitialized()) {
 			int taille =this.getDate().size();
 			
-			Vector<Object> listDate = new Vector<>(taille);
-			Vector<Object> listValeur = new Vector<>(taille);
+			Object[][] listData = new Object[taille][2];
 			
 			for(int i =0; i<taille;i++)
 			{
-				listDate.add(this.getDate().get(i));
-				listValeur.add(this.getValeur().get(i));
-			
+				listData[i][1]= this.getDate().get(i);
+				listData[i][0]=this.getValeur().get(i);
 			}
 			
-			Vector<Vector<Object>> dataVector= new Vector<Vector<Object>>();
 				
-			dataVector.add(listDate);
-			dataVector.add(listValeur);
-			
-			Vector<String> nameVector= new Vector<String>();
-			
-			nameVector.addElement("date");
-			nameVector.addElement("Valeur");
+			String[] nameVector= {"date","Valeur"};
 			
 			
-			JTable tableau = new JTable(dataVector, nameVector);
+			JTable tableau = new JTable(listData, nameVector);
 			JScrollPane scrollPane = new JScrollPane(tableau);
-	        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-	        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+	        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+	        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	    	scrollPane.setBounds(0, 0, 728, 500);
 	        contentPane.add(scrollPane);
 		} else {

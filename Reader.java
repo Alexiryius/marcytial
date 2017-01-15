@@ -45,7 +45,7 @@ public class Reader {
 		}
 		
 		suite.setDate(date);
-		System.out.println(suite.getDate());
+		
 		suite.setNom(nom);
 		suite.setValeur(valeur);
 		sc.close();
