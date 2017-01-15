@@ -18,19 +18,22 @@ public  class Tools {
 	}
 
 	public static  boolean mayIUndo(){
-		return undo.isEmpty();
+		return undo.empty();
 	}
 	
 	public static  boolean mayIRedo(){
-		return redo.isEmpty();
+		return redo.empty();
 	}
 // fonction qui vide la pile undo et remplie la pile redo 
 //renvoie null si la pile est vide 	
 	public static void  unDo()
 	{
+		
 		if(undo.empty())return;
 		 redo.push(Serie.getCurrent());
-		 Serie.setCurrent((Serie)undo.peek());	
+		 Serie.setCurrent((Serie)undo.pop());	
+		
+	
 		
 	}
 	
@@ -39,15 +42,19 @@ public  class Tools {
 	
 	public static void reDo()
 	{
+		
 		if(redo.empty())return;
 		undo.push(Serie.getCurrent());
-		Serie.setCurrent( (Serie)redo.peek());
+		Serie.setCurrent( (Serie)redo.pop());
+	
+		
 		
 	}
 	
 // fonction qui empile su la pile undo a chaque action	
 	public static void toDo()
 	{
+	
 	 undo.push(Serie.getCurrent());	
 	 redo.clear();
 	}

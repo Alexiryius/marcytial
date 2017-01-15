@@ -19,6 +19,7 @@ public ActionListener monActionEcouteur = new ActionListener() {
 	    		Tools.tabToGraphe();
 	    		Visuel.ajouteVis();
 	    		clic = true;
+	    		Visuel.undoB.setEnabled(true);
 	    		
 	    	}
 	    	else{
@@ -35,27 +36,38 @@ public ActionListener monActionEcouteur = new ActionListener() {
 		}
 		
 		if (source==Visuel.undoB){
+			System.out.println("e"+Serie.getCurrent());
 			Tools.unDo();
-			Visuel.ajouteVis();
+			System.out.println(Serie.getCurrent());
 		
+			Visuel.ajouteVis();
+			System.out.println("je suis la");
+		  
 		}
 		
 		if (source==Visuel.redoB){
+		
 			Tools.reDo();
 			Visuel.ajouteVis();
+			
 			
 		}
 	
 		//Serie.getCurrent().returnPanel().revalidate();
 		//Serie.getCurrent().returnPanel().repaint();
 		if (Tools.mayIUndo()){
-			Visuel.undoB.setEnabled(false);}
+			Visuel.undoB.setEnabled(false);
+			
+			Visuel.ajouteVis();}
 		else{
-			Visuel.undoB.setEnabled(true);}
+			Visuel.undoB.setEnabled(true);
+			Visuel.ajouteVis();}
 		if (Tools.mayIRedo()){
-			Visuel.undoB.setEnabled(false);}
+			Visuel.redoB.setEnabled(false);
+			Visuel.ajouteVis();}
 		else{
-			Visuel.undoB.setEnabled(true);}
+			Visuel.redoB.setEnabled(true);
+			Visuel.ajouteVis();}
 	}
 	
 }

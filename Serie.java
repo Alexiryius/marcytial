@@ -9,7 +9,8 @@ public abstract class Serie
 {   
 	
 	private static Serie current = null ;
-	private static int id = 0;
+	private  static   int id=0 ;
+	private final int num;
 	private String nom = "";
 	private ArrayList<Date> date ;
 	private ArrayList<Double>valeur ;
@@ -19,6 +20,7 @@ public abstract class Serie
 	Serie()
 	{
 		id ++;
+		num=id;
 		nom ="no_name";
 		date=null;
 		valeur=null;
@@ -29,6 +31,7 @@ public abstract class Serie
 	Serie(String nom, ArrayList<Date> date, ArrayList<Double> valeur)
 	{
 		id++;
+		this.num=id;
 		this.nom = nom;
 		this.date = date;
 		this.valeur = valeur;
@@ -38,6 +41,7 @@ public abstract class Serie
 	Serie(String nom, ArrayList<Date> date, ArrayList<Double> valeur, Transformation transformation)
 	{
 		id++;
+		this.num=id;
 		this.nom = nom;
 		this.date = date;
 		this.valeur = valeur;
@@ -50,16 +54,16 @@ public abstract class Serie
 	
 	abstract public JPanel returnPanel();
 	
-	public int getId()
-	{
-		return this.id;
-	}
 	
 	public String getNom()
 	{
 		return this.nom;
 	}
 	
+	@Override
+	public String toString() {
+		return "["+this.num+ "]";
+	}
 	public void setNom(String n)
 	{
 		this.nom = n;
