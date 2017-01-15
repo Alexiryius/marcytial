@@ -14,7 +14,7 @@ public class Programme{
  System.out.println(Serie.getCurrent().getValeur());
  System.out.println(Serie.getCurrent().getDate());
  //Tools.toMoyenne();
- //Tools.toMoyenneMobile();
+ Tools.toMoyenneMobile();
  System.out.println(Serie.getCurrent().getValeur());
  }
 } 

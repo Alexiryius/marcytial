@@ -85,7 +85,9 @@ public  class Tools {
 	{
 		 String value1 = JOptionPane.showInputDialog("Avec quel saisonalité ? (entier attendu)");
 		 Integer value2 = Integer.parseInt(value1);
- 		 new MoyenneMobile(value2);	
+		 MoyenneMobile penis  = new MoyenneMobile((int)value2);
+		 System.out.println(value2);
+		 penis.calcul();
 	}
 	
 

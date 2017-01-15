@@ -41,44 +41,32 @@ public class MoyenneMobile extends Transformation
 				}
 				resultat.add(somme);
 			}
-			
-			if( Serie.getCurrent() instanceof SerieChronologiqueGraphe)
-			{				
-				Tools.toDo();
-				new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
-				 			Serie.getCurrent().getDate(),resultat);		
-			}
-			else
-			{
-				Tools.toDo();
-			    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
-					 			Serie.getCurrent().getDate(),resultat);	
-			}
+		
 		}
 		else
 		{
-			for(int i = 0;i < taille;i++)
+			for(int i = saisonnalite-1 ;i < taille;i++)
 			{
-				for(int j = i - (this.saisonnalite - 1) / 2; i < i + (this.saisonnalite - 1) / 2;j++)
+				for(int j = i - (this.saisonnalite-1) ; j < i ;j++)
 				{
 					somme += Serie.getCurrent().getValeur().get(j)/saisonnalite;
 				}
 				resultat.add(somme);
 			}
-			if( Serie.getCurrent() instanceof SerieChronologiqueGraphe)
-			{				
-				Tools.toDo();
-				new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
-				 			Serie.getCurrent().getDate(),resultat);		
-			}
-			else
-			{
-				Tools.toDo();
-			    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
-					 			Serie.getCurrent().getDate(),resultat);	
-			}
+			
 		}
-	
+		if( Serie.getCurrent() instanceof SerieChronologiqueGraphe)
+		{				
+			Tools.toDo();
+			new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+			 			Serie.getCurrent().getDate(),resultat);		
+		}
+		else
+		{
+			Tools.toDo();
+		    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+				 			Serie.getCurrent().getDate(),resultat);	
+		}
 		
 	}
 }
