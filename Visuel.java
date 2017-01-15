@@ -80,8 +80,9 @@ public class Visuel extends JFrame{
 	JLabel label = new JLabel("Outil Marcytial");
 	JLabel labelChoix = new JLabel("Choisissez la transformation");
 	public static JButton validBouton = new JButton("ok");
-	public static JPanel GraphPan = new JPanel();
-	static JPanel milieuDroite = new JPanel();
+	public  JPanel GraphPan ;
+	public JPanel milieuDroite;
+     static	JPanel panneauPrinc2 ;
 
 
 	public Visuel(){
@@ -90,11 +91,11 @@ public class Visuel extends JFrame{
     	int hauteur = (int)dimension.getHeight();
     	int largeur  = (int)dimension.getWidth();	
     	ActionEcoute listn = new ActionEcoute();
-    	
+    	milieuDroite =new JPanel();
     	milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
     	milieuDroite.add(Serie.getCurrent().returnPanel());
     	
-    	JPanel panneauPrinc2 = new JPanel();
+    	panneauPrinc2 = new JPanel();
     	panneauPrinc2.setLayout(null);
     	this.setSize(largeur,hauteur);
     	label.setBounds(20,10,160,30);

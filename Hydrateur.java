@@ -8,7 +8,7 @@ public class Hydrateur
 	private Visuel visuel;
 	private Reader reader;
 	private Serie laSerie;
-	public static boolean graphe = true;
+	public static boolean graphe = false;
 	
 	
 public Hydrateur() throws IOException, ParseException
