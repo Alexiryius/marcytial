@@ -31,11 +31,10 @@ public class MoyenneMobile extends Transformation
 		
 		if(this.saisonnalite%2 == 0)
 		{		
-			saison= this.saisonnalite/2;
 			
-			for(int i =saison ;i < taille-saison ;i++)
+			for(int i =saisonnalite-1 ;i < taille ;i++)
 			{
-				for(int j = i - saison ;j < i +saison;j++)
+				for(int j = i - saisonnalite-1 ; j < i ;j++)
 				{
 					somme += Serie.getCurrent().getValeur().get(j)/saisonnalite;
 				}
@@ -47,7 +46,7 @@ public class MoyenneMobile extends Transformation
 		{
 			for(int i = saisonnalite-1 ;i < taille;i++)
 			{
-				for(int j = i - (this.saisonnalite-1) ; j < i ;j++)
+				for(int j = i - saisonnalite-1 ; j < i ;j++)
 				{
 					somme += Serie.getCurrent().getValeur().get(j)/saisonnalite;
 				}

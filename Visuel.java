@@ -89,10 +89,6 @@ public class Visuel extends JFrame{
 		milieuDroite.removeAll();
 		milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
     	milieuDroite.add(Serie.getCurrent().returnPanel());
-    	Visuel.redoB.repaint();
-    	Visuel.undoB.repaint();
-    	
-    	
     	
 	}
 	
@@ -106,7 +102,8 @@ public class Visuel extends JFrame{
     	
     	undoB.setEnabled(false);
     	redoB.setEnabled(false);
-    	this.ajouteVis();
+    	milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
+    	milieuDroite.add(Serie.getCurrent().returnPanel());
 
     	
     	

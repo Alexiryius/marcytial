@@ -39,7 +39,6 @@ public ActionListener monActionEcouteur = new ActionListener() {
 			System.out.println("e"+Serie.getCurrent());
 			Tools.unDo();
 			System.out.println(Serie.getCurrent());
-		
 			Visuel.ajouteVis();
 			System.out.println("je suis la");
 		  
@@ -56,18 +55,13 @@ public ActionListener monActionEcouteur = new ActionListener() {
 		//Serie.getCurrent().returnPanel().revalidate();
 		//Serie.getCurrent().returnPanel().repaint();
 		if (Tools.mayIUndo()){
-			Visuel.undoB.setEnabled(false);
-			
-			Visuel.ajouteVis();}
+			Visuel.undoB.setEnabled(false);}
 		else{
-			Visuel.undoB.setEnabled(true);
-			Visuel.ajouteVis();}
+			Visuel.undoB.setEnabled(true);}
 		if (Tools.mayIRedo()){
-			Visuel.redoB.setEnabled(false);
-			Visuel.ajouteVis();}
+			Visuel.redoB.setEnabled(false);}
 		else{
-			Visuel.redoB.setEnabled(true);
-			Visuel.ajouteVis();}
+			Visuel.redoB.setEnabled(true);}
 	}
 	
 }
