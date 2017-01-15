@@ -12,13 +12,15 @@ import javax.swing.JTable;
 
 public class SerieChronologiqueTab extends Serie implements AffTab  {
 
-	SerieChronologiqueTab(){
+	public SerieChronologiqueTab(){
 		super();
 	}
 	
-	SerieChronologiqueTab(String nom, ArrayList<Date> date, ArrayList<Double> valeur){
+ public 	SerieChronologiqueTab(String nom, ArrayList<Date> date, ArrayList<Double> valeur){
 		super(nom,date,valeur);
 	}
+ 
+
 
 	private boolean isInitialized() {
 		return (this.getDate() != null) ;
@@ -55,7 +57,7 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 		}
 	
         contentPane.setBackground(Color.red);
-        
+        System.out.println("je te retiurn un panel tab");
         return contentPane;
 	}
 }

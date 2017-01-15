@@ -15,15 +15,15 @@ public ActionListener monActionEcouteur = new ActionListener() {
 		Object source=e.getSource();    
 	    if (source==Visuel.tab){
 	    	if(clic == false){
-	    		Visuel.tab.setText("graphique");
+	    		Visuel.tab.setText("tableau");
 	    		Tools.tabToGraphe();
 	    		Visuel.ajouteVis();
 	    		clic = true;
-	    		Visuel.undoB.setEnabled(true);
+	    		
 	    		
 	    	}
 	    	else{
-	    		Visuel.tab.setText("tableau");
+	    		Visuel.tab.setText("graphique");
 	    		Tools.grapheToTab();
 	    		Visuel.ajouteVis();
 	    		clic = false;
@@ -36,12 +36,11 @@ public ActionListener monActionEcouteur = new ActionListener() {
 		}
 		
 		if (source==Visuel.undoB){
-			System.out.println("e"+Serie.getCurrent());
+			
 			Tools.unDo();
-			System.out.println(Serie.getCurrent());
+		    Visuel.ajouteVis();
 		
-			Visuel.ajouteVis();
-			System.out.println("je suis la");
+			
 		  
 		}
 		
@@ -58,16 +57,16 @@ public ActionListener monActionEcouteur = new ActionListener() {
 		if (Tools.mayIUndo()){
 			Visuel.undoB.setEnabled(false);
 			
-			Visuel.ajouteVis();}
+			}
 		else{
 			Visuel.undoB.setEnabled(true);
-			Visuel.ajouteVis();}
+			}
 		if (Tools.mayIRedo()){
 			Visuel.redoB.setEnabled(false);
-			Visuel.ajouteVis();}
+			}
 		else{
 			Visuel.redoB.setEnabled(true);
-			Visuel.ajouteVis();}
+			}
 	}
 	
 }

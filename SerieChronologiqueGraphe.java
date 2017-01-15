@@ -88,7 +88,7 @@ public class SerieChronologiqueGraphe extends Serie implements AffTab {
 		}
         contentPane.setPreferredSize(new Dimension(500, 400));
         
-        
+        System.out.println("je te retiurn un panel graphe");
         return contentPane;
 	}
 }
