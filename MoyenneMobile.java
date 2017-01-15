@@ -9,8 +9,14 @@ public class MoyenneMobile extends Transformation
 	public MoyenneMobile(int saison)
 	{
 		super("qui a subit une moyenne mobile");
-		this.saisonnalite=saison;
-	}
+		
+		if (saison <= 0)
+            {
+                throw new IllegalArgumentException("length must be greater than zero");
+            }
+            this.saisonnalite=saison;
+        }
+	
 	
 
 	@Override
@@ -19,14 +25,17 @@ public class MoyenneMobile extends Transformation
 
 	{
 		int taille = Serie.getCurrent().getValeur().size();
+		int saison;
 		double somme = 0;
 		ArrayList<Double> resultat = new ArrayList<>();
 		
 		if(this.saisonnalite%2 == 0)
 		{		
-			for(int i =0;i < taille;i++)
+			saison= this.saisonnalite/2;
+			
+			for(int i =saison ;i < taille-saison ;i++)
 			{
-				for(int j = i - this.saisonnalite / 2;j < i + this.saisonnalite / 2;j++)
+				for(int j = i - saison ;j < i +saison;j++)
 				{
 					somme += Serie.getCurrent().getValeur().get(j)/saisonnalite;
 				}
