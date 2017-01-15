@@ -72,8 +72,8 @@ public class Visuel extends JFrame{
 	static String[] transfoStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
 	public static JComboBox transfoList = new JComboBox(transfoStrings);
 		
-	public JButton undoB = new JButton("undo");
-	public JButton redoB = new JButton("redo");
+	public static JButton undoB = new JButton("undo");
+	public static JButton redoB = new JButton("redo");
 	
 	public JButton bouton = new JButton("...");
 	public static JButton tab = new JButton("tableau");
@@ -99,7 +99,8 @@ public class Visuel extends JFrame{
     	int largeur  = (int)dimension.getWidth();	
     	ActionEcoute listn = new ActionEcoute();
     	
-    	
+    	undoB.setEnabled(false);
+    	redoB.setEnabled(false);
     	this.ajouteVis();
 
     	
@@ -111,8 +112,10 @@ public class Visuel extends JFrame{
       	bouton.setBounds(largeur-120,20,60,30);
     	panneauPrinc2.add(bouton);
       	undoB.setBounds(1100,70,80,20);
+      	undoB.addActionListener(listn.monActionEcouteur);
     	panneauPrinc2.add(undoB);
       	redoB.setBounds(1190,70,80,20);
+      	redoB.addActionListener(listn.monActionEcouteur);
     	panneauPrinc2.add(redoB);
     	labelChoix.setBounds(345,120,220,22);
     	panneauPrinc2.add(labelChoix);

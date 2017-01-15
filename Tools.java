@@ -20,6 +20,10 @@ public  class Tools {
 	public static  boolean mayIUndo(){
 		return undo.isEmpty();
 	}
+	
+	public static  boolean mayIRedo(){
+		return redo.isEmpty();
+	}
 // fonction qui vide la pile undo et remplie la pile redo 
 //renvoie null si la pile est vide 	
 	public static void  unDo()

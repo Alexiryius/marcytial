@@ -19,25 +19,41 @@ public ActionListener monActionEcouteur = new ActionListener() {
 	    		Tools.tabToGraphe();
 	    		Visuel.ajouteVis();
 	    		clic = true;
-	    		//Visuel.panneauPrinc2.repaint();
+	    		System.out.println(Tools.unDo());
 	    	}
 	    	else{
 	    		Visuel.tab.setText("tableau");
 	    		Tools.grapheToTab();
 	    		Visuel.ajouteVis();
 	    		clic = false;
-	    		//Visuel.panneauPrinc2.repaint();
+
 	    	}
 	    }
 		if (source==Visuel.validBouton){
 			Visuel.validBouton.setText("OK");
 			 String petName = (String)Visuel.transfoList.getSelectedItem();
-			 System.out.println(petName + " choisi");
+		}
+		
+		if (source==Visuel.undoB){
+			Visuel.ajouteVis();
+			
+		}
+		
+		if (source==Visuel.redoB){
+			Visuel.ajouteVis();
+			
 		}
 	
 		//Serie.getCurrent().returnPanel().revalidate();
 		//Serie.getCurrent().returnPanel().repaint();
-		
+		if (Tools.mayIUndo()){
+			Visuel.undoB.setEnabled(false);}
+		else{
+			Visuel.undoB.setEnabled(true);}
+		if (Tools.mayIRedo()){
+			Visuel.undoB.setEnabled(false);}
+		else{
+			Visuel.undoB.setEnabled(true);}
 	}
 	
 }
