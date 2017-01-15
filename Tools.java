@@ -81,10 +81,9 @@ public  class Tools {
 	{
 		 String value1 = JOptionPane.showInputDialog("Avec quel saisonalité ? (entier attendu)");
 		 Integer value2 = Integer.parseInt(value1);
-
-              
-		
+ 		 new MoyenneMobile(value2);	
 	}
+	
 
 	
 	}
