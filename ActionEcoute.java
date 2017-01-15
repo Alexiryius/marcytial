@@ -17,15 +17,16 @@ public ActionListener monActionEcouteur = new ActionListener() {
 	    	if(clic == false){
 	    		Visuel.tab.setText("graphique");
 	    		Tools.tabToGraphe();
+	    		Visuel.ajouteVis();
 	    		clic = true;
-	    		Visuel.panneauPrinc2.repaint();
+	    		//Visuel.panneauPrinc2.repaint();
 	    	}
 	    	else{
 	    		Visuel.tab.setText("tableau");
 	    		Tools.grapheToTab();
+	    		Visuel.ajouteVis();
 	    		clic = false;
-	    		
-	    		Visuel.panneauPrinc2.repaint();
+	    		//Visuel.panneauPrinc2.repaint();
 	    	}
 	    }
 		if (source==Visuel.validBouton){
@@ -34,8 +35,8 @@ public ActionListener monActionEcouteur = new ActionListener() {
 			 System.out.println(petName + " choisi");
 		}
 	
-		Serie.getCurrent().returnPanel().revalidate();
-		Serie.getCurrent().returnPanel().repaint();
+		//Serie.getCurrent().returnPanel().revalidate();
+		//Serie.getCurrent().returnPanel().repaint();
 		
 	}
 	

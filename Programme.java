@@ -11,8 +11,8 @@ public class Programme{
  new Hydrateur();
  System.out.println(Serie.getCurrent().getValeur());
  System.out.println(Serie.getCurrent().getDate());
- Tools.toMoyenne();
- //Tools.toMoyenneMobile();
+ //Tools.toMoyenne();
+ Tools.toMoyenneMobile();
  System.out.println(Serie.getCurrent().getValeur());
  }
 } 
