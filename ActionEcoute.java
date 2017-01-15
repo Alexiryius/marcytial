@@ -11,6 +11,7 @@ public class ActionEcoute{
 
 public ActionListener monActionEcouteur = new ActionListener() {
 	boolean clic = false;	
+	
 	public void actionPerformed(ActionEvent e){
 		Object source=e.getSource();    
 	    if (source==Visuel.tab){
@@ -36,22 +37,41 @@ public ActionListener monActionEcouteur = new ActionListener() {
 		}
 		
 		if (source==Visuel.undoB){
-			
 			Tools.unDo();
+<<<<<<< HEAD
 			System.out.println(Serie.getCurrent());
 			Visuel.ajouteVis();
 			System.out.println("je suis la");
 
 		  
+=======
+			if(Visuel.tab.getText().equals("tableau")){
+				Visuel.tab.setText("graphique");
+			}
+			else{
+				Visuel.tab.setText("tableau");
+			}
+			
+		    Visuel.ajouteVis(); 
+>>>>>>> 72d53e978d7e16fcab52dbc0a3b955493564c896
 		}
 		
 		if (source==Visuel.redoB){
 		
 			Tools.reDo();
+			if(Visuel.tab.getText().equals("tableau")){
+				Visuel.tab.setText("graphique");
+			}
+			else{
+				Visuel.tab.setText("tableau");
+			}
 			Visuel.ajouteVis();
 			
 			
 		}
+		  if (source==Visuel.bouton){
+			  Tools.toChoose();
+		  }
 	
 		//Serie.getCurrent().returnPanel().revalidate();
 		//Serie.getCurrent().returnPanel().repaint();

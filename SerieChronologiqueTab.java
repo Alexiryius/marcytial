@@ -30,7 +30,7 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 	public JPanel returnPanel() {
 		
         JPanel contentPane = new JPanel(null);	
-		if (isInitialized()) {
+		//if (isInitialized()) {
 			int taille =this.getDate().size();
 			
 			Object[][] listData = new Object[taille][2];
@@ -51,13 +51,10 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 	        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	    	scrollPane.setBounds(0, 0, 728, 500);
 	        contentPane.add(scrollPane);
-		} else {
-			JLabel text = new JLabel("Y a rien") ;
-			contentPane.add(text) ;
-		}
-	
-        contentPane.setBackground(Color.red);
-        System.out.println("je te retiurn un panel tab");
+//		} else {
+//			
+//			contentPane.setColor); ;
+//		}
         return contentPane;
 	}
 }

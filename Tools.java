@@ -1,8 +1,9 @@
 package marcytial;
 
+import java.io.File;
 import java.util.Stack;
 
-
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 public  class Tools {
@@ -29,9 +30,9 @@ public  class Tools {
 	public static void  unDo()
 	{
 		
-		if(undo.empty())return;
+		
 		 redo.push(Serie.getCurrent());
-		 Serie.setCurrent((Serie)undo.pop());	
+		 Serie.setCurrent(undo.pop());	
 		
 	
 		
@@ -45,7 +46,7 @@ public  class Tools {
 		
 		if(redo.empty())return;
 		undo.push(Serie.getCurrent());
-		Serie.setCurrent( (Serie)redo.pop());
+		Serie.setCurrent( redo.pop());
 	
 		
 		
@@ -96,7 +97,17 @@ public  class Tools {
 		 System.out.println(value2);
 		 penis.calcul();
 	}
-	
+  
+	public static void toChoose()
+	{
+		JFileChooser fileChooser = new JFileChooser();
+		int returnValue = fileChooser.showOpenDialog(null);
+		 if (returnValue == JFileChooser.APPROVE_OPTION) {
+	          File selectedFile = fileChooser.getSelectedFile();
+	          System.out.println(selectedFile.getName());
+	        }
+		
+	}
 
 	
 	}
