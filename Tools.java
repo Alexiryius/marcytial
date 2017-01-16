@@ -1,6 +1,8 @@
 package marcytial;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.Stack;
 
 import javax.swing.JFileChooser;
@@ -96,13 +98,14 @@ public  class Tools {
  		 new MoyenneMobile(value2);	
 	}
   
-	public static void toChoose()
+	public static void toChoose() throws IOException, ParseException
 	{
 		JFileChooser fileChooser = new JFileChooser();
+	
 		int returnValue = fileChooser.showOpenDialog(null);
 		 if (returnValue == JFileChooser.APPROVE_OPTION) {
 	          File selectedFile = fileChooser.getSelectedFile();
-	          System.out.println(selectedFile.getName());
+	        new Reader(selectedFile.getName(),true);
 	        }
 		
 	}

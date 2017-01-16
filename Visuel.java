@@ -35,41 +35,7 @@ public class Visuel extends JFrame{
 	
 	
 	
-	XYDataset createDataset() {
-		Random r = new Random();
-	    XYSeriesCollection result = new XYSeriesCollection();
-	    XYSeries series = new XYSeries("Random");
-	    for (int i = 0; i <= 100; i++) {
-	        double x = r.nextDouble();
-	        double y = r.nextDouble();
-	        series.add(x, y);
-	    }
-	    result.addSeries(series);
-	    return result;
-	}
-	
-	
-	public JPanel sPlotPan(){
-	JPanel sPlotPan = new JPanel();
-	JFreeChart chart = ChartFactory.createScatterPlot(
-	            "Scatter Plot", // chart title
-	            "X", // x axis label
-	            "Y", // y axis label
-	            createDataset(), // data  
-	            PlotOrientation.VERTICAL,
-	            true, // include legend
-	            true, // tooltips
-	            false // urls
-	            );
-	ChartPanel cPanel = new ChartPanel(chart);
-	sPlotPan.add(cPanel);
-	return sPlotPan;
-	
-	}
-	
-	
-	
-	static String[] transfoStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
+	static String[] transfoStrings = { "Moyenne", "Moyenne Mobile", "Moyenne Mobile Ponderee", "Box Cox"};
 	public static JComboBox transfoList = new JComboBox(transfoStrings);
 		
 	public static JButton undoB = new JButton("undo");
@@ -114,6 +80,7 @@ public class Visuel extends JFrame{
     	label.setBounds(20,10,160,30);
     	panneauPrinc2.add(label);
       	bouton.setBounds(largeur-120,20,60,30);
+      	bouton.addActionListener(listn.monActionEcouteur);
     	panneauPrinc2.add(bouton);
       	undoB.setBounds(1100,70,80,20);
       	undoB.addActionListener(listn.monActionEcouteur);

@@ -33,13 +33,30 @@ public ActionListener monActionEcouteur = new ActionListener() {
 	    }
 		if (source==Visuel.validBouton){
 			Visuel.validBouton.setText("OK");
-			 String petName = (String)Visuel.transfoList.getSelectedItem();
+			 if( ((String)Visuel.transfoList.getSelectedItem()).equals("Moyenne"))
+			 {
+				 Tools.toMoyenne();
+				 Visuel.ajouteVis();
+			 }
+			 else if(((String)Visuel.transfoList.getSelectedItem()).equals("Moyenne Mobile"))
+			 {
+				 Tools.toMoyenneMobile();
+				 Visuel.ajouteVis();
+			 }
+			 else if(((String)Visuel.transfoList.getSelectedItem()).equals("Moyenne Mobile Ponderee"))
+			 {
+				 
+			 }
+			 else if (((String)Visuel.transfoList.getSelectedItem()).equals("Box Cox"))
+			 {
+				 
+			 }
 		}
 		
 		if (source==Visuel.undoB){
 			Tools.unDo();
 			if(Visuel.tab.getText().equals("tableau")){
-				Visuel.tab.setText("graphique");
+			   Visuel.tab.setText("graphique");
 			}
 			else{
 				Visuel.tab.setText("tableau");
@@ -62,7 +79,15 @@ public ActionListener monActionEcouteur = new ActionListener() {
 			
 		}
 		  if (source==Visuel.bouton){
-			  Tools.toChoose();
+			  try {
+				Tools.toChoose();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (ParseException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		  }
 	
 		//Serie.getCurrent().returnPanel().revalidate();
