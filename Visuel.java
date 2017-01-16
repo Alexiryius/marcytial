@@ -90,12 +90,9 @@ public class Visuel extends JFrame{
 		milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
 		System.out.println((Serie.getCurrent().getNom()));
     	milieuDroite.add(Serie.getCurrent().returnPanel());
-<<<<<<< HEAD
-=======
        	milieuDroite.repaint();
     	
-    	
->>>>>>> 72d53e978d7e16fcab52dbc0a3b955493564c896
+
     	
 	}
 	
@@ -111,16 +108,10 @@ public class Visuel extends JFrame{
     	undoB.setEnabled(false);
     	redoB.setEnabled(false);
     	milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
-<<<<<<< HEAD
-    	milieuDroite.add(Serie.getCurrent().returnPanel());
 
-    	
-    	
+    	milieuDroite.add(Serie.getCurrent().returnPanel());
     	panneauPrinc2.setLayout(null);
-=======
-	   	milieuDroite.add(Serie.getCurrent().returnPanel());
-	   	panneauPrinc2.setLayout(null);
->>>>>>> 72d53e978d7e16fcab52dbc0a3b955493564c896
+
     	this.setSize(largeur,hauteur);
     	label.setBounds(20,10,160,30);
     	panneauPrinc2.add(label);

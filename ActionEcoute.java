@@ -1,5 +1,5 @@
 package marcytial;
-import marcytial.Visuel;
+import marcytial.Visuel; 
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -38,22 +38,10 @@ public ActionListener monActionEcouteur = new ActionListener() {
 		
 		if (source==Visuel.undoB){
 			Tools.unDo();
-<<<<<<< HEAD
+
 			System.out.println(Serie.getCurrent());
 			Visuel.ajouteVis();
 			System.out.println("je suis la");
-
-		  
-=======
-			if(Visuel.tab.getText().equals("tableau")){
-				Visuel.tab.setText("graphique");
-			}
-			else{
-				Visuel.tab.setText("tableau");
-			}
-			
-		    Visuel.ajouteVis(); 
->>>>>>> 72d53e978d7e16fcab52dbc0a3b955493564c896
 		}
 		
 		if (source==Visuel.redoB){
