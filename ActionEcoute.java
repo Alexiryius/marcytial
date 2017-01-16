@@ -33,15 +33,43 @@ public ActionListener monActionEcouteur = new ActionListener() {
 	    }
 		if (source==Visuel.validBouton){
 			Visuel.validBouton.setText("OK");
-			 String petName = (String)Visuel.transfoList.getSelectedItem();
+			 if( ((String)Visuel.transfoList.getSelectedItem()).equals("Moyenne"))
+			 {
+				 Tools.toMoyenne();
+				 Visuel.ajouteVis();
+			 }
+			 else if(((String)Visuel.transfoList.getSelectedItem()).equals("Moyenne Mobile"))
+			 {
+				 Tools.toMoyenneMobile();
+				 Visuel.ajouteVis();
+			 }
+			 else if(((String)Visuel.transfoList.getSelectedItem()).equals("Moyenne Mobile Ponderee"))
+			 {
+				 
+			 }
+			 else if (((String)Visuel.transfoList.getSelectedItem()).equals("Box Cox"))
+			 {
+				 
+			 }
 		}
 		
 		if (source==Visuel.undoB){
 			Tools.unDo();
+<<<<<<< HEAD
 
 			System.out.println(Serie.getCurrent());
 			Visuel.ajouteVis();
 			System.out.println("je suis la");
+=======
+			if(Visuel.tab.getText().equals("tableau")){
+			   Visuel.tab.setText("graphique");
+			}
+			else{
+				Visuel.tab.setText("tableau");
+			}
+			
+		    Visuel.ajouteVis(); 
+>>>>>>> fea7a4454a4cced9e84937517257f7fc893bb643
 		}
 		
 		if (source==Visuel.redoB){
@@ -58,7 +86,15 @@ public ActionListener monActionEcouteur = new ActionListener() {
 			
 		}
 		  if (source==Visuel.bouton){
-			  Tools.toChoose();
+			  try {
+				Tools.toChoose();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (ParseException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		  }
 	
 		//Serie.getCurrent().returnPanel().revalidate();
