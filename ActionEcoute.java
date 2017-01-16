@@ -21,7 +21,6 @@ public ActionListener monActionEcouteur = new ActionListener() {
 	    		Visuel.ajouteVis();
 	    		clic = true;
 	    		
-	    		
 	    	}
 	    	else{
 	    		Visuel.tab.setText("graphique");
@@ -31,7 +30,7 @@ public ActionListener monActionEcouteur = new ActionListener() {
 
 	    	}
 	    }
-		if (source==Visuel.validBouton){
+	    else if (source==Visuel.validBouton){
 			Visuel.validBouton.setText("OK");
 			 if( ((String)Visuel.transfoList.getSelectedItem()).equals("Moyenne"))
 			 {
@@ -53,26 +52,20 @@ public ActionListener monActionEcouteur = new ActionListener() {
 			 }
 		}
 		
-		if (source==Visuel.undoB){
+		else if (source==Visuel.undoB){
 			Tools.unDo();
-<<<<<<< HEAD
-
-			System.out.println(Serie.getCurrent());
-			Visuel.ajouteVis();
-			System.out.println("je suis la");
-=======
 			if(Visuel.tab.getText().equals("tableau")){
-			   Visuel.tab.setText("graphique");
+				Visuel.tab.setText("graphique");
 			}
 			else{
 				Visuel.tab.setText("tableau");
 			}
+			Visuel.ajouteVis();
 			
-		    Visuel.ajouteVis(); 
->>>>>>> fea7a4454a4cced9e84937517257f7fc893bb643
+
 		}
 		
-		if (source==Visuel.redoB){
+		else if (source==Visuel.redoB){
 		
 			Tools.reDo();
 			if(Visuel.tab.getText().equals("tableau")){
@@ -85,7 +78,7 @@ public ActionListener monActionEcouteur = new ActionListener() {
 			
 			
 		}
-		  if (source==Visuel.bouton){
+		else if (source==Visuel.bouton){
 			  try {
 				Tools.toChoose();
 			} catch (IOException e1) {
@@ -97,8 +90,7 @@ public ActionListener monActionEcouteur = new ActionListener() {
 			}
 		  }
 	
-		//Serie.getCurrent().returnPanel().revalidate();
-		//Serie.getCurrent().returnPanel().repaint();
+		
 		if (Tools.mayIUndo()){
 			Visuel.undoB.setEnabled(false);}
 		else{

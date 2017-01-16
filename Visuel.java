@@ -44,7 +44,7 @@ public class Visuel extends JFrame{
 	public static JButton bouton = new JButton("...");
 	public static JButton tab = new JButton("graphique");
 	JLabel label = new JLabel("Outil Marcytial");
-	JLabel labelChoix = new JLabel("Choisissez la transformation");
+	JLabel labelChoix = new JLabel("Appliquez une transformation");
 	public static JButton validBouton = new JButton("ok");
 	public static JPanel milieuDroite =new JPanel();
     static	JPanel panneauPrinc2  = new JPanel();
@@ -90,7 +90,7 @@ public class Visuel extends JFrame{
       	redoB.setBounds(1190,70,80,20);
       	redoB.addActionListener(listn.monActionEcouteur);
     	panneauPrinc2.add(redoB);
-    	labelChoix.setBounds(345,120,220,22);
+    	labelChoix.setBounds(338,120,220,22);
     	panneauPrinc2.add(labelChoix);
     	transfoList.setBounds(400,157,150,22);
     	panneauPrinc2.add(transfoList);

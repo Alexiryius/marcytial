@@ -12,7 +12,7 @@ public class Programme{
 	public static void main(String[] args) throws IOException, ParseException {
 		
  new Hydrateur();
-<<<<<<< HEAD
+
  	JFileChooser fileChooser = new JFileChooser();
 	int returnValue = fileChooser.showOpenDialog(null);
 	if (returnValue == JFileChooser.APPROVE_OPTION) {
@@ -24,8 +24,6 @@ public class Programme{
  //Tools.toMoyenne();
  //Tools.toMoyenneMobile();
  //System.out.println(Serie.getCurrent().getValeur());
-=======
- 
->>>>>>> fea7a4454a4cced9e84937517257f7fc893bb643
+
  }
 } 

@@ -59,14 +59,15 @@ public class MoyenneMobile extends Transformation
 		if( Serie.getCurrent() instanceof SerieChronologiqueGraphe)
 		{				
 			Tools.toDo();
-			new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
-			 			Serie.getCurrent().getDate(),resultat);		
+			Serie.setCurrent(new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+		 			Serie.getCurrent().getDate(),resultat));	
+			
 		}
-		else
+		else if( Serie.getCurrent() instanceof SerieChronologiqueTab)
 		{
 			Tools.toDo();
-		    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
-				 			Serie.getCurrent().getDate(),resultat);	
+			Serie.setCurrent(new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+			Serie.getCurrent().getDate(),resultat));	
 		}
 	
 		
