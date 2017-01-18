@@ -1,24 +1,13 @@
 package marcytial;
 import java.awt.Color;
 import java.awt.Dimension;
-<<<<<<< HEAD
-
-=======
-import java.awt.Image;
 import java.awt.Insets;
-import java.awt.event.ActionListener;
-
-import javax.imageio.ImageIO;
->>>>>>> 0b1b132a62a5a9821bf721edf33f36c112c14fca
 import javax.swing.BoxLayout;
-import javax.swing.DefaultButtonModel;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-<<<<<<< HEAD
 import javax.swing.JPanel; 
 /**
 =======
@@ -38,26 +27,18 @@ public class Visuel extends JFrame{
 	
 	
 	
-<<<<<<< HEAD
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	static String[] transfoStrings = { "Moyenne", "Moyenne Mobile", "Moyenne Mobile Ponderee", "Box Cox"};
-	public static JComboBox<?> transfoList = new JComboBox<Object>(transfoStrings);
-	public static JButton undoB = new JButton("undo");
-	public static JButton redoB = new JButton("redo");
-	
-	public static JButton bouton = new JButton("...");
-=======
 	static String[] transfoStrings = { "Moyenne", "Moyenne Mobile", "Moyenne Mobile Ponderee", "Box Cox", "logarithm"};
-	public static JComboBox transfoList = new JComboBox(transfoStrings);
-		
+	public static JComboBox<?> transfoList = new JComboBox<Object>(transfoStrings);
 	public static JButton undoB = new JButton();
 	public static JButton redoB = new JButton();
 	public static JButton  save =  new JButton();
 	public static JButton bouton = new JButton();
->>>>>>> 0b1b132a62a5a9821bf721edf33f36c112c14fca
+
 	public static JButton tab = new JButton("graphique");
 	JLabel label = new JLabel("Outil Marcytial");
 	JLabel labelChoix = new JLabel("Appliquez une transformation");
