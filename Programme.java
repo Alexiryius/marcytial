@@ -13,11 +13,7 @@ public class Programme{
 		
  new Hydrateur();
 
- 	JFileChooser fileChooser = new JFileChooser();
-	int returnValue = fileChooser.showOpenDialog(null);
-	if (returnValue == JFileChooser.APPROVE_OPTION) {
-       File selectedFile = fileChooser.getSelectedFile();
-       System.out.println(selectedFile.getName());}
+ 	
  //new Tools();
  //System.out.println(Serie.getCurrent().getValeur());
  //System.out.println(Serie.getCurrent().getDate());
