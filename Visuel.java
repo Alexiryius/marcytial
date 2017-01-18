@@ -27,6 +27,7 @@ public class Visuel extends JFrame{
 	
 	
 	
+<<<<<<< HEAD
 
 	/**
 	 * 
@@ -34,6 +35,11 @@ public class Visuel extends JFrame{
 	private static final long serialVersionUID = 1L;
 	static String[] transfoStrings = { "Moyenne", "Moyenne Mobile", "Moyenne Mobile Ponderee", "Box Cox", "logarithm"};
 	public static JComboBox<?> transfoList = new JComboBox<Object>(transfoStrings);
+=======
+	static String[] transfoStrings = { "Moyenne", "Moyenne Mobile", "Regression lineaire", "Box Cox", "logarithm"};
+	public static JComboBox transfoList = new JComboBox(transfoStrings);
+		
+>>>>>>> 7a7b2bbb91a4e238cdf1843f28b56d666e7ff38a
 	public static JButton undoB = new JButton();
 	public static JButton redoB = new JButton();
 	public static JButton  save =  new JButton();

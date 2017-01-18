@@ -42,9 +42,10 @@ public ActionListener monActionEcouteur = new ActionListener() {
 				 Tools.toMoyenneMobile();
 				 Visuel.ajouteVis();
 			 }
-			 else if(((String)Visuel.transfoList.getSelectedItem()).equals("Moyenne Mobile Ponderee"))
+			 else if(((String)Visuel.transfoList.getSelectedItem()).equals("Regression lineaire"))
 			 {
-				 
+				 Tools.toRegLin();
+				 Visuel.ajouteVis();
 			 }
 			 else if (((String)Visuel.transfoList.getSelectedItem()).equals("Box Cox"))
 			 {
@@ -71,7 +72,10 @@ public ActionListener monActionEcouteur = new ActionListener() {
 			
 
 		}
-		
+		else if (source==Visuel.save){
+			Tools.toSave();
+		}
+			
 		else if (source==Visuel.redoB){
 		
 			Tools.reDo();

@@ -1,6 +1,9 @@
 package marcytial;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Stack;
@@ -128,6 +131,27 @@ public  class Tools {
 	          File selectedFile = fileChooser.getSelectedFile();
 	        new Reader(selectedFile.getAbsolutePath(),false);
 	        }
+		
+	}
+	public static void  toSave() throws IOException
+	{
+		JFileChooser filech = new JFileChooser();
+		filech.setSelectedFile(new File("test.csv"));
+		if(filech.showSaveDialog(null)== JFileChooser.APPROVE_OPTION ){
+			String pathFichier = filech.getSelectedFile().getAbsolutePath();
+			System.out.println(pathFichier);
+			
+		}
+		
+		
+		
+		
+	}
+	
+	public static void toRegLin()
+	{
+		RegLineaire RL= new RegLineaire();
+		RL.calcul();
 		
 	}
 

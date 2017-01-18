@@ -22,9 +22,7 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
  
 
 
-	private boolean isInitialized() {
-		return (this.getDate() != null) ;
-	}
+	
 	
 
 	public JPanel returnPanel() {
