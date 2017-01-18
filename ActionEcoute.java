@@ -1,7 +1,7 @@
 package marcytial;
 import marcytial.Visuel; 
 
-import java.awt.Color;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -48,7 +48,14 @@ public ActionListener monActionEcouteur = new ActionListener() {
 			 }
 			 else if (((String)Visuel.transfoList.getSelectedItem()).equals("Box Cox"))
 			 {
+				 Tools.toBoxCox();
+				 Visuel.ajouteVis();
 				 
+			 }
+			 else if (((String)Visuel.transfoList.getSelectedItem()).equals("logarithm"))
+			 {
+				 Tools.toTransfoLog();
+				 Visuel.ajouteVis(); 
 			 }
 		}
 		
@@ -81,6 +88,7 @@ public ActionListener monActionEcouteur = new ActionListener() {
 		else if (source==Visuel.bouton){
 			  try {
 				Tools.toChoose();
+				 Visuel.ajouteVis();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
