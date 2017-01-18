@@ -1,5 +1,6 @@
 package marcytial;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Moyenne extends Transformation
@@ -25,9 +26,14 @@ public class Moyenne extends Transformation
 		}
 		moy /= taille;
 		
+		java.util.Scanner sc;
+		DecimalFormat decimalFormat = new DecimalFormat("########.###");
 		for(int i = 0;i < taille;i++)
 		{
-			result.add(moy);
+			 String format = decimalFormat.format(moy);
+			 sc = new java.util.Scanner(format);
+			 double f = sc.nextDouble();
+			result.add(f);
 		}	
 		if( Serie.getCurrent() instanceof SerieChronologiqueGraphe){
 			
@@ -44,4 +50,23 @@ public class Moyenne extends Transformation
 		}
 	}
 	
+	public double moyenne()
+		{
+		ArrayList<Double> result = new ArrayList<>();
+			double moy=0 ;
+			int taille = Serie.getCurrent().getValeur().size();
+	
+			for(int i = 0;i < taille ;i++)
+			{
+				moy += Serie.getCurrent().getValeur().get(i);
+			}
+			moy /= taille;
+			
+			return moy;
+		}
+
+	
+	
 }
+
+

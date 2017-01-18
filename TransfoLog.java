@@ -2,6 +2,7 @@ package marcytial;
 
 import java.util.ArrayList;
 import java.lang.Math;
+import java.text.DecimalFormat;
 
 public class TransfoLog extends Transformation
 {
@@ -9,7 +10,7 @@ public class TransfoLog extends Transformation
 
 	public TransfoLog()
 	{
-		super("a l'échelle logarithmique");
+		super("a l'Ã©chelle logarithmique");
 	}
 	
 	
@@ -18,10 +19,16 @@ public class TransfoLog extends Transformation
 	{
 		int taille =Serie.getCurrent().getValeur().size();
 		ArrayList<Double> result= new ArrayList<>();
+		java.util.Scanner sc;
+		DecimalFormat decimalFormat = new DecimalFormat("########.###");
 		
 		for(int i = 0;i < taille ;i++)
 			{
-			result.add(Math.log(Serie.getCurrent().getValeur().get(i)));
+					 String format = decimalFormat.format(Math.log(Serie.getCurrent().getValeur().get(i)));
+					 sc = new java.util.Scanner(format);
+					 double f = sc.nextDouble();
+					result.add(f);
+			
 			}
 		if( Serie.getCurrent() instanceof SerieChronologiqueGraphe){
 			

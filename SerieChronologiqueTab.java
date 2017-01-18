@@ -20,11 +20,7 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 		super(nom,date,valeur);
 	}
  
-
-
 	
-	
-
 	public JPanel returnPanel() {
 		
         JPanel contentPane = new JPanel(null);	

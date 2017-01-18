@@ -1,8 +1,7 @@
 package marcytial;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Date;
-
 import javax.swing.JPanel;
 
 public abstract class Serie

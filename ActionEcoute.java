@@ -73,7 +73,12 @@ public ActionListener monActionEcouteur = new ActionListener() {
 
 		}
 		else if (source==Visuel.save){
-			Tools.toSave();
+			try {
+				Tools.toSave();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 			
 		else if (source==Visuel.redoB){
