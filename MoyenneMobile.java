@@ -1,6 +1,7 @@
 package marcytial;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MoyenneMobile extends Transformation
 {
@@ -23,33 +24,41 @@ public class MoyenneMobile extends Transformation
 
 
 	{
-		int taille = Serie.getCurrent().getValeur().size();
+		int taille = Serie.getCurrent().getValeur().size()-1;
 		int saison;
 		double somme = 0;
 		ArrayList<Double> resultat = new ArrayList<>();
+		ArrayList<Date> date = new ArrayList<>();
 		
 		if(this.saisonnalite%2 == 0)
 		{		
-			saison= this.saisonnalite/2;
-			
-			for(int i =saison ;i < taille-saison ;i++)
+			saison= (this.saisonnalite/2);
+			for(int i =saison ;i <= taille-saison ;i++)
 			{
-				for(int j = i - saison ;j < i +saison;j++)
-				{
-					somme += Serie.getCurrent().getValeur().get(j)/saisonnalite;
+				
+				for(int j = i-saison ;j <= i-saison+saisonnalite;j++)
+				{ 
+					if (j == i-saison || j == i-saison+saisonnalite){somme += Serie.getCurrent().getValeur().get(j)/2;}
+					else {somme += Serie.getCurrent().getValeur().get(j);}
 				}
+				date.add(Serie.getCurrent().getDate().get(i));
+				somme = somme/saisonnalite;
 				resultat.add(somme);
+	
 			}
 			
 		}
-		else
+		else if(this.saisonnalite%2 == 1)
 		{
-			for(int i = saisonnalite-1;i < taille;i++)
+			saison= (int)(this.saisonnalite/2);
+			for(int i = saison;i <= taille-saison;i++)
 			{
-				for(int j = i - (this.saisonnalite - 1) / 2; i < i + (this.saisonnalite - 1) / 2;j++)
+				for(int j = i - saison; j <= i + saison;j++)
 				{
-					somme += Serie.getCurrent().getValeur().get(j)/saisonnalite;
+					somme += Serie.getCurrent().getValeur().get(j);
 				}
+				date.add(Serie.getCurrent().getDate().get(i));
+				somme = somme/saisonnalite;
 				resultat.add(somme);
 			}
 			
@@ -59,14 +68,16 @@ public class MoyenneMobile extends Transformation
 		{				
 			Tools.toDo();
 			Serie.setCurrent(new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
-		 			Serie.getCurrent().getDate(),resultat));	
+		 			date,resultat));	
 			
 		}
 		else if( Serie.getCurrent() instanceof SerieChronologiqueTab)
 		{
 			Tools.toDo();
 			Serie.setCurrent(new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
-			Serie.getCurrent().getDate(),resultat));	
+			date,resultat));	
+			System.out.println("valeurs : " + Serie.getCurrent().getValeur().size());
+			System.out.println("dates :" + Serie.getCurrent().getDate().size());
 		}
 	
 		
