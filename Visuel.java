@@ -32,7 +32,7 @@ public class Visuel extends JFrame{
 	
 	
 	
-	static String[] transfoStrings = { "Moyenne", "Moyenne Mobile", "Moyenne Mobile Ponderee", "Box Cox", "logarithm"};
+	static String[] transfoStrings = { "Moyenne", "Moyenne Mobile", "Regression lineaire", "Box Cox", "logarithm"};
 	public static JComboBox transfoList = new JComboBox(transfoStrings);
 		
 	public static JButton undoB = new JButton();

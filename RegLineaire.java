@@ -7,7 +7,7 @@ public class RegLineaire extends Transformation
 	
 	public RegLineaire()
 	{
-		super("Régression linéaire");
+		super("Regression lineaire");
 	}
 
 	
