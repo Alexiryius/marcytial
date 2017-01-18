@@ -6,8 +6,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-
-
 public class Reader {
 
 	private Serie laserie;
@@ -24,7 +22,6 @@ public class Reader {
 		}
 	}
 	
-			
 	public SerieChronologiqueGraphe readerCSVGraphe(String nomFichier) throws IOException, ParseException
 	{  
 		Serie suite= new SerieChronologiqueGraphe();
@@ -38,14 +35,12 @@ public class Reader {
 		while (sc.hasNextLine()) 
 		{
 			lignes = sc.nextLine().split(";"); 
-
 			date.add(formatter.parse(lignes[0]));
 			valeur.add(Double.parseDouble(lignes[1]));
 
 		}
 		
 		suite.setDate(date);
-		
 		suite.setNom(nom);
 		suite.setValeur(valeur);
 		sc.close();
@@ -79,20 +74,19 @@ public class Reader {
 	public void printSuiteLis(Serie suite) {
 		System.out.println(suite.getNom() + " | " + suite.getDate()
 				     + " | " + suite.getValeur() );
-					
 	}
 	
 	public void writeCSV(String nomfichier , Serie suite)throws IOException
 	{
-		
 		FileWriter fw = new FileWriter (nomfichier,true);
-		BufferedWriter bw = new BufferedWriter(fw); 
-		
-			fw.write (suite.getNom()+";");
-			fw.write (suite.getDate()+";");
-			fw.write (suite.getValeur().toString());
+		BufferedWriter bw = new BufferedWriter(fw);
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+		int taille = suite.getDate().size();
+		for(int i=0;i<taille;i++){
+			fw.write (formatter.format(suite.getDate().get(i)).toString()+";");
+			fw.write (suite.getValeur().get(i).toString()+";");
 			fw.write ("\r\n");
-	
+		}
 		bw.flush(); 
 		bw.close(); 
 		fw.close();
@@ -102,11 +96,8 @@ public class Reader {
 		return laserie;
 	}
 
-
-
 	public void setLaserie(Serie laserie) {
 		this.laserie = laserie;
 	}
 
-	
 }
