@@ -36,9 +36,36 @@ public class RegLineaire extends Transformation
 		
 		
 		double b = moy.moyenne() - a * ((taille + 1) / 2);
+		
+		
+		
+		
+		for (int i = 0;i < taille; i++)
+		{
+			resultat.add(a * (i + 1) + b);
+		}
+		
+		
+		if( Serie.getCurrent() instanceof SerieChronologiqueGraphe)
+		{				
+			Tools.toDo();
+			new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+			 			Serie.getCurrent().getDate(),resultat);		
+		}
+		else
+		{
+			Tools.toDo();
+		    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+				 			Serie.getCurrent().getDate(),resultat);	
+		}
 				
 		
-		// RESTE A AFFICHER LA COURBE
+		/* RESTE A AFFICHER LA COURBE Y=aX+b
+		 * 
+		 * a et b sont corrects
+		 * 
+		 * elle devrait passer par la moyenne des valeurs 
+		 */
 		
 	}
 }
