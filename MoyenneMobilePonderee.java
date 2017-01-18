@@ -29,7 +29,10 @@ public class MoyenneMobilePonderee extends Transformation
 			{
 				for(int j = i - this.saisonnalite / 2;j < i + this.saisonnalite / 2;j++)
 				{
-					somme += Serie.getCurrent().getValeur().get(j)/saisonnalite;
+					for(int k = 0; k < ponderations.length;k++)
+					{
+						somme += ponderations[k] * Serie.getCurrent().getValeur().get(j)/saisonnalite;
+					}
 				}
 				resultat.add(somme);
 			}
@@ -53,7 +56,10 @@ public class MoyenneMobilePonderee extends Transformation
 			{
 				for(int j = i - (this.saisonnalite - 1) / 2; i < i + (this.saisonnalite - 1) / 2;j++)
 				{
-					somme += Serie.getCurrent().getValeur().get(j)/saisonnalite;
+					for(int k = 0; k < ponderations.length;k++)
+					{
+						somme += ponderations[k] * Serie.getCurrent().getValeur().get(j)/saisonnalite;
+					}
 				}
 				resultat.add(somme);
 			}
