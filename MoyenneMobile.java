@@ -17,8 +17,7 @@ public class MoyenneMobile extends Transformation
             this.saisonnalite=saison;
         }
 	
-	
-
+		
 	@Override
 	public void calcul()
 
