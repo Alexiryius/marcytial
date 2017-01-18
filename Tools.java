@@ -90,14 +90,32 @@ public  class Tools {
 		Moyenne tr = new Moyenne();
 		tr.calcul();
 	}
+	public static void toBoxCox()
+	{
+		double value1 =Double.parseDouble( JOptionPane.showInputDialog("Avec quel saisonalité ? (reel attendu)"));
+		BoxCox bc= new BoxCox(value1);
+		bc.calcul();
+	}
+	public static void toMoyenneMobilePondere()
+	{
+		
+	}
 	
 	public static void toMoyenneMobile()
 	{
 		 String value1 = JOptionPane.showInputDialog("Avec quel saisonalité ? (entier attendu)");
-		 Integer value2 = Integer.parseInt(value1);
-		 MoyenneMobile penis  = new MoyenneMobile((int)value2);
-		 System.out.println(value2);
-		 penis.calcul();
+		 String value2 ="";
+		 for(int i= 0 ;i<value1.length();i++)
+		 {
+			 if (Character.isDigit(value1.charAt(i))){
+				 value2+=value1.charAt(i);
+			 }
+		 }
+		System.out.println(value2);
+		int value3 = Integer.parseInt(value2);
+		 MoyenneMobile Moy  = new MoyenneMobile(value3);
+		 
+		 Moy.calcul();
 	}
   
 	public static void toChoose() throws IOException, ParseException
@@ -105,9 +123,10 @@ public  class Tools {
 		JFileChooser fileChooser = new JFileChooser();
 	
 		int returnValue = fileChooser.showOpenDialog(null);
+		System.out.println(returnValue);
 		 if (returnValue == JFileChooser.APPROVE_OPTION) {
 	          File selectedFile = fileChooser.getSelectedFile();
-	        new Reader(selectedFile.getName(),true);
+	        new Reader(selectedFile.getAbsolutePath(),false);
 	        }
 		
 	}
