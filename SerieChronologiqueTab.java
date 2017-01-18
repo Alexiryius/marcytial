@@ -16,7 +16,7 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 		super();
 	}
 	
- public 	SerieChronologiqueTab(String nom, ArrayList<Date> date, ArrayList<Double> valeur){
+	public SerieChronologiqueTab(String nom, ArrayList<Date> date, ArrayList<Double> valeur){
 		super(nom,date,valeur);
 	}
  

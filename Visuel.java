@@ -1,43 +1,30 @@
 package marcytial;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.event.ActionListener;
-import java.util.Random;
 
-import javax.swing.BorderFactory;
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection; 
+import javax.swing.JPanel; 
 /**
  *
  * @author rogeza
  * 
  */
 
-//http://stackoverflow.com/questions/11129608/using-repaint-method-with-actionperformed/11131267
 public class Visuel extends JFrame{
 	
 	
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	static String[] transfoStrings = { "Moyenne", "Moyenne Mobile", "Moyenne Mobile Ponderee", "Box Cox"};
-	public static JComboBox transfoList = new JComboBox(transfoStrings);
-		
+	public static JComboBox<?> transfoList = new JComboBox<Object>(transfoStrings);
 	public static JButton undoB = new JButton("undo");
 	public static JButton redoB = new JButton("redo");
 	
