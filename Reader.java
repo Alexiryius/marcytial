@@ -84,7 +84,7 @@ public class Reader {
 		int taille = suite.getDate().size();
 		for(int i=0;i<taille;i++){
 			fw.write (formatter.format(suite.getDate().get(i)).toString()+";");
-			fw.write (suite.getValeur().get(i).toString()+";");
+			fw.write (suite.getValeur().get(i).toString());
 			fw.write ("\r\n");
 		}
 		bw.flush(); 
