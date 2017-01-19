@@ -7,7 +7,7 @@ public class RegLineaire extends Transformation
 	
 	public RegLineaire()
 	{
-		super("Regression lineaire");
+		super("regression lineaire de");
 	}
 
 	
@@ -49,13 +49,13 @@ public class RegLineaire extends Transformation
 		if( Serie.getCurrent() instanceof SerieChronologiqueGraphe)
 		{				
 			Tools.toDo();
-			new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+			new SerieChronologiqueGraphe(this.getNom()+ " " +Serie.getCurrent().getNom(),
 			 			Serie.getCurrent().getDate(),resultat);		
 		}
 		else
 		{
 			Tools.toDo();
-		    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+		    new SerieChronologiqueTab(this.getNom()+ " " +Serie.getCurrent().getNom(),
 				 			Serie.getCurrent().getDate(),resultat);	
 		}
 				

@@ -9,7 +9,7 @@ public class BoxCox extends Transformation
 	
 	public BoxCox(double param)
 	{
-		super("Transformation de Box-Cox");
+		super("transformation Box-Cox de");
 		this.parametre = param;
 	}
 	
@@ -43,13 +43,13 @@ public class BoxCox extends Transformation
 		if( Serie.getCurrent() instanceof SerieChronologiqueGraphe)
 		{				
 			Tools.toDo();
-			new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+			new SerieChronologiqueGraphe(this.getNom()+ " " +Serie.getCurrent().getNom(),
 			 			Serie.getCurrent().getDate(),resultat);		
 		}
 		else
 		{
 			Tools.toDo();
-		    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+		    new SerieChronologiqueTab(this.getNom()+ " " +Serie.getCurrent().getNom(),
 				 			Serie.getCurrent().getDate(),resultat);	
 		}
 	}

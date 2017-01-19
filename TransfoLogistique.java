@@ -6,7 +6,7 @@ public class TransfoLogistique extends Transformation
 {
 	public TransfoLogistique()
 	{
-		super("Transformation logistique");
+		super("Transformation logistique de");
 	}
 	
 	private boolean intervalle()
@@ -39,14 +39,14 @@ public class TransfoLogistique extends Transformation
 			if( Serie.getCurrent() instanceof SerieChronologiqueGraphe){
 				
 				Tools.toDo();
-				new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+				new SerieChronologiqueGraphe(this.getNom()+ " " +Serie.getCurrent().getNom(),
 				 			Serie.getCurrent().getDate(),resultat);	
 		
 			}
 			else
 			{
 				Tools.toDo();
-			    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+			    new SerieChronologiqueTab(this.getNom()+ " " +Serie.getCurrent().getNom(),
 					 			Serie.getCurrent().getDate(),resultat);	
 			}
 		}

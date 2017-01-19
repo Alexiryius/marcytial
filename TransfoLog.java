@@ -10,7 +10,7 @@ public class TransfoLog extends Transformation
 
 	public TransfoLog()
 	{
-		super("a l'échelle logarithmique");
+		super("transformation logarithmique de");
 	}
 	
 	
@@ -33,14 +33,14 @@ public class TransfoLog extends Transformation
 		if( Serie.getCurrent() instanceof SerieChronologiqueGraphe){
 			
 			Tools.toDo();
-			new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+			new SerieChronologiqueGraphe(this.getNom()+ " " +Serie.getCurrent().getNom(),
 			 			Serie.getCurrent().getDate(),result);	
 	
 		}
 		else
 		{
 			Tools.toDo();
-		    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+		    new SerieChronologiqueTab(this.getNom()+ " " +Serie.getCurrent().getNom(),
 				 			Serie.getCurrent().getDate(),result);	
 		}
 	}

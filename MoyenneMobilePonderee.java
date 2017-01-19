@@ -9,7 +9,7 @@ public class MoyenneMobilePonderee extends Transformation
 	
 	public MoyenneMobilePonderee(int saison, double[] pond)
 	{
-		super("qui a subit une moyenne mobile ponderee");
+		super("moyenne mobile ponderee de");
 		this.saisonnalite=saison;
 		this.ponderations = pond;
 	}
@@ -40,13 +40,13 @@ public class MoyenneMobilePonderee extends Transformation
 			if( Serie.getCurrent() instanceof SerieChronologiqueGraphe)
 			{				
 				Tools.toDo();
-				new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+				new SerieChronologiqueGraphe(this.getNom()+ " " +Serie.getCurrent().getNom(),
 				 			Serie.getCurrent().getDate(),resultat);		
 			}
 			else
 			{
 				Tools.toDo();
-			    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+			    new SerieChronologiqueTab(this.getNom()+ " " +Serie.getCurrent().getNom(),
 					 			Serie.getCurrent().getDate(),resultat);	
 			}
 		}
