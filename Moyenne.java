@@ -52,7 +52,6 @@ public class Moyenne extends Transformation
 	
 	public double moyenne()
 		{
-		ArrayList<Double> result = new ArrayList<>();
 			double moy=0 ;
 			int taille = Serie.getCurrent().getValeur().size();
 	
