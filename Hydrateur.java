@@ -34,6 +34,18 @@ public Hydrateur() throws IOException, ParseException
 	visuel =new Visuel();
 	
    }
+   
+   public Hydrateur(String filname) throws IOException, ParseException
+   {
+
+	 
+
+	  reader= new Reader(filname,graphe);
+
+	  laSerie=reader.getLaserie();
+	  visuel= new Visuel();
+	 
+   }	
   
    public void setLaSerie(Serie nouvelleSerie)
    {

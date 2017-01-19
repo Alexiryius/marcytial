@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
 
 public  class Tools {
 		
-	private static Stack<Serie> undo = new Stack<Serie>();
-	private static Stack<Serie> redo = new Stack<Serie>();
+	protected static Stack<Serie> undo = new Stack<Serie>();
+	protected static Stack<Serie> redo = new Stack<Serie>();
 	
 // fonction qui est utiliser lors de la selection du fichier
 // ou lors de la selection d'une courbe
