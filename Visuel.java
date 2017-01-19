@@ -93,7 +93,8 @@ public class Visuel extends JFrame{
 	    	panneauPrinc2.setLayout(null);
 
 	    	this.setSize(largeur,hauteur);
-	    	label.setBounds(20,10,160,30);
+	    	System.out.println("largeur : "+ largeur+ ", hauteur : "+ hauteur);
+	    	label.setBounds(largeur/320,hauteur/90,largeur/10,hauteur/30);
 	    	panneauPrinc2.add(label);
 	    	save.setBounds(largeur-180,20,50,40);
 	    	save.addActionListener(listn.monActionEcouteur);
