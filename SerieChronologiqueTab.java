@@ -31,8 +31,8 @@ public class SerieChronologiqueTab extends Serie implements AffTab  {
 			
 			for(int i =0; i<taille;i++)
 			{
-				listData[i][1]= this.getDate().get(i);
-				listData[i][0]=this.getValeur().get(i);
+				listData[i][1]= this.getValeur().get(i);
+				listData[i][0]=this.getDate().get(i);
 			}
 			
 				
