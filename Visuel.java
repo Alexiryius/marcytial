@@ -10,12 +10,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel; 
 /**
-=======
-import javax.swing.JPanel;
+
+
 
 
 /*
->>>>>>> 0b1b132a62a5a9821bf721edf33f36c112c14fca
+
  *
  * @author rogeza
  * 

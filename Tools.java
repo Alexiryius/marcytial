@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Stack;
 
 import javax.swing.JFileChooser;
@@ -140,6 +141,18 @@ public  class Tools {
 		if(filech.showSaveDialog(null)== JFileChooser.APPROVE_OPTION ){
 			String pathFichier = filech.getSelectedFile().getAbsolutePath();
 			System.out.println(pathFichier);
+			FileWriter fw = new FileWriter (pathFichier,true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+			int taille = Serie.getCurrent().getDate().size();
+			for(int i=0;i<taille;i++){
+				fw.write (formatter.format(Serie.getCurrent().getDate().get(i)).toString()+";");
+				fw.write (Serie.getCurrent().getValeur().get(i).toString());
+				fw.write ("\r\n");
+			}
+			bw.flush(); 
+			bw.close(); 
+			fw.close();
 			
 		}
 		
