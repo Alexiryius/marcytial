@@ -56,7 +56,11 @@ public abstract class Serie
 	
 	public String getNom()
 	{
-		return this.nom;
+		String coco;
+		coco = nom.replaceFirst("src/marcytial/","");
+		coco = coco.replaceAll(".csv","");
+		System.out.println(coco);
+		return coco;
 	}
 	
 	@Override

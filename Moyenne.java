@@ -9,7 +9,7 @@ public class Moyenne extends Transformation
 	
 	public Moyenne()
 	{
-		super(" en moyenne");
+		super("moyenne de");
 	}
 	
 	
@@ -38,14 +38,14 @@ public class Moyenne extends Transformation
 		if( Serie.getCurrent() instanceof SerieChronologiqueGraphe){
 			
 			Tools.toDo();
-			new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+			new SerieChronologiqueGraphe(this.getNom()+ " " +Serie.getCurrent().getNom(),
 			 			Serie.getCurrent().getDate(),result);	
 	
 		}
 		else
 		{
 			Tools.toDo();
-		    new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+		    new SerieChronologiqueTab(this.getNom()+ " " +Serie.getCurrent().getNom(),
 				 			Serie.getCurrent().getDate(),result);	
 		}
 	}

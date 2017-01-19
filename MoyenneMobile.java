@@ -10,7 +10,7 @@ public class MoyenneMobile extends Transformation
 			
 	public MoyenneMobile(int saison)
 	{
-		super("qui a subit une moyenne mobile");
+		super("moyenne mobile de");
 		
 		if (saison <= 0)
             {
@@ -66,14 +66,14 @@ public class MoyenneMobile extends Transformation
 		if( Serie.getCurrent() instanceof SerieChronologiqueGraphe)
 		{				
 			Tools.toDo();
-			Serie.setCurrent(new SerieChronologiqueGraphe(Serie.getCurrent().getNom()+this.getNom(),
+			Serie.setCurrent(new SerieChronologiqueGraphe(this.getNom()+ " " +Serie.getCurrent().getNom(),
 		 			date,resultat));	
 			
 		}
 		else if( Serie.getCurrent() instanceof SerieChronologiqueTab)
 		{
 			Tools.toDo();
-			Serie.setCurrent(new SerieChronologiqueTab(Serie.getCurrent().getNom()+this.getNom(),
+			Serie.setCurrent(new SerieChronologiqueTab(this.getNom()+ " " +Serie.getCurrent().getNom(),
 			date,resultat));	
 			System.out.println("valeurs : " + Serie.getCurrent().getValeur().size());
 			System.out.println("dates :" + Serie.getCurrent().getDate().size());
