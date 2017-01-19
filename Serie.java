@@ -43,11 +43,17 @@ public abstract class Serie
 	
 	public String getNom()
 	{
-		String coco;
-		coco = nom.replaceFirst("src/marcytial/","");
+		String coco = "";
+		for(int i= 0; i< this.nom.length() ;i++){
+			coco += nom.charAt(i);
+			if (nom.charAt(i) == '/'){
+				coco="";
+			}	
+		}
+		
 		coco = coco.replaceAll(".csv","");
-		System.out.println(coco);
 		return coco;
+		
 	}
 	
 	
