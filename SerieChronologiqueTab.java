@@ -1,11 +1,6 @@
 package marcytial;
-
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Vector;
-
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;

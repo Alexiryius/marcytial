@@ -31,15 +31,14 @@ public ActionListener monActionEcouteur = new ActionListener() {
 	    	}
 	    }
 	    
-	    else if (source==Visuel.boutoncurb){
-	    	if(Visuel.courb.isSelected()){
-	    		Tools.plusieurcourb=true;
+	    else if (source==Visuel.courb){
+	    	
+	    	
+	    		Tools.plusieurcourb=Visuel.courb.isSelected();
 	    		Visuel.ajouteVis();
-	    	}else{
-	    		Tools.plusieurcourb=false;
-	    		Visuel.ajouteVis();
+	    	
 	    		
-	    	}
+	    	
 	    }
 	    else if (source==Visuel.validBouton){
 			Visuel.validBouton.setText("OK");

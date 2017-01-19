@@ -12,9 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel; 
 /**
 
-
-
-
 /*
 
  *
@@ -45,8 +42,7 @@ public class Visuel extends JFrame{
 		milieuDroite.removeAll();
 		milieuDroite.updateUI();
 		milieuDroite.setLayout(new BoxLayout(milieuDroite, BoxLayout.PAGE_AXIS));
-		System.out.println((Serie.getCurrent().getNom()));
-    	milieuDroite.add(Serie.getCurrent().returnPanel());
+	 	milieuDroite.add(Serie.getCurrent().returnPanel());
        	milieuDroite.repaint();
     	
 
@@ -94,7 +90,7 @@ public class Visuel extends JFrame{
 	    	panneauPrinc2.setLayout(null);
 
 	    	this.setSize(largeur,hauteur);
-	    	System.out.println("largeur : "+ largeur+ ", hauteur : "+ hauteur);
+	    	
 	    	label.setBounds(largeur/320,hauteur/90,largeur/10,hauteur/30);
 	    	panneauPrinc2.add(label);
 	    	save.setBounds(largeur-180,20,50,40);
@@ -118,8 +114,9 @@ public class Visuel extends JFrame{
 	    	panneauPrinc2.add(validBouton);
 	    	milieuDroite.setBounds(576,120,728,500);
 	    	panneauPrinc2.add(milieuDroite);
-	    	courb.setBounds(576,650,300,25);
+	    	courb.setBounds(576,650,200,25);
 	    	courb.addActionListener(listn.monActionEcouteur);
+	    	
 	    	panneauPrinc2.add(courb);
 	    	tab.setBounds(1130,650,120,25);
 	    	tab.addActionListener(listn.monActionEcouteur);
