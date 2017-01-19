@@ -16,6 +16,7 @@ public  class Tools {
 		
 	protected static Stack<Serie> undo = new Stack<Serie>();
 	protected static Stack<Serie> redo = new Stack<Serie>();
+	protected static Boolean plusieurcourb = false;
 	
 // fonction qui est utiliser lors de la selection du fichier
 // ou lors de la selection d'une courbe

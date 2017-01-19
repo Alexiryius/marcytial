@@ -5,6 +5,7 @@ import java.awt.Insets;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,13 +25,13 @@ import javax.swing.JPanel;
 public class Visuel extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
-	static String[] transfoStrings = { "Moyenne", "Moyenne Mobile", "Moyenne Mobile Ponderee", "Box Cox", "logarithm"};
+	static String[] transfoStrings = { "Moyenne", "Moyenne Mobile", "Regression lineaire", "Box Cox", "logarithm"};
 	public static JComboBox<?> transfoList = new JComboBox<Object>(transfoStrings);
 	public static JButton undoB = new JButton();
 	public static JButton redoB = new JButton();
 	public static JButton  save =  new JButton();
 	public static JButton bouton = new JButton();
-
+	public static JCheckBox courb = new JCheckBox("Afficher la serie précedente");
 	public static JButton tab = new JButton("graphique");
 	JLabel label = new JLabel("Outil Marcytial");
 	JLabel labelChoix = new JLabel("Appliquez une transformation");
@@ -116,6 +117,9 @@ public class Visuel extends JFrame{
 	    	panneauPrinc2.add(validBouton);
 	    	milieuDroite.setBounds(576,120,728,500);
 	    	panneauPrinc2.add(milieuDroite);
+	    	courb.setBounds(576,650,300,25);
+	    	courb.addActionListener(listn.monActionEcouteur);
+	    	panneauPrinc2.add(courb);
 	    	tab.setBounds(1130,650,120,25);
 	    	tab.addActionListener(listn.monActionEcouteur);
 	    	panneauPrinc2.add(tab);

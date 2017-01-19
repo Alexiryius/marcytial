@@ -83,7 +83,7 @@ public class SerieChronologiqueGraphe extends Serie implements AffTab {
 	public JPanel returnPanel() {
 		JPanel contentPane = new JPanel(null);	
 		
-		if(! Tools.mayIUndo()){
+		if((! Tools.mayIUndo())&& Tools.plusieurcourb){
 			
 			contentPane.setBackground(Color.red);
 			setDataset();
